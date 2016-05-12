@@ -17,6 +17,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
+
 public class ModelTransformationPanel extends JPanel{
 	 //转换功能区文本提示
 	private JPanel selectpanel;

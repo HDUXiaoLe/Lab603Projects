@@ -1,10 +1,11 @@
-package com.horstmann.violet.application.gui;
+package com.horstmann.violet.application.consolepart;
 
 import javax.swing.JComponent;
 import javax.swing.JInternalFrame;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
+import com.horstmann.violet.application.gui.MainFrame;
 import com.horstmann.violet.workspace.IWorkspace;
 
 

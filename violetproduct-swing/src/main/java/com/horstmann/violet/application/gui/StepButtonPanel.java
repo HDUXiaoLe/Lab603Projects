@@ -19,6 +19,8 @@ import javax.swing.SwingUtilities;
 
 import org.omg.CORBA.CTX_RESTRICT_SCOPE;
 
+import com.horstmann.violet.application.consolepart.ConsoleMessageTabbedPane;
+import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
 import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.framework.file.IGraphFile;
 import com.horstmann.violet.product.diagram.usecase.UseCaseDiagramGraph;

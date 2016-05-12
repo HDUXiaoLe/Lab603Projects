@@ -1,4 +1,4 @@
-package com.horstmann.violet.application.gui;
+package com.horstmann.violet.application.consolepart;
 import java.awt.Color;
 import java.util.List;
 

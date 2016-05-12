@@ -1,4 +1,4 @@
-package com.horstmann.violet.application.gui;
+package com.horstmann.violet.application.consolepart;
 
 
 
