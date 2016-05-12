@@ -1,0 +1,189 @@
+<UseCaseDiagramGraph id="1">
+  <nodes id="2">
+    <ActorNode id="3">
+      <children id="4"/>
+      <location class="Point2D.Double" id="5" x="400.0" y="270.0"/>
+      <id id="6" value="198f81e2-67da-4590-9747-39b6a138addb"/>
+      <revision>1</revision>
+      <backgroundColor id="7">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+        <alpha>255</alpha>
+      </backgroundColor>
+      <borderColor id="8">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+        <alpha>255</alpha>
+      </borderColor>
+      <textColor reference="8"/>
+      <name id="9" justification="1" size="4" underlined="false">
+        <text>User</text>
+      </name>
+    </ActorNode>
+    <UseCaseNode id="10">
+      <children id="11"/>
+      <location class="Point2D.Double" id="12" x="520.0" y="230.0"/>
+      <id id="13" value="cd4c2d49-ee2e-4f8e-b74a-8973dfcf9729"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="14" justification="1" size="4" underlined="false">
+        <text>Log in</text>
+      </name>
+    </UseCaseNode>
+    <UseCaseNode id="15">
+      <children id="16"/>
+      <location class="Point2D.Double" id="17" x="740.0" y="150.0"/>
+      <id id="18" value="9423d216-0ed6-4648-9a58-cd8058b42094"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="19" justification="1" size="4" underlined="false">
+        <text>Log in from
+LDAP</text>
+      </name>
+    </UseCaseNode>
+    <UseCaseNode id="20">
+      <children id="21"/>
+      <location class="Point2D.Double" id="22" x="740.0" y="260.0"/>
+      <id id="23" value="cdd302ad-6f65-4110-9636-535ae748ec59"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="24" justification="1" size="4" underlined="false">
+        <text>Log in from
+Database</text>
+      </name>
+    </UseCaseNode>
+    <UseCaseNode id="25">
+      <children id="26"/>
+      <location class="Point2D.Double" id="27" x="520.0" y="370.0"/>
+      <id id="28" value="a4463c7f-2d14-432c-b5a1-d6da423bacce"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="29" justification="1" size="4" underlined="false">
+        <text>Reset password</text>
+      </name>
+    </UseCaseNode>
+    <UseCaseNode id="30">
+      <children id="31"/>
+      <location class="Point2D.Double" id="32" x="750.0" y="420.0"/>
+      <id id="33" value="7e2e0afc-dfba-4c4c-a803-1ad23ec0b39d"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="34" justification="1" size="4" underlined="false">
+        <text>Send email</text>
+      </name>
+    </UseCaseNode>
+    <NoteNode id="35">
+      <children id="36"/>
+      <location class="Point2D.Double" id="37" x="410.0" y="110.0"/>
+      <id id="38" value="4cd7e616-0499-4895-85d7-79821d961d57"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <text id="39" justification="0" size="4" underlined="false">
+        <text>Use this diagram to describe the features
+of your system (use cases) </text>
+      </text>
+      <color id="40">
+        <red>255</red>
+        <green>228</green>
+        <blue>181</blue>
+        <alpha>255</alpha>
+      </color>
+    </NoteNode>
+  </nodes>
+  <edges id="41">
+    <UseCaseRelationshipEdge id="42">
+      <start class="UseCaseNode" reference="15"/>
+      <end class="UseCaseNode" reference="10"/>
+      <startLocation class="Point2D.Double" id="43" x="40.0" y="50.0"/>
+      <endLocation class="Point2D.Double" id="44" x="90.0" y="30.0"/>
+      <transitionPoints id="45"/>
+      <id id="46" value="0c9e3934-ffaa-40d7-8438-91c2320b916c"/>
+      <revision>1</revision>
+      <lineStyle name="DOTTED"/>
+      <startArrowHead name="NONE"/>
+      <endArrowHead name="V"/>
+      <bentStyle name="STRAIGHT"/>
+      <startLabel></startLabel>
+      <middleLabel>«extend»</middleLabel>
+      <endLabel></endLabel>
+    </UseCaseRelationshipEdge>
+    <UseCaseRelationshipEdge id="47">
+      <start class="UseCaseNode" reference="20"/>
+      <end class="UseCaseNode" reference="10"/>
+      <startLocation class="Point2D.Double" id="48" x="80.0" y="70.0"/>
+      <endLocation class="Point2D.Double" id="49" x="90.0" y="40.0"/>
+      <transitionPoints id="50"/>
+      <id id="51" value="c7b89d0d-523b-4db9-831e-bd752876bd18"/>
+      <revision>1</revision>
+      <lineStyle name="DOTTED"/>
+      <startArrowHead name="NONE"/>
+      <endArrowHead name="V"/>
+      <bentStyle name="STRAIGHT"/>
+      <startLabel></startLabel>
+      <middleLabel>«extend»</middleLabel>
+      <endLabel></endLabel>
+    </UseCaseRelationshipEdge>
+    <UseCaseRelationshipEdge id="52">
+      <start class="UseCaseNode" reference="25"/>
+      <end class="UseCaseNode" reference="30"/>
+      <startLocation class="Point2D.Double" id="53" x="100.0" y="30.0"/>
+      <endLocation class="Point2D.Double" id="54" x="60.0" y="40.0"/>
+      <transitionPoints id="55"/>
+      <id id="56" value="b4c6dc02-adea-420c-ba0b-406fd5f856db"/>
+      <revision>1</revision>
+      <lineStyle name="DOTTED"/>
+      <startArrowHead name="NONE"/>
+      <endArrowHead name="V"/>
+      <bentStyle name="STRAIGHT"/>
+      <startLabel></startLabel>
+      <middleLabel>«include»</middleLabel>
+      <endLabel></endLabel>
+    </UseCaseRelationshipEdge>
+    <UseCaseRelationshipEdge id="57">
+      <start class="ActorNode" reference="3"/>
+      <end class="UseCaseNode" reference="10"/>
+      <startLocation class="Point2D.Double" id="58" x="40.0" y="30.0"/>
+      <endLocation class="Point2D.Double" id="59" x="40.0" y="40.0"/>
+      <transitionPoints id="60"/>
+      <id id="61" value="8d088e84-f689-4d1d-b2fe-50608e8a604e"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <endArrowHead name="NONE"/>
+      <bentStyle name="STRAIGHT"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </UseCaseRelationshipEdge>
+    <UseCaseRelationshipEdge id="62">
+      <start class="ActorNode" reference="3"/>
+      <end class="UseCaseNode" reference="25"/>
+      <startLocation class="Point2D.Double" id="63" x="30.0" y="30.0"/>
+      <endLocation class="Point2D.Double" id="64" x="50.0" y="30.0"/>
+      <transitionPoints id="65"/>
+      <id id="66" value="dde8c406-43c4-43dd-924e-fc9589dc6e94"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <endArrowHead name="NONE"/>
+      <bentStyle name="STRAIGHT"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </UseCaseRelationshipEdge>
+  </edges>
+</UseCaseDiagramGraph>

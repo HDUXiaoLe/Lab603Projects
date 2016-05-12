@@ -1,0 +1,314 @@
+<ActivityDiagramGraph id="1">
+  <nodes id="2">
+    <ScenarioStartNode id="3">
+      <children id="4"/>
+      <location class="Point2D.Double" id="5" x="360.0" y="180.0"/>
+      <id id="6" value="8cb478e0-4594-42c9-be35-51613b2743c4"/>
+      <revision>1</revision>
+      <backgroundColor id="7">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+        <alpha>255</alpha>
+      </backgroundColor>
+      <borderColor id="8">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+        <alpha>255</alpha>
+      </borderColor>
+      <textColor reference="8"/>
+    </ScenarioStartNode>
+    <DecisionNode id="9">
+      <children id="10"/>
+      <location class="Point2D.Double" id="11" x="330.0" y="250.0"/>
+      <id id="12" value="6cca821a-019e-4b04-a334-8dc67d82a80b"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <condition id="13" justification="1" size="4" underlined="false">
+        <text></text>
+      </condition>
+    </DecisionNode>
+    <ActivityNode id="14">
+      <children id="15"/>
+      <location class="Point2D.Double" id="16" x="180.0" y="310.0"/>
+      <id id="17" value="75dd4de9-d2d9-4d2c-9e80-d318dcc5c598"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="18" justification="1" size="4" underlined="false">
+        <text>Login</text>
+      </name>
+    </ActivityNode>
+    <ActivityNode id="19">
+      <children id="20"/>
+      <location class="Point2D.Double" id="21" x="460.0" y="310.0"/>
+      <id id="22" value="462b48e6-c982-4740-84b6-7ecc38879e97"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="23" justification="1" size="4" underlined="false">
+        <text>Click register</text>
+      </name>
+    </ActivityNode>
+    <ActivityNode id="24">
+      <children id="25"/>
+      <location class="Point2D.Double" id="26" x="330.0" y="310.0"/>
+      <id id="27" value="26998e80-700b-49f2-9dc9-88d59220b979"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="28" justification="1" size="4" underlined="false">
+        <text>Fill form</text>
+      </name>
+    </ActivityNode>
+    <DecisionNode id="29">
+      <children id="30"/>
+      <location class="Point2D.Double" id="31" x="330.0" y="410.0"/>
+      <id id="32" value="514c397e-2164-4d5c-8afa-b4d0d118860e"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <condition id="33" justification="1" size="4" underlined="false">
+        <text></text>
+      </condition>
+    </DecisionNode>
+    <ActivityNode id="34">
+      <children id="35"/>
+      <location class="Point2D.Double" id="36" x="460.0" y="480.0"/>
+      <id id="37" value="eba6a42f-e444-418c-b08b-6f5a8ecc108b"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="38" justification="1" size="4" underlined="false">
+        <text>Get email</text>
+      </name>
+    </ActivityNode>
+    <ActivityNode id="39">
+      <children id="40"/>
+      <location class="Point2D.Double" id="41" x="330.0" y="480.0"/>
+      <id id="42" value="cdb24c9a-2d51-47db-bd66-6f59f23ecd5e"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="43" justification="1" size="4" underlined="false">
+        <text>Set password</text>
+      </name>
+    </ActivityNode>
+    <ScenarioEndNode id="44">
+      <children id="45"/>
+      <location class="Point2D.Double" id="46" x="310.0" y="620.0"/>
+      <id id="47" value="0becdd1f-9701-4d1c-85d7-76509c1c7e7f"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+    </ScenarioEndNode>
+    <SynchronizationBarNode id="48">
+      <children id="49"/>
+      <location class="Point2D.Double" id="50" x="168.0" y="580.0"/>
+      <id id="51" value="9bf6a0f4-cb8a-4a92-93b4-69360686093f"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+    </SynchronizationBarNode>
+    <NoteNode id="52">
+      <children id="53"/>
+      <location class="Point2D.Double" id="54" x="60.0" y="170.0"/>
+      <id id="55" value="5d0ee144-71e7-4a09-b0df-195a71cb63c7"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <text id="56" justification="0" size="4" underlined="false">
+        <text>Use this diagram to describe how a feature
+of your system should work.</text>
+      </text>
+      <color id="57">
+        <red>255</red>
+        <green>228</green>
+        <blue>181</blue>
+        <alpha>255</alpha>
+      </color>
+    </NoteNode>
+  </nodes>
+  <edges id="58">
+    <ActivityTransitionEdge id="59">
+      <start class="ScenarioStartNode" reference="3"/>
+      <end class="DecisionNode" reference="9"/>
+      <startLocation class="Point2D.Double" id="60" x="10.0" y="10.0"/>
+      <endLocation class="Point2D.Double" id="61" x="90.0" y="20.0"/>
+      <transitionPoints id="62"/>
+      <id id="63" value="8cd09c27-1fe6-4844-a6cb-67eec15e8c0c"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="64">
+      <start class="DecisionNode" reference="9"/>
+      <end class="ActivityNode" reference="14"/>
+      <startLocation class="Point2D.Double" id="65" x="50.0" y="20.0"/>
+      <endLocation class="Point2D.Double" id="66" x="60.0" y="30.0"/>
+      <transitionPoints id="67"/>
+      <id id="68" value="91280306-3778-4e7c-aa14-feadc21fa166"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="HV"/>
+      <startLabel></startLabel>
+      <middleLabel>has account</middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="69">
+      <start class="DecisionNode" reference="9"/>
+      <end class="ActivityNode" reference="19"/>
+      <startLocation class="Point2D.Double" id="70" x="50.0" y="20.0"/>
+      <endLocation class="Point2D.Double" id="71" x="30.0" y="30.0"/>
+      <transitionPoints id="72"/>
+      <id id="73" value="4e945272-d443-4dfa-8615-1a402454be33"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="HV"/>
+      <startLabel></startLabel>
+      <middleLabel>not yet registered</middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="74">
+      <start class="ActivityNode" reference="24"/>
+      <end class="DecisionNode" reference="29"/>
+      <startLocation class="Point2D.Double" id="75" x="30.0" y="50.0"/>
+      <endLocation class="Point2D.Double" id="76" x="40.0" y="10.0"/>
+      <transitionPoints id="77"/>
+      <id id="78" value="3396a12d-fd3b-4db3-845e-c7c1e2cb1c3a"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="79">
+      <start class="ActivityNode" reference="19"/>
+      <end class="ActivityNode" reference="24"/>
+      <startLocation class="Point2D.Double" id="80" x="30.0" y="30.0"/>
+      <endLocation class="Point2D.Double" id="81" x="40.0" y="20.0"/>
+      <transitionPoints id="82"/>
+      <id id="83" value="56a28646-d5e8-45c8-90a4-92111fa35f01"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="84">
+      <start class="DecisionNode" reference="29"/>
+      <end class="ActivityNode" reference="24"/>
+      <startLocation class="Point2D.Double" id="85" x="60.0" y="20.0"/>
+      <endLocation class="Point2D.Double" id="86" x="60.0" y="30.0"/>
+      <transitionPoints id="87">
+        <Point2D.Double id="88" x="280.0" y="430.0"/>
+        <Point2D.Double id="89" x="280.0" y="340.0"/>
+      </transitionPoints>
+      <id id="90" value="34ec4ebe-29cb-4598-b73a-703c631e7147"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="FREE"/>
+      <startLabel></startLabel>
+      <middleLabel>not valid</middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="91">
+      <start class="DecisionNode" reference="29"/>
+      <end class="ActivityNode" reference="34"/>
+      <startLocation class="Point2D.Double" id="92" x="30.0" y="20.0"/>
+      <endLocation class="Point2D.Double" id="93" x="60.0" y="30.0"/>
+      <transitionPoints id="94"/>
+      <id id="95" value="b68962cc-72a4-437a-bc40-509a0a666dce"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="HV"/>
+      <startLabel></startLabel>
+      <middleLabel>valid</middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="96">
+      <start class="ActivityNode" reference="34"/>
+      <end class="ActivityNode" reference="39"/>
+      <startLocation class="Point2D.Double" id="97" x="60.0" y="20.0"/>
+      <endLocation class="Point2D.Double" id="98" x="30.0" y="20.0"/>
+      <transitionPoints id="99"/>
+      <id id="100" value="beaf3ad3-4950-47df-af3a-e4bc54f8b473"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="STRAIGHT"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="101">
+      <start class="ActivityNode" reference="39"/>
+      <end class="SynchronizationBarNode" reference="48"/>
+      <startLocation class="Point2D.Double" id="102" x="40.0" y="40.0"/>
+      <endLocation class="Point2D.Double" id="103" x="80.0" y="0.0"/>
+      <transitionPoints id="104"/>
+      <id id="105" value="f45eb504-b64e-4765-8f3d-df047ce49159"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="106">
+      <start class="ActivityNode" reference="14"/>
+      <end class="SynchronizationBarNode" reference="48"/>
+      <startLocation class="Point2D.Double" id="107" x="30.0" y="50.0"/>
+      <endLocation class="Point2D.Double" id="108" x="12.0" y="0.0"/>
+      <transitionPoints id="109"/>
+      <id id="110" value="0611b697-55d7-4ba6-b6c2-59ce68a3c5c2"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+    <ActivityTransitionEdge id="111">
+      <start class="SynchronizationBarNode" reference="48"/>
+      <end class="ScenarioEndNode" reference="44"/>
+      <startLocation class="Point2D.Double" id="112" x="202.0" y="0.0"/>
+      <endLocation class="Point2D.Double" id="113" x="10.0" y="10.0"/>
+      <transitionPoints id="114"/>
+      <id id="115" value="0b5b67cf-d35c-4342-bfeb-695c0812d610"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ActivityTransitionEdge>
+  </edges>
+</ActivityDiagramGraph>

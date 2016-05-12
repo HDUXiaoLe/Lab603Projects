@@ -1,0 +1,188 @@
+<StateDiagramGraph id="1">
+  <nodes id="2">
+    <CircularInitialStateNode id="3">
+      <children id="4"/>
+      <location class="Point2D.Double" id="5" x="490.0" y="120.0"/>
+      <id id="6" value="05daac51-d5ef-4ac5-adc4-9cdb502f91d3"/>
+      <revision>1</revision>
+      <backgroundColor id="7">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+        <alpha>255</alpha>
+      </backgroundColor>
+      <borderColor id="8">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+        <alpha>255</alpha>
+      </borderColor>
+      <textColor reference="8"/>
+    </CircularInitialStateNode>
+    <StateNode id="9">
+      <children id="10"/>
+      <location class="Point2D.Double" id="11" x="460.0" y="220.0"/>
+      <id id="12" value="28550ae3-5974-47ca-8701-a62bb60ec8d2"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="13" justification="1" size="4" underlined="false">
+        <text>Reserved</text>
+      </name>
+    </StateNode>
+    <StateNode id="14">
+      <children id="15"/>
+      <location class="Point2D.Double" id="16" x="460.0" y="350.0"/>
+      <id id="17" value="0ad3a657-a611-4bec-b580-84da21a5b8d7"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="18" justification="1" size="4" underlined="false">
+        <text>Available</text>
+      </name>
+    </StateNode>
+    <StateNode id="19">
+      <children id="20"/>
+      <location class="Point2D.Double" id="21" x="660.0" y="240.0"/>
+      <id id="22" value="d1cd9887-f327-4e5d-8a11-2015b74691dd"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="23" justification="1" size="4" underlined="false">
+        <text>Checked</text>
+      </name>
+    </StateNode>
+    <StateNode id="24">
+      <children id="25"/>
+      <location class="Point2D.Double" id="26" x="660.0" y="370.0"/>
+      <id id="27" value="f85875bf-38e7-439a-9c11-cd32f88ec444"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <name id="28" justification="1" size="4" underlined="false">
+        <text>Sold</text>
+      </name>
+    </StateNode>
+    <CircularFinalStateNode id="29">
+      <children id="30"/>
+      <location class="Point2D.Double" id="31" x="490.0" y="460.0"/>
+      <id id="32" value="9c1f3187-85d4-4a27-8b44-f9ec459ea5f1"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+    </CircularFinalStateNode>
+    <CircularFinalStateNode id="33">
+      <children id="34"/>
+      <location class="Point2D.Double" id="35" x="690.0" y="480.0"/>
+      <id id="36" value="a083e69a-c46c-45e3-8b9a-ff7c06886e86"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+    </CircularFinalStateNode>
+    <NoteNode id="37">
+      <children id="38"/>
+      <location class="Point2D.Double" id="39" x="640.0" y="100.0"/>
+      <id id="40" value="6a83c5bb-402d-4e07-a68b-2322a14f6e66"/>
+      <revision>1</revision>
+      <backgroundColor reference="7"/>
+      <borderColor reference="8"/>
+      <textColor reference="8"/>
+      <text id="41" justification="0" size="4" underlined="false">
+        <text>Use this diagram to focus on an element
+of your system and describe its different
+states it may have during its life.</text>
+      </text>
+      <color id="42">
+        <red>255</red>
+        <green>228</green>
+        <blue>181</blue>
+        <alpha>255</alpha>
+      </color>
+    </NoteNode>
+  </nodes>
+  <edges id="43">
+    <StateTransitionEdge id="44">
+      <start class="CircularInitialStateNode" reference="3"/>
+      <end class="StateNode" reference="9"/>
+      <startLocation class="Point2D.Double" id="45" x="10.0" y="10.0"/>
+      <endLocation class="Point2D.Double" id="46" x="20.0" y="30.0"/>
+      <transitionPoints id="47"/>
+      <id id="48" value="6af0d3ca-d182-4772-aeaf-f1ea4f119027"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText>add item to cart</labelText>
+    </StateTransitionEdge>
+    <StateTransitionEdge id="49">
+      <start class="StateNode" reference="9"/>
+      <end class="StateNode" reference="14"/>
+      <startLocation class="Point2D.Double" id="50" x="40.0" y="40.0"/>
+      <endLocation class="Point2D.Double" id="51" x="40.0" y="30.0"/>
+      <transitionPoints id="52"/>
+      <id id="53" value="9116afeb-be76-4e84-92c1-16075fc18fce"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText>timeout</labelText>
+    </StateTransitionEdge>
+    <StateTransitionEdge id="54">
+      <start class="StateNode" reference="9"/>
+      <end class="StateNode" reference="19"/>
+      <startLocation class="Point2D.Double" id="55" x="70.0" y="30.0"/>
+      <endLocation class="Point2D.Double" id="56" x="50.0" y="30.0"/>
+      <transitionPoints id="57"/>
+      <id id="58" value="11e4f897-eddb-4601-a19b-6f5a2acf25ad"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText>validate cart</labelText>
+    </StateTransitionEdge>
+    <StateTransitionEdge id="59">
+      <start class="StateNode" reference="19"/>
+      <end class="StateNode" reference="24"/>
+      <startLocation class="Point2D.Double" id="60" x="30.0" y="40.0"/>
+      <endLocation class="Point2D.Double" id="61" x="40.0" y="20.0"/>
+      <transitionPoints id="62"/>
+      <id id="63" value="565c5cff-6057-4da9-83fc-bca1ef45b58d"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText>paid</labelText>
+    </StateTransitionEdge>
+    <StateTransitionEdge id="64">
+      <start class="StateNode" reference="19"/>
+      <end class="StateNode" reference="14"/>
+      <startLocation class="Point2D.Double" id="65" x="20.0" y="40.0"/>
+      <endLocation class="Point2D.Double" id="66" x="40.0" y="20.0"/>
+      <transitionPoints id="67"/>
+      <id id="68" value="865881e0-7799-4294-831a-1515b7cad428"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText>not paid</labelText>
+    </StateTransitionEdge>
+    <StateTransitionEdge id="69">
+      <start class="StateNode" reference="14"/>
+      <end class="CircularFinalStateNode" reference="29"/>
+      <startLocation class="Point2D.Double" id="70" x="40.0" y="40.0"/>
+      <endLocation class="Point2D.Double" id="71" x="10.0" y="10.0"/>
+      <transitionPoints id="72"/>
+      <id id="73" value="6e228568-4980-46b3-82a4-1b99132db2fa"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText></labelText>
+    </StateTransitionEdge>
+    <StateTransitionEdge id="74">
+      <start class="StateNode" reference="24"/>
+      <end class="CircularFinalStateNode" reference="33"/>
+      <startLocation class="Point2D.Double" id="75" x="30.0" y="40.0"/>
+      <endLocation class="Point2D.Double" id="76" x="10.0" y="10.0"/>
+      <transitionPoints id="77"/>
+      <id id="78" value="e9b56409-abe4-4062-87d5-b27ebab5138c"/>
+      <revision>1</revision>
+      <angle>10.0</angle>
+      <labelText></labelText>
+    </StateTransitionEdge>
+  </edges>
+</StateDiagramGraph>

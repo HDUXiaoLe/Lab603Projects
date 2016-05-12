@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Violet UML Editor Eclipse Plugin
+Bundle-SymbolicName: violetproduct-eclipseplugin;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: com.horstmann.violet.eclipseplugin.VioletPlugin
+Bundle-Vendor: Alexandre de Pellegrin / Cay S. Horstmann
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.eclipse.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.horstmann.violet.eclipseplugin;uses:="org.eclipse.jface.resource,org.eclipse.ui.plugin,org.osgi.framework"
+Bundle-ClassPath: .,
+ lib/violetproduct-swing.jar

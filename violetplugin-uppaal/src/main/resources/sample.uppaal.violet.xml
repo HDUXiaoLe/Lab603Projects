@@ -1,0 +1,134 @@
+<UppaalGraph id="1">
+  <nodes id="2">
+    <CircularNode id="3">
+      <children id="4"/>
+      <location class="Point2D.Double" id="5" x="250.0" y="221.0"/>
+      <id id="6"/>
+      <name id="7">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="8">
+      <children id="9"/>
+      <location class="Point2D.Double" id="10" x="393.0" y="217.0"/>
+      <id id="11"/>
+      <name id="12">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="13">
+      <children id="14"/>
+      <location class="Point2D.Double" id="15" x="251.0" y="364.0"/>
+      <id id="16"/>
+      <name id="17">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="18">
+      <children id="19"/>
+      <location class="Point2D.Double" id="20" x="516.0" y="223.0"/>
+      <id id="21"/>
+      <name id="22">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="23">
+      <children id="24"/>
+      <location class="Point2D.Double" id="25" x="251.0" y="488.0"/>
+      <id id="26"/>
+      <name id="27">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="28">
+      <children id="29"/>
+      <location class="Point2D.Double" id="30" x="385.0" y="488.0"/>
+      <id id="31"/>
+      <name id="32">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="33">
+      <children id="34"/>
+      <location class="Point2D.Double" id="35" x="523.0" y="355.0"/>
+      <id id="36"/>
+      <name id="37">
+        <text></text>
+      </name>
+    </CircularNode>
+    <CircularNode id="38">
+      <children id="39"/>
+      <location class="Point2D.Double" id="40" x="520.0" y="492.0"/>
+      <id id="41"/>
+      <name id="42">
+        <text></text>
+      </name>
+    </CircularNode>
+  </nodes>
+  <edges id="43">
+    <TransitionEdge id="44">
+      <start class="CircularNode" reference="3"/>
+      <end class="CircularNode" reference="8"/>
+      <startLocation class="Point2D.Double" id="45" x="10.0" y="19.0"/>
+      <endLocation class="Point2D.Double" id="46" x="27.0" y="23.0"/>
+      <id id="47"/>
+      <labelText>t1</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="48">
+      <start class="CircularNode" reference="8"/>
+      <end class="CircularNode" reference="18"/>
+      <startLocation class="Point2D.Double" id="49" x="27.0" y="23.0"/>
+      <endLocation class="Point2D.Double" id="50" x="24.0" y="17.0"/>
+      <id id="51"/>
+      <labelText>t2</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="52">
+      <start class="CircularNode" reference="18"/>
+      <end class="CircularNode" reference="33"/>
+      <startLocation class="Point2D.Double" id="53" x="24.0" y="7.0"/>
+      <endLocation class="Point2D.Double" id="54" x="27.0" y="35.0"/>
+      <id id="55"/>
+      <labelText>t3</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="56">
+      <start class="CircularNode" reference="33"/>
+      <end class="CircularNode" reference="38"/>
+      <startLocation class="Point2D.Double" id="57" x="17.0" y="15.0"/>
+      <endLocation class="Point2D.Double" id="58" x="20.0" y="18.0"/>
+      <id id="59"/>
+      <labelText>t4</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="60">
+      <start class="CircularNode" reference="38"/>
+      <end class="CircularNode" reference="28"/>
+      <startLocation class="Point2D.Double" id="61" x="30.0" y="18.0"/>
+      <endLocation class="Point2D.Double" id="62" x="15.0" y="22.0"/>
+      <id id="63"/>
+      <labelText>t5</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="64">
+      <start class="CircularNode" reference="28"/>
+      <end class="CircularNode" reference="23"/>
+      <startLocation class="Point2D.Double" id="65" x="15.0" y="12.0"/>
+      <endLocation class="Point2D.Double" id="66" x="29.0" y="32.0"/>
+      <id id="67"/>
+      <labelText>t6</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="68">
+      <start class="CircularNode" reference="23"/>
+      <end class="CircularNode" reference="13"/>
+      <startLocation class="Point2D.Double" id="69" x="29.0" y="22.0"/>
+      <endLocation class="Point2D.Double" id="70" x="19.0" y="16.0"/>
+      <id id="71"/>
+      <labelText>t7</labelText>
+    </TransitionEdge>
+    <TransitionEdge id="72">
+      <start class="CircularNode" reference="13"/>
+      <end class="CircularNode" reference="3"/>
+      <startLocation class="Point2D.Double" id="73" x="29.0" y="6.0"/>
+      <endLocation class="Point2D.Double" id="74" x="30.0" y="19.0"/>
+      <id id="75"/>
+      <labelText>t8</labelText>
+    </TransitionEdge>
+  </edges>
+</UppaalGraph>

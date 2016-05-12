@@ -1,0 +1,181 @@
+<TimingDiagramGraph id="1">
+  <nodes id="2">
+    <State__Lifeline id="3">
+      <children id="4"/>
+      <schildren class="com.horstmann.violet.product.diagram.timing.StateLine" id="5">
+        <id id="6"/>
+        <startp class="Point2D.Double" id="7" x="205.0" y="540.0"/>
+        <endp class="Point2D.Double" id="8" x="508.0" y="540.0"/>
+        <statementtransactionlist id="9">
+          <Point2D.Double id="10" x="205.0" y="540.0"/>
+          <Point2D.Double id="11" x="275.0" y="540.0"/>
+          <Point2D.Double id="12" x="275.0" y="500.0"/>
+          <Point2D.Double id="13" x="334.0" y="500.0"/>
+          <Point2D.Double id="14" x="334.0" y="540.0"/>
+          <Point2D.Double id="15" x="415.0" y="540.0"/>
+          <Point2D.Double id="16" x="415.0" y="500.0"/>
+          <Point2D.Double id="17" x="457.0" y="500.0"/>
+          <Point2D.Double id="18" x="457.0" y="460.0"/>
+          <Point2D.Double id="19" x="508.0" y="460.0"/>
+        </statementtransactionlist>
+        <horizontalchild id="20">
+          <java.awt.geom.Line2D_-Double id="21">
+            <x1>205.0</x1>
+            <y1>540.0</y1>
+            <x2>275.0</x2>
+            <y2>540.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="22">
+            <x1>275.0</x1>
+            <y1>500.0</y1>
+            <x2>334.0</x2>
+            <y2>500.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="23">
+            <x1>334.0</x1>
+            <y1>540.0</y1>
+            <x2>415.0</x2>
+            <y2>540.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="24">
+            <x1>415.0</x1>
+            <y1>500.0</y1>
+            <x2>457.0</x2>
+            <y2>500.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="25">
+            <x1>457.0</x1>
+            <y1>460.0</y1>
+            <x2>508.0</x2>
+            <y2>460.0</y2>
+          </java.awt.geom.Line2D_-Double>
+        </horizontalchild>
+      </schildren>
+      <location class="Point2D.Double" id="26" x="55.0" y="426.0"/>
+      <id id="27"/>
+      <state0 id="28">
+        <text>1</text>
+      </state0>
+      <width>453.0</width>
+      <height>154.0</height>
+      <s reference="5"/>
+      <name id="29">
+        <text></text>
+      </name>
+      <states id="30">
+        <text>2</text>
+      </states>
+    </State__Lifeline>
+    <State__Lifeline id="31">
+      <children id="32"/>
+      <schildren class="com.horstmann.violet.product.diagram.timing.StateLine" id="33">
+        <id id="34"/>
+        <startp class="Point2D.Double" id="35" x="205.0" y="386.0"/>
+        <endp class="Point2D.Double" id="36" x="508.0" y="386.0"/>
+        <statementtransactionlist id="37">
+          <Point2D.Double id="38" x="205.0" y="386.0"/>
+          <Point2D.Double id="39" x="234.0" y="386.0"/>
+          <Point2D.Double id="40" x="234.0" y="346.0"/>
+          <Point2D.Double id="41" x="290.0" y="346.0"/>
+          <Point2D.Double id="42" x="290.0" y="386.0"/>
+          <Point2D.Double id="43" x="371.0" y="386.0"/>
+          <Point2D.Double id="44" x="371.0" y="346.0"/>
+          <Point2D.Double id="45" x="428.0" y="346.0"/>
+          <Point2D.Double id="46" x="428.0" y="306.0"/>
+          <Point2D.Double id="47" x="475.0" y="306.0"/>
+          <Point2D.Double id="48" x="475.0" y="346.0"/>
+          <Point2D.Double id="49" x="508.0" y="346.0"/>
+        </statementtransactionlist>
+        <horizontalchild id="50">
+          <java.awt.geom.Line2D_-Double id="51">
+            <x1>205.0</x1>
+            <y1>386.0</y1>
+            <x2>234.0</x2>
+            <y2>386.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="52">
+            <x1>234.0</x1>
+            <y1>346.0</y1>
+            <x2>290.0</x2>
+            <y2>346.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="53">
+            <x1>290.0</x1>
+            <y1>386.0</y1>
+            <x2>371.0</x2>
+            <y2>386.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="54">
+            <x1>371.0</x1>
+            <y1>346.0</y1>
+            <x2>428.0</x2>
+            <y2>346.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="55">
+            <x1>428.0</x1>
+            <y1>306.0</y1>
+            <x2>475.0</x2>
+            <y2>306.0</y2>
+          </java.awt.geom.Line2D_-Double>
+          <java.awt.geom.Line2D_-Double id="56">
+            <x1>475.0</x1>
+            <y1>346.0</y1>
+            <x2>508.0</x2>
+            <y2>346.0</y2>
+          </java.awt.geom.Line2D_-Double>
+        </horizontalchild>
+      </schildren>
+      <location class="Point2D.Double" id="57" x="55.0" y="276.0"/>
+      <id id="58"/>
+      <state0 id="59">
+        <text>2</text>
+      </state0>
+      <width>453.0</width>
+      <height>150.0</height>
+      <s reference="33"/>
+      <name id="60">
+        <text></text>
+      </name>
+      <states id="61">
+        <text>3
+4</text>
+      </states>
+    </State__Lifeline>
+  </nodes>
+  <edges id="62">
+    <SendMessageEdge id="63">
+      <start class="State_Lifeline" reference="3"/>
+      <end class="State_Lifeline" reference="31"/>
+      <startLocation class="Point2D.Double" id="64" x="175.0" y="114.0"/>
+      <endLocation class="Point2D.Double" id="65" x="225.0" y="64.0"/>
+      <revision>1</revision>
+      <transitionPoints id="66"/>
+      <id id="67"/>
+      <name></name>
+      <TimeConstraint></TimeConstraint>
+      <Condition></Condition>
+      <StarttimePoint>23</StarttimePoint>
+      <EndtimePoint>28</EndtimePoint>
+      <EndState></EndState>
+      <belongtostartflag>0</belongtostartflag>
+      <belongtoendflag>1</belongtoendflag>
+    </SendMessageEdge>
+    <SendMessageEdge id="68">
+      <start class="State_Lifeline" reference="31"/>
+      <end class="State_Lifeline" reference="3"/>
+      <startLocation class="Point2D.Double" id="69" x="345.0" y="74.0"/>
+      <endLocation class="Point2D.Double" id="70" x="395.0" y="74.0"/>
+      <revision>1</revision>
+      <transitionPoints id="71"/>
+      <id id="72"/>
+      <name></name>
+      <TimeConstraint></TimeConstraint>
+      <Condition></Condition>
+      <StarttimePoint>73</StarttimePoint>
+      <EndtimePoint>83</EndtimePoint>
+      <EndState></EndState>
+      <belongtostartflag>3</belongtostartflag>
+      <belongtoendflag>3</belongtoendflag>
+    </SendMessageEdge>
+  </edges>
+</TimingDiagramGraph>

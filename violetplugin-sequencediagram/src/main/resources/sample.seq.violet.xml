@@ -1,0 +1,184 @@
+<SequenceDiagramGraph id="1">
+  <nodes id="2">
+    <LifelineNode id="3">
+      <children id="4">
+        <ActivationBarNode id="5">
+          <children id="6"/>
+          <parent class="LifelineNode" reference="3"/>
+          <location class="Point2D.Double" id="7" x="30.0" y="90.0"/>
+          <id id="8" value="05e8eeca-bc0b-40ca-a197-be6c29d62e30"/>
+          <revision>1</revision>
+          <backgroundColor id="9">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+            <alpha>255</alpha>
+          </backgroundColor>
+          <borderColor id="10">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+            <alpha>255</alpha>
+          </borderColor>
+          <textColor reference="10"/>
+        </ActivationBarNode>
+      </children>
+      <location class="Point2D.Double" id="11" x="70.0" y="0.0"/>
+      <id id="12" value="7259c757-2968-4414-8e8b-182cc9bd2219"/>
+      <revision>1</revision>
+      <backgroundColor reference="9"/>
+      <borderColor reference="10"/>
+      <textColor reference="10"/>
+      <name id="13" justification="1" size="4" underlined="true">
+        <text>HTTP Ser&apos;ver</text>
+      </name>
+    </LifelineNode>
+    <LifelineNode id="14">
+      <children id="15">
+        <ActivationBarNode id="16">
+          <children id="17">
+            <ActivationBarNode id="18">
+              <children id="19"/>
+              <parent class="ActivationBarNode" reference="16"/>
+              <location class="Point2D.Double" id="20" x="10.0" y="30.0"/>
+              <backgroundColor reference="9"/>
+              <borderColor reference="10"/>
+              <textColor reference="10"/>
+            </ActivationBarNode>
+          </children>
+          <parent class="LifelineNode" reference="14"/>
+          <location class="Point2D.Double" id="21" x="30.0" y="110.0"/>
+          <backgroundColor reference="9"/>
+          <borderColor reference="10"/>
+          <textColor reference="10"/>
+        </ActivationBarNode>
+      </children>
+      <location class="Point2D.Double" id="22" x="210.0" y="0.0"/>
+      <id id="23" value="49d2948b-bd3e-4e19-bfa5-f48056dcb39b"/>
+      <revision>1</revision>
+      <backgroundColor reference="9"/>
+      <borderColor reference="10"/>
+      <textColor reference="10"/>
+      <name id="24" justification="1" size="4" underlined="true">
+        <text>EngineServlet</text>
+      </name>
+    </LifelineNode>
+    <LifelineNode id="25">
+      <children id="26">
+        <ActivationBarNode id="27">
+          <children id="28"/>
+          <parent class="LifelineNode" reference="25"/>
+          <location class="Point2D.Double" id="29" x="30.0" y="190.0"/>
+          <backgroundColor reference="9"/>
+          <borderColor reference="10"/>
+          <textColor reference="10"/>
+        </ActivationBarNode>
+      </children>
+      <location class="Point2D.Double" id="30" x="350.0" y="0.0"/>
+      <id id="31" value="7cc69aaa-1331-4823-8032-8948029a5463"/>
+      <revision>1</revision>
+      <backgroundColor reference="9"/>
+      <borderColor reference="10"/>
+      <textColor reference="10"/>
+      <name id="32" justification="1" size="4" underlined="true">
+        <text>Database</text>
+      </name>
+    </LifelineNode>
+    <NoteNode id="33">
+      <children id="34"/>
+      <location class="Point2D.Double" id="35" x="210.0" y="350.0"/>
+      <id id="36" value="99a8036c-5601-49c8-a2fb-251e7e6635de"/>
+      <revision>1</revision>
+      <backgroundColor reference="9"/>
+      <borderColor reference="10"/>
+      <textColor reference="10"/>
+      <text id="37" justification="0" size="4" underlined="false">
+        <text>Use this diagram to describe the way your entities
+work and are ordered for a specific use case.</text>
+      </text>
+      <color id="38">
+        <red>255</red>
+        <green>228</green>
+        <blue>181</blue>
+        <alpha>255</alpha>
+      </color>
+    </NoteNode>
+  </nodes>
+  <edges id="39">
+    <CallEdge id="40">
+      <start class="ActivationBarNode" reference="5"/>
+      <end class="ActivationBarNode" reference="16"/>
+      <startLocation class="Point2D.Double" id="41" x="10.0" y="10.0"/>
+      <endLocation class="Point2D.Double" id="42" x="40.0" y="100.0"/>
+      <transitionPoints id="43"/>
+      <id id="44" value="ff2c3c6d-fc90-4a7a-aea5-e453dc0ddb8a"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel>post()</middleLabel>
+      <endLabel></endLabel>
+      <signal>false</signal>
+    </CallEdge>
+    <CallEdge id="45">
+      <start class="ActivationBarNode" reference="16"/>
+      <end class="ActivationBarNode" reference="18"/>
+      <startLocation class="Point2D.Double" id="46" x="10.0" y="20.0"/>
+      <endLocation class="Point2D.Double" id="47" x="70.0" y="160.0"/>
+      <transitionPoints id="48"/>
+      <id id="49" value="e597f2e7-9510-427d-ac78-a5084805a6d7"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <startLabel></startLabel>
+      <middleLabel>initialize()</middleLabel>
+      <endLabel></endLabel>
+      <signal>false</signal>
+    </CallEdge>
+    <CallEdge id="50">
+      <start class="ActivationBarNode" reference="16"/>
+      <end class="ActivationBarNode" reference="27"/>
+      <startLocation class="Point2D.Double" id="51" x="10.0" y="90.0"/>
+      <endLocation class="Point2D.Double" id="52" x="40.0" y="190.0"/>
+      <transitionPoints id="53"/>
+      <id id="54" value="73324b92-13da-4521-9b8c-a7b6b53426ff"/>
+      <revision>1</revision>
+      <lineStyle name="SOLID"/>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel>request()</middleLabel>
+      <endLabel></endLabel>
+      <signal>false</signal>
+    </CallEdge>
+    <ReturnEdge id="55">
+      <start class="ActivationBarNode" reference="27"/>
+      <end class="ActivationBarNode" reference="16"/>
+      <startLocation class="Point2D.Double" id="56" x="10.0" y="30.0"/>
+      <endLocation class="Point2D.Double" id="57" x="10.0" y="120.0"/>
+      <transitionPoints id="58"/>
+      <id id="59" value="954c2d94-fd8e-46f2-8134-c63d51d8ed6b"/>
+      <revision>1</revision>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ReturnEdge>
+    <ReturnEdge id="60">
+      <start class="ActivationBarNode" reference="16"/>
+      <end class="ActivationBarNode" reference="5"/>
+      <startLocation class="Point2D.Double" id="61" x="10.0" y="150.0"/>
+      <endLocation class="Point2D.Double" id="62" x="10.0" y="170.0"/>
+      <transitionPoints id="63"/>
+      <id id="64" value="f874f122-957f-4d15-a468-a07cdce17bd1"/>
+      <revision>1</revision>
+      <startArrowHead name="NONE"/>
+      <bentStyle name="AUTO"/>
+      <startLabel></startLabel>
+      <middleLabel></middleLabel>
+      <endLabel></endLabel>
+    </ReturnEdge>
+  </edges>
+</SequenceDiagramGraph>

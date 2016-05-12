@@ -1,0 +1,62 @@
+<MarkovGraph id="1">
+  <nodes id="2">
+    <MarkovStartNode id="3">
+      <children id="4"/>
+      <location class="Point2D.Double" id="5" x="96.0" y="210.0"/>
+      <id id="6"/>
+      <name id="7">
+        <text></text>
+      </name>
+    </MarkovStartNode>
+    <MarkovNode id="8">
+      <children id="9"/>
+      <location class="Point2D.Double" id="10" x="315.0" y="214.0"/>
+      <id id="11"/>
+      <name id="12">
+        <text></text>
+      </name>
+    </MarkovNode>
+    <MarkovNode id="13">
+      <children id="14"/>
+      <location class="Point2D.Double" id="15" x="521.0" y="212.0"/>
+      <id id="16"/>
+      <name id="17">
+        <text></text>
+      </name>
+    </MarkovNode>
+  </nodes>
+  <edges id="18">
+    <MarkovTransitionEdge id="19">
+      <start class="MarkovStartNode" reference="3"/>
+      <end class="MarkovNode" reference="8"/>
+      <startLocation class="Point2D.Double" id="20" x="11.0" y="33.0"/>
+      <endLocation class="Point2D.Double" id="21" x="31.0" y="17.0"/>
+      <id id="22"/>
+      <probability>p1</probability>
+    </MarkovTransitionEdge>
+    <MarkovTransitionEdge id="23">
+      <start class="MarkovNode" reference="8"/>
+      <end class="MarkovNode" reference="13"/>
+      <startLocation class="Point2D.Double" id="24" x="31.0" y="17.0"/>
+      <endLocation class="Point2D.Double" id="25" x="16.0" y="16.0"/>
+      <id id="26"/>
+      <probability>p2</probability>
+    </MarkovTransitionEdge>
+    <MarkovTransitionEdge id="27">
+      <start class="MarkovNode" reference="8"/>
+      <end class="MarkovStartNode" reference="3"/>
+      <startLocation class="Point2D.Double" id="28" x="31.0" y="27.0"/>
+      <endLocation class="Point2D.Double" id="29" x="11.0" y="23.0"/>
+      <id id="30"/>
+      <probability>p3</probability>
+    </MarkovTransitionEdge>
+    <MarkovTransitionEdge id="31">
+      <start class="MarkovNode" reference="13"/>
+      <end class="MarkovNode" reference="8"/>
+      <startLocation class="Point2D.Double" id="32" x="26.0" y="26.0"/>
+      <endLocation class="Point2D.Double" id="33" x="11.0" y="27.0"/>
+      <id id="34"/>
+      <probability>p4</probability>
+    </MarkovTransitionEdge>
+  </edges>
+</MarkovGraph>
