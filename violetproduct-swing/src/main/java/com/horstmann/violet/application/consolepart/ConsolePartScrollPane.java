@@ -4,12 +4,12 @@ import javax.swing.JScrollPane;
 
 public class ConsolePartScrollPane extends JScrollPane{
 	private static final long serialVersionUID = -5258637918997915428L;
-public ConsolePartScrollPane(){
-	init();
+public ConsolePartScrollPane(int index){
+	init(index);
 }
-private void init() {
+private void init(int index) {
 	setAutoscrolls(true);
-	setViewportView(new ConsolePartDetailInfoTable());//表格
+	setViewportView(new ConsolePartDetailInfoTable(index));//表格
 	setVisible(true);
 }
 }

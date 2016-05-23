@@ -12,9 +12,9 @@ public class ConsolePartDetailInfoTable extends JTable {
 
 	private static final long serialVersionUID = -8389977798357867875L;
 	private DefaultTableModel defaultTableModel;
-	private final Object[] columnNames = { "序号", "消息","消息详细描述","日期","备注"};
+	private final Object[] columnNames = { "抽象测试用例序号", "生成消息","消息详细描述","日期","备注"};
 
-	public ConsolePartDetailInfoTable() {
+	public ConsolePartDetailInfoTable(int index) {
 
 		defaultTableModel = new DefaultTableModel(columnNames, 0) {
 			public boolean isCellEditable(int row, int column) {
@@ -32,13 +32,13 @@ public class ConsolePartDetailInfoTable extends JTable {
 		this.setDefaultEditor(Object.class, cellEditor);
 		this.setColumnWidth(0, 50);
 		this.doLayout();
-		initRowsData();
+		initRowsData(index);
 	}
 
-	public void initRowsData() {
+	public void initRowsData(int i) {
 		this.removeRowsData();
 
-		List<ConsolePartDetailInfo> list = ConsolePartDataTestDao.getDetailInfoList();
+		List<ConsolePartDetailInfo> list = ConsolePartDataTestDao.getDetailInfoList(i);
 		Object[] rowData = new Object[columnNames.length];
 		int index = 1;// 用来显示序号的
 

@@ -22,6 +22,7 @@
 package com.horstmann.violet.application.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -40,6 +41,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
@@ -148,8 +152,7 @@ public class MainFrame extends JFrame
         this.getTabbedPane().add(workspace.getTitle(), workspace.getAWTComponent());
         listenToDiagramPanelEvents(workspace);
         // Use invokeLater to prevent exception
-        SwingUtilities.invokeLater(new Runnable()
-        {
+        SwingUtilities.invokeLater(new Runnable()        {
             public void run()
             {
                 getTabbedPane().setSelectedIndex(workspaceList.size() - 1);
@@ -199,7 +202,7 @@ public class MainFrame extends JFrame
         WelcomePanel welcomePanel = this.getWelcomePanel();
         JTabbedPane tabbedPane = getTabbedPane();     
         getMainPanel().remove(welcomePanel);        
-        getMainPanel().add(tabbedPane, BorderLayout.CENTER);
+        getMainPanel().add(tabbedPane, new GBC(1,1,1,1).setFill(GBC.BOTH).setWeight(1, 1));
         repaint();
     }
 
@@ -356,26 +359,53 @@ public class MainFrame extends JFrame
     	}
     	return this.modelTransformationPanel;
     }
-    public JPanel getMainPanel() {
+    public JPanel getMainPanel() {//主面板布局
         if (this.mainPanel == null) {
-            this.mainPanel = new JPanel(new BorderLayout());
+        	GridBagLayout layout=new GridBagLayout();
+            this.mainPanel = new JPanel(layout);
             this.mainPanel.setBorder(new EmptyBorder(0, 0, 0, 0));
-            this.mainPanel.add(this.getWelcomePanel(), BorderLayout.CENTER);                                          
-            this.mainPanel.add(this.getStepButton(),BorderLayout.WEST);//
-            this.mainPanel.add(this.getStepJLabel(),BorderLayout.NORTH);
+            this.mainPanel.add(this.getWelcomePanel());                                          
+            this.mainPanel.add(this.getStepButton());
+            this.mainPanel.add(this.getStepJLabel());
+            this.mainPanel.add(this.getConsolePart());
+            this.mainPanel.add(this.getOpreationPart());
+            this.getStepJLabel().add(new JLabel("项目演示区"),JLabel.CENTER);
+                 
+            layout.setConstraints(this.getStepButton(),new GBC(0, 0, 1, 3).setFill(GBC.BOTH).setWeight(0, 1));                                 
+            layout.setConstraints(this.getWelcomePanel(), new GBC(1,1,1,1).setFill(GBC.BOTH).setWeight(1, 1));                 
+            layout.setConstraints(this.getStepJLabel(), new GBC(1,0,1,1).setFill(GBC.BOTH).setWeight(1, 0));
+            layout.setConstraints(this.getConsolePart(), new GBC(1,2,1,1).setFill(GBC.BOTH).setWeight(1, 1));
+            layout.setConstraints(this.getOpreationPart(), new GBC(2,1,1,2).setFill(GBC.BOTH).setWeight(0, 1));
+           
+           
+                
            // this.mainPanel.add(this.getProjectTree(),BorderLayout.EAST);
-            JPanel bottomBorderPanel = new JPanel();
-            ITheme cLAF = this.themeManager.getTheme();
-            bottomBorderPanel.setBackground(cLAF.getMenubarBackgroundColor().darker());
-            bottomBorderPanel.setBorder(new EmptyBorder(0, 0, 0, 0));
-            bottomBorderPanel.setSize(getContentPane().getWidth(), 8);
+           // JPanel bottomBorderPanel = new JPanel();
+//            ITheme cLAF = this.themeManager.getTheme();
+//            this.getConsolePart().setBackground(cLAF.getMenubarBackgroundColor().darker());
+//            this.getConsolePart().setBorder(new EmptyBorder(0, 0, 0, 0));
+//            this.getConsolePart().setSize(getContentPane().getWidth(), 8);
            // this.mainPanel.add(bottomBorderPanel, BorderLayout.SOUTH);
-            this.mainPanel.add(this.getConsolePart(),BorderLayout.SOUTH);
+           
         }
         return this.mainPanel;
     }
     
-    /**
+    private JPanel getControlPanel() {
+		// TODO Auto-generated method stub
+		JPanel controlpanel=new JPanel();
+		controlpanel.setLayout(new BoxLayout(controlpanel, BoxLayout.X_AXIS));
+		controlpanel.add(new JButton("开始"));
+		controlpanel.add(new JButton("暂停"));
+		return controlpanel;
+	}
+
+	public JPanel getOpreationPart() {
+		// TODO Auto-generated method stub
+		return this.opreationpanel;
+	}
+
+	/**
      * @return the menu factory instance
      */
     public MenuFactory getMenuFactory()
@@ -387,11 +417,19 @@ public class MainFrame extends JFrame
         return this.menuFactory;
     }
 
-    public JLabel getStepJLabel() {
+    public JPanel getStepJLabel() {
 		return stepJLabel;
 	}
 
-	public void setStepJLabel(JLabel stepJLabel) {
+	public JPanel getCenterPanel() {
+		return centerPanel;
+	}
+
+	public void setCenterPanel(JPanel centerPanel) {
+		this.centerPanel = centerPanel;
+	}
+
+	public void setStepJLabel(JPanel stepJLabel) {
 		this.stepJLabel = stepJLabel;
 	}
 
@@ -404,11 +442,13 @@ public class MainFrame extends JFrame
      * Panel added is not diagram is opened
      */
     private WelcomePanel welcomePanel;
-    private JLabel stepJLabel=new JLabel("项目演示区",JLabel.CENTER);
+    private JPanel stepJLabel=new JPanel();
     private ModelTransformationPanel modelTransformationPanel;
     private ConsolePart consolePart;
     private ProjectTree projectTree;
     private StepButtonPanel stepButton;
+    private JPanel centerPanel;
+    private JPanel opreationpanel=new JPanel();
     /**
      * Main panel
      */

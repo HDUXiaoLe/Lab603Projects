@@ -2,6 +2,7 @@ package com.horstmann.violet.application.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -10,16 +11,22 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 import org.omg.CORBA.CTX_RESTRICT_SCOPE;
 
 import com.horstmann.violet.application.consolepart.ConsoleMessageTabbedPane;
+import com.horstmann.violet.application.consolepart.ConsolePart;
+import com.horstmann.violet.application.consolepart.ConsolePartScrollPane;
 import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
 import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.framework.file.IGraphFile;
@@ -38,9 +45,14 @@ public class StepButtonPanel extends JPanel {
 	private IWorkspace workspace;
 	private ConsoleMessageTabbedPane consoleMessageTabbedPane;
     private ConsolePartTextArea consolePartTextArea;
+    private ConsolePart consolePart;
+    private JPanel operationPanel;
+    private HashMap<Integer,List<Component>> stepTabbedPaneMap;
+    private List<Component> currentTabbedPane;
 	public StepButtonPanel(MainFrame mainFrame) {
 		this.setBackground(Color.DARK_GRAY);
-		this.mainFrame=mainFrame;	
+		this.mainFrame=mainFrame;
+		stepTabbedPaneMap=new HashMap<Integer, List<Component>>();
 		init();
 	}
 
@@ -62,6 +74,7 @@ public class StepButtonPanel extends JPanel {
 		s.gridx = 0;
 		s.gridy = 0;
 		s.weighty = 1;
+		s.weightx=1;
 		layout.setConstraints(step1button, s);// 设置组件
 		s.gridx = 0;
 		s.gridy = 1;
@@ -87,17 +100,20 @@ public class StepButtonPanel extends JPanel {
 		step3button = new JButton();
 		step4button = new JButton();
 		step5button = new JButton();  
-		step1button.setText("第一步:UML模型建立");
-		step2button.setText("第二步:模型转化");
+		step1button.setText("第一步:UML模型建立及导入");
+		step2button.setText("第二步:UML模型转化时间自动机");
 		step3button.setText("第三步:抽象测试用例生成");
 		step4button.setText("第四步:测试用例实例化");
-		step5button.setText("第五步:测试用例验证");
+		step5button.setText("第五步:测试用例实例化验证");
 		stepButtonGroup = new ArrayList<JButton>();
 		stepButtonGroup.add(step1button);
 		stepButtonGroup.add(step2button);
 		stepButtonGroup.add(step3button);
 		stepButtonGroup.add(step4button);
 		stepButtonGroup.add(step5button);
+		 operationPanel=mainFrame.getOpreationPart();
+		 operationPanel.setLayout(new GridLayout(1,1));
+		 consolePart=mainFrame.getConsolePart();	
 		// TODO Auto-generated method stub
 
 	}
@@ -109,7 +125,31 @@ public class StepButtonPanel extends JPanel {
 		}
 
 	}
-
+	//保存当前Tab页
+	public void savaTabbedpane(int step)
+	{
+		JTabbedPane tabbedPane=mainFrame.getTabbedPane();
+		int tabcount=tabbedPane.getTabCount();
+		currentTabbedPane=new ArrayList<Component>();
+		for(int i=0;i<tabcount;i++)
+		{
+		    Component component=tabbedPane.getComponentAt(i);
+		    currentTabbedPane.add(component);
+		}
+		stepTabbedPaneMap.put(step,currentTabbedPane);
+	}
+	//读取每个步骤的TAP页
+	public List<Component> loadTabbedpane(int step)
+	{
+		return stepTabbedPaneMap.get(step);
+	}
+	public void clearConsolePart(){
+		this.consolePart.getContentPane().removeAll();;
+	}
+  private void ClearOpreationPanel()
+  {
+	  this.operationPanel.removeAll();
+  }
 	private void SetButtonListener() {
 		// TODO Auto-generated method stub
 		step1button.addActionListener(new ActionListener() {
@@ -117,25 +157,39 @@ public class StepButtonPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				clearSelection();
+				 
+			 
+				//步骤一按钮高亮
 				step1button.setFocusable(true);
-				step1button.setForeground(Color.RED);
+				step1button.setForeground(Color.RED);				
+				
+				//首先移除欢迎界面
 				mainFrame.getMainPanel().remove(mainFrame.getWelcomePanel());
-				JLabel step1Label=new JLabel(step1button.getText(),JLabel.CENTER);
-				step1Label.setFont(new Font("宋体",Font.BOLD, 20));
-				step1Label.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getStepJLabel());	
-				mainFrame.setStepJLabel(step1Label);
-				mainFrame.getConsolePart().setTitle("UML模型建立过程信息");
-				mainFrame.getConsolePart().setVisible(true);//第一步过程信息组件显示出来
-				mainFrame.getMainPanel().add(mainFrame.getProjectTree(),BorderLayout.EAST);
-				mainFrame.getConsolePart().getConsoleMessageTabbedPane().removeAll();
-				consolePartTextArea=new ConsolePartTextArea("正在建立模型........");
-				mainFrame.getConsolePart().getConsoleMessageTabbedPane().add("详细信息",consolePartTextArea);
-				mainFrame.getConsolePart().getConsoleMessageTabbedPane().
-				add("详细信息",consolePartTextArea);	
-				mainFrame.getMainPanel().remove(mainFrame.getModelTransformationPanel());
-				mainFrame.getMainPanel().add(mainFrame.getStepJLabel(), BorderLayout.NORTH);
-				mainFrame.revalidate();			    			
+				//修改原来的标题面板
+				JLabel jLabel=new JLabel();
+				jLabel.setText(step1button.getText());
+				jLabel.setFont(new Font("宋体", Font.BOLD, 20));
+				jLabel.setForeground(Color.RED);
+				JPanel labelpanel=mainFrame.getStepJLabel();
+				labelpanel.setLayout(new GridBagLayout());
+				labelpanel.removeAll();
+				labelpanel.add(jLabel,new GBC(0, 0).setWeight(1, 0));
+//				labelpanel.add(new JButton("开始"),new GBC(1, 0));
+//				labelpanel.add(new JButton("暂停"),new GBC(2, 0));
+				
+				 
+			    //添加操作面板
+				ClearOpreationPanel();
+				operationPanel.add(mainFrame.getProjectTree());
+						
+				//添加过程信息组件
+				
+			  
+			    clearConsolePart();			    
+			    consolePart.setTitle("UML模型建立过程信息");
+				consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("UML模型正在建立中......\n\n\n\n\n\n")));	
+				consolePart.setVisible(true);				
+				mainFrame.revalidate();  			
 			}
 		});
 		step2button.addActionListener(new ActionListener() {
@@ -144,23 +198,29 @@ public class StepButtonPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				clearSelection();
+			
 				step2button.setFocusable(true);
 				step2button.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getWelcomePanel());	  
-				JLabel step2Label=new JLabel(step2button.getText(),JLabel.CENTER);
-				step2Label.setFont(new Font("宋体",Font.BOLD, 20));
-				step2Label.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getStepJLabel());		
-				mainFrame.setStepJLabel(step2Label);
-				mainFrame.getConsolePart().setTitle("UML模型转化时间自动机模型过程信息");
-				mainFrame.getMainPanel().remove(mainFrame.getProjectTree());				
-				consolePartTextArea=new ConsolePartTextArea("");
-				consoleMessageTabbedPane=mainFrame.getConsolePart().getConsoleMessageTabbedPane();
-				consoleMessageTabbedPane.removeAll();
-				mainFrame.getModelTransformationPanel().setVisible(true);
-			    mainFrame.getMainPanel().add(mainFrame.getModelTransformationPanel(),BorderLayout.EAST);					
-				consoleMessageTabbedPane.add("详细信息",consolePartTextArea);		
-				mainFrame.getMainPanel().add(mainFrame.getStepJLabel(), BorderLayout.NORTH);
+				//标题
+				JLabel jLabel=new JLabel();
+				jLabel.setText(step2button.getText());
+				jLabel.setFont(new Font("宋体", Font.BOLD, 20));
+				jLabel.setForeground(Color.RED);
+				JPanel labelpanel=mainFrame.getStepJLabel();
+				labelpanel.setLayout(new GridBagLayout());
+				labelpanel.removeAll();
+				labelpanel.add(jLabel,new GBC(0, 0).setWeight(1, 0));
+				labelpanel.add(new JButton("开始"),new GBC(1, 0));
+				labelpanel.add(new JButton("暂停"),new GBC(2, 0));
+				
+				ClearOpreationPanel();
+			    operationPanel.add(mainFrame.getModelTransformationPanel());
+				
+			    clearConsolePart();			    
+			    consolePart.setTitle("UML模型转化时间自动机过程信息");
+				consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("UML模型正在转化中......\n\n\n\n\n\n")));	
+				consolePart.setVisible(true);
+				
 				mainFrame.revalidate();
 			}
 		});
@@ -172,15 +232,26 @@ public class StepButtonPanel extends JPanel {
 				clearSelection();
 				step3button.setFocusable(true);
 				step3button.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getWelcomePanel());
-				JLabel step3Label=new JLabel(step3button.getText(),JLabel.CENTER);
-				step3Label.setFont(new Font("宋体",Font.BOLD, 20));
-				step3Label.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getStepJLabel());	
-				mainFrame.setStepJLabel(step3Label);
-				mainFrame.getConsolePart().setTitle("抽象测试用例生成过程信息");
-				mainFrame.getMainPanel().add(mainFrame.getStepJLabel(), BorderLayout.NORTH);
-				mainFrame.revalidate();
+			
+				JLabel jLabel=new JLabel();
+				jLabel.setText(step3button.getText());
+				jLabel.setFont(new Font("宋体", Font.BOLD, 20));
+				jLabel.setForeground(Color.RED);
+				JPanel labelpanel=mainFrame.getStepJLabel();
+				labelpanel.setLayout(new GridBagLayout());
+				labelpanel.removeAll();
+				labelpanel.add(jLabel,new GBC(0, 0).setWeight(1, 0));
+				labelpanel.add(new JButton("开始"),new GBC(1, 0));
+				labelpanel.add(new JButton("暂停"),new GBC(2, 0));
+				
+				ClearOpreationPanel();//
+				operationPanel.add(new AbstractTestCaseGenerationPanel());
+				
+				 clearConsolePart();			    
+				    consolePart.setTitle("抽象测试用例生成过程信息");
+					consolePart.add(new ConsoleMessageTabbedPane("详细信息",new ConsolePartScrollPane(0)));	
+					consolePart.setVisible(true);
+				mainFrame.getMainPanel().repaint();
 			}
 		});
 		step4button.addActionListener(new ActionListener() {
@@ -192,13 +263,25 @@ public class StepButtonPanel extends JPanel {
 				step4button.setFocusable(true);
 				step4button.setForeground(Color.RED);
 				mainFrame.getMainPanel().remove(mainFrame.getWelcomePanel());
-				JLabel step4Label=new JLabel(step4button.getText(),JLabel.CENTER);
-				step4Label.setFont(new Font("宋体",Font.BOLD, 20));
-				step4Label.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getStepJLabel());	
-				mainFrame.setStepJLabel(step4Label);
-				mainFrame.getConsolePart().setTitle("抽象测试用例实例化过程信息");
-				mainFrame.getMainPanel().add(mainFrame.getStepJLabel(), BorderLayout.NORTH);
+				
+				JLabel jLabel=new JLabel();
+				jLabel.setText(step4button.getText());
+				jLabel.setFont(new Font("宋体", Font.BOLD, 20));
+				jLabel.setForeground(Color.RED);
+				JPanel labelpanel=mainFrame.getStepJLabel();
+				labelpanel.setLayout(new GridBagLayout());
+				labelpanel.removeAll();
+				labelpanel.add(jLabel,new GBC(0, 0).setWeight(1, 0));
+				labelpanel.add(new JButton("开始"),new GBC(1, 0));
+				labelpanel.add(new JButton("暂停"),new GBC(2, 0));
+				
+				ClearOpreationPanel();
+				operationPanel.add(new TestCaseInstantiationPanel());
+				
+				clearConsolePart();	
+				consolePart.setTitle("抽象测试用例实例化过程信息");
+				consolePart.add(new ConsoleMessageTabbedPane("详细信息",new ConsolePartScrollPane(1)));	
+				consolePart.setVisible(true);
 				mainFrame.revalidate();
 			}
 		});
@@ -211,13 +294,27 @@ public class StepButtonPanel extends JPanel {
 				step5button.setFocusable(true);
 				step5button.setForeground(Color.RED);
 				mainFrame.getMainPanel().remove(mainFrame.getWelcomePanel());
-				JLabel step5Label=new JLabel(step5button.getText(),JLabel.CENTER);
-				step5Label.setFont(new Font("宋体",Font.BOLD, 20));
-				step5Label.setForeground(Color.RED);
-				mainFrame.getMainPanel().remove(mainFrame.getStepJLabel());
-				mainFrame.setStepJLabel(step5Label);
-				mainFrame.getConsolePart().setTitle("测试用例认证过程信息");
-				mainFrame.getMainPanel().add(mainFrame.getStepJLabel(), BorderLayout.NORTH);
+				
+				JLabel jLabel=new JLabel();
+				jLabel.setText(step5button.getText());
+				jLabel.setFont(new Font("宋体", Font.BOLD, 20));
+				jLabel.setForeground(Color.RED);
+				JPanel labelpanel=mainFrame.getStepJLabel();
+				labelpanel.setLayout(new GridBagLayout());
+				labelpanel.removeAll();
+				labelpanel.add(jLabel,new GBC(0, 0).setWeight(1, 0));
+				labelpanel.add(new JButton("开始"),new GBC(1, 0));
+				labelpanel.add(new JButton("暂停"),new GBC(2, 0));
+				
+				ClearOpreationPanel();
+				operationPanel.add(new TestCaseConfirmationPanel());
+				
+				
+				clearConsolePart();
+				consolePart.setTitle("测试用例实例验证过程信息");
+				consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("测试用例实例正在验证中......\n\n\n\n\n\n")));	
+				consolePart.setVisible(true);
+				
 				mainFrame.revalidate();
 			}
 		});
