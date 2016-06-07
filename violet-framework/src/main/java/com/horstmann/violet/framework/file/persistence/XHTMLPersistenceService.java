@@ -104,8 +104,7 @@ public class XHTMLPersistenceService implements IFilePersistenceService
         String content = buf.toString("UTF-8");
         bis.close();
         buf.close();
-        in.close();
-        
+        in.close();       
         return content;
     }
 

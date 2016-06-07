@@ -40,7 +40,12 @@ import javax.swing.tree.TreeNode;
 
 import com.horstmann.violet.application.menu.FileMenu;
 import com.horstmann.violet.framework.file.GraphFile;
+import com.horstmann.violet.framework.file.IFile;
+import com.horstmann.violet.framework.file.IGraphFile;
+import com.horstmann.violet.framework.file.persistence.IFileReader;
 import com.horstmann.violet.product.diagram.classes.ClassDiagramGraph;
+import com.horstmann.violet.workspace.IWorkspace;
+import com.horstmann.violet.workspace.Workspace;
 
 public class ProjectTree extends JPanel
 {
@@ -51,8 +56,7 @@ public class ProjectTree extends JPanel
         this.mainFrame=mainFrame;
         this.setBackground(Color.DARK_GRAY);
         setLayout(new GridLayout(1, 1));
-        add(getProjectTree());//添加项目树    
-      
+        add(getProjectTree());//添加项目树          
     } 
     private JTree getProjectTree()
     {
@@ -84,52 +88,59 @@ public class ProjectTree extends JPanel
 			public void mousePressed(MouseEvent e) {
 				    if (e.getButton() == e.BUTTON3) {  //BUTTON3是鼠标右键
 				     final DefaultMutableTreeNode  node =  (DefaultMutableTreeNode)projectjTree.getLastSelectedPathComponent();
-				     System.out.println(node.toString());
+				  
 				     popupMenu=new JPopupMenu();
-				     newDiagram=new JMenuItem("新建");	 
+				     newDiagram=new JMenuItem("新建");
+				     importDiagram = new JMenuItem("导入");
 				     popupMenu.add(newDiagram);
-				     
-				      popupMenu.show(e.getComponent(),e.getX(),e.getY());
+				     popupMenu.add(importDiagram);
+				     importDiagram.addActionListener(new ActionListener() {
+							
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								// TODO Auto-generated method stub
+								//导入文件
+								fileMenu.fileOpenItem.doClick();//File目录下的导入标签										                 
+								node.add(new DefaultMutableTreeNode(1));				
+							}
+						});
+				     popupMenu.show(e.getComponent(),e.getX(),e.getY());
 				      for (int i = 0; i < newMenu.getItemCount(); i++)
 			            {
 				    	  final JMenuItem item = newMenu.getItem(i);
 				    	  for (int j = 0; j < ((JMenu) item).getItemCount(); j++)
 		                    {
-		                        final JMenuItem subItem = ((JMenu) item).getItem(j);
-		                      
+		                        final JMenuItem subItem = ((JMenu) item).getItem(j);		                      
 				    	  if(node.toString().equals(subItem.getText().toLowerCase()))
-				    	  {
-				    		
-				    		  newDiagram.addActionListener(new ActionListener() {
-								
+				    	  {				    		
+				    		  newDiagram.addActionListener(new ActionListener() {								
 								@Override
 								public void actionPerformed(ActionEvent e) {
-									// TODO Auto-generated method stub
-								
+									// TODO Auto-generated method stub						
 									subItem.doClick();
-			                        node.add(new DefaultMutableTreeNode(new File("1")));
-								
+			                        node.add(new DefaultMutableTreeNode(new File("1")));						
 								}
-							});
+							});				    		
 				    	  }
 		                    }
 			            }
 				    }
+				    if(e.getClickCount()==2)
+				    {
+				    	  final DefaultMutableTreeNode  node =  (DefaultMutableTreeNode)projectjTree.getLastSelectedPathComponent();
+				    	  if(node.isLeaf()) //是叶节点
+				    	  {
+				    	     //对node.getUserObject()进行处理;
+				    	  }
+				    }
 			}});
-    }
-			            
-			            
-				    
-			
-						
-			     					             
+    }			            			            				    											     					             
 	  public DefaultMutableTreeNode top;
 	  public JPopupMenu popupMenu;
-	  public JMenuItem newDiagram;	 
+	  public JMenuItem newDiagram;
+	  public JMenuItem importDiagram;
 	  public JTree projectjTree;	     
       private FileMenu fileMenu;
       private MainFrame mainFrame;
-
-   
-  
+    
 }

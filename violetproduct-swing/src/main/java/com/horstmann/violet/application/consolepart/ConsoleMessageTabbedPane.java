@@ -9,7 +9,5 @@ public class ConsoleMessageTabbedPane extends JTabbedPane {
 	public ConsoleMessageTabbedPane(String title,Component component) {
 		// TODO Auto-generated constructor stub	
 	      this.add(title,component);
-	}
-	
-		
+	}			
 }

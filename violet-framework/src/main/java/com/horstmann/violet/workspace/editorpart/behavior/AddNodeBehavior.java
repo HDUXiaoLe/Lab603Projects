@@ -29,6 +29,7 @@ public class AddNodeBehavior extends AbstractEditorPartBehavior
     }  
     public void onMouseClicked(MouseEvent event)
     {
+    
         if (event.getClickCount() > 1)
         {
             return;
@@ -57,9 +58,9 @@ public class AddNodeBehavior extends AbstractEditorPartBehavior
         INode newNode = (INode) prototype.clone();
         newNode.setId(new Id()); 
         newNode.setID("EAID_"+UUID.randomUUID().toString());
-        boolean added = addNodeAtPoint(newNode, newNodeLocation); 
+        boolean added = addNodeAtPoint(newNode, newNodeLocation);     
         String str= "class com.horstmann.violet.product.diagram.timing.State_Lifeline";	    
-        if (added){        
+        if (added){ 
             selectionHandler.setSelectedElement(newNode);
             editorPart.getSwingComponent().invalidate();
             newNode.setFlag(true);  

@@ -423,26 +423,32 @@ public class FileMenu extends JMenu
     /**
      * Init open menu entry
      */
-    private void initFileOpenItem()
+   public void initFileOpenItem()
     {
         this.fileOpenItem.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent event)
-            {
+            {           	
                 IFile selectedFile = null;
                 try
-                {
-                    ExtensionFilter[] filters = fileNamingService.getFileFilters();
+                { 
+                    ExtensionFilter[] filters = fileNamingService.getFileFilters();                 
                     IFileReader fileOpener = fileChooserService.chooseAndGetFileReader(filters);
+                   
                     if (fileOpener == null)
                     {
                         // Action cancelled by user
                         return;
                     }
+                 
                     selectedFile = fileOpener.getFileDefinition();
+                     
                     IGraphFile graphFile = new GraphFile(selectedFile);
+                
                     IWorkspace workspace = new Workspace(graphFile);
+                    
                     mainFrame.addTabbedPane(workspace);
+                  
                     userPreferencesService.addOpenedFile(graphFile);
                     userPreferencesService.addRecentFile(graphFile);
                 }
@@ -624,7 +630,7 @@ public class FileMenu extends JMenu
 
     /** The file chooser to use with with menu */
     @InjectedBean
-    private IFileChooserService fileChooserService;
+    public IFileChooserService fileChooserService;
 
     /** Application stopper */
     private ApplicationStopper stopper = new ApplicationStopper();
@@ -656,7 +662,7 @@ public class FileMenu extends JMenu
     private JMenu fileNewMenu;
 
     @ResourceBundleBean(key = "file.open")
-    private JMenuItem fileOpenItem;
+    public JMenuItem fileOpenItem;
 
     @ResourceBundleBean(key = "file.recent")
     private JMenu fileRecentMenu;
