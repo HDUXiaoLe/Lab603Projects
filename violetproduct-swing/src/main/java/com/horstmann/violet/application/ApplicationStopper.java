@@ -46,9 +46,37 @@ public class ApplicationStopper
     private boolean isItReadyToExit(MainFrame mainFrame)
     {
         List<IWorkspace> dirtyWorkspaceList = new ArrayList<IWorkspace>();
-        List<IWorkspace> workspaceList = mainFrame.getWorkspaceList();
-        if (workspaceList.size() == 0) return true;
-        for (IWorkspace aWorkspacel : workspaceList)
+        List<IWorkspace> StateworkspaceList = mainFrame.getStateWorkspaceList();
+        List<IWorkspace> SequenceworkspaceList = mainFrame.getSequenceWorkspaceList();
+        List<IWorkspace> TimingDiagramworkspaceList = mainFrame.getTimingWorkspaceList();
+        List<IWorkspace> UseCaseworkspaceList = mainFrame.getUseCaseWorkspaceList();
+      
+       
+        for (IWorkspace aWorkspacel : StateworkspaceList)
+        {
+            IGraphFile graphFile = aWorkspacel.getGraphFile();
+        	if (graphFile.isSaveRequired())
+            {
+                dirtyWorkspaceList.add(aWorkspacel);
+            }
+        }
+        for (IWorkspace aWorkspacel : SequenceworkspaceList)
+        {
+            IGraphFile graphFile = aWorkspacel.getGraphFile();
+        	if (graphFile.isSaveRequired())
+            {
+                dirtyWorkspaceList.add(aWorkspacel);
+            }
+        }
+        for (IWorkspace aWorkspacel : TimingDiagramworkspaceList)
+        {
+            IGraphFile graphFile = aWorkspacel.getGraphFile();
+        	if (graphFile.isSaveRequired())
+            {
+                dirtyWorkspaceList.add(aWorkspacel);
+            }
+        }
+        for (IWorkspace aWorkspacel : UseCaseworkspaceList)
         {
             IGraphFile graphFile = aWorkspacel.getGraphFile();
         	if (graphFile.isSaveRequired())

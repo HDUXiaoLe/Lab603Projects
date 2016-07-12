@@ -14,7 +14,7 @@ public class MarkovStartNode extends EllipticalNode{
 	
 	    public MarkovStartNode()
 	    {
-		  name = new MultiLineString();
+		  name = "";
 	    } 
 	    @Override
 	    public Rectangle2D getBounds()
@@ -56,23 +56,23 @@ public class MarkovStartNode extends EllipticalNode{
 
 	        // Restore first color
 	        g2.setColor(oldColor);
-	        name.draw(g2, getBounds());
+	        g2.drawString(name,(int)getBounds().getX(),(int)getBounds().getY());
 	    }
-	    public void setName(MultiLineString newValue)
+	    public void setName(String newValue)
 	    {
 	    	name = newValue;
 	    }
-	    public MultiLineString getName()
+	    public String getName()
 	    {
 	    	return name;
 	    }
 	    public MarkovStartNode clone()
 	    {
 	    	MarkovStartNode cloned =(MarkovStartNode)super.clone();
-	    	cloned.name=name.clone();
+	    	
 	    	return cloned;
 	    }
-        private MultiLineString name;
+        private String name;
 	    /** default node diameter */
 	    private static int DEFAULT_DIAMETER = 29;
 

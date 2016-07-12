@@ -19,6 +19,10 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 public class TransitionEdge extends ShapeEdge
 {
+	public TransitionEdge() {
+		
+	}// TODO Auto-generated constructor stub
+	
     /**
      * Sets the label property value.
      * 
@@ -42,6 +46,7 @@ public class TransitionEdge extends ShapeEdge
     public void draw(Graphics2D g2)
     {
         g2.draw(getShape());
+        //g2.drawString(labelText,(int)labelbounds.getX(),(int)labelbounds.getY());
         drawLabel(g2);
         ArrowHead.V.draw(g2, getControlPoint(), getConnectionPoints().getP2());
     }
@@ -60,15 +65,15 @@ public class TransitionEdge extends ShapeEdge
         g2.translate(x, y);
         label.paint(g2);
         g2.translate(-x, -y);
-    }
-
+    }  
     /**
      * Gets the bounds of the label text
      * 
      * @param g2 the graphics context
      * @return the bounds of the label text
      */
-    private Rectangle2D getLabelBounds()
+    @Override
+    public Rectangle2D getLabelBounds()
     {
         BufferedImage dummy = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         // need a dummy image to get a Graphics to
@@ -100,8 +105,8 @@ public class TransitionEdge extends ShapeEdge
         if (Math.abs(line.getX1() - line.getX2()) <= Math.abs(line.getY1() - line.getY2()))
         {
             y = y - d.getHeight() / 2;
-        }
-        return new Rectangle2D.Double(x, y, d.width, d.height);
+        }                   
+        return new Rectangle2D.Double(x, y, d.width, d.height); 
     }
 
     /**
@@ -120,18 +125,20 @@ public class TransitionEdge extends ShapeEdge
 
     public Shape getShape()
     {
+    	
         Line2D line = getConnectionPoints();
         Point2D control = getControlPoint();
         GeneralPath p = new GeneralPath();
         p.moveTo((float) line.getX1(), (float) line.getY1());
         p.quadTo((float) control.getX(), (float) control.getY(), (float) line.getX2(), (float) line.getY2());
         return p;
+    	
     }
 
     @Override
     public Rectangle2D getBounds()
     {
-        Rectangle2D r = super.getBounds();
+        Rectangle2D r = super.getBounds(); 
         r.add(getLabelBounds());
         return r;
     }
@@ -152,6 +159,6 @@ public class TransitionEdge extends ShapeEdge
 @XStreamOmitField
     private double angle;
     private String labelText = "";
-
-    private static JLabel label = new JLabel();
+   // public Rectangle2D labelbounds=new Rectangle2D.Double(300,300,300,30);
+    private static JLabel label = new JLabel();   
 }

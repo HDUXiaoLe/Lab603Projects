@@ -47,6 +47,7 @@ import com.horstmann.violet.workspace.editorpart.behavior.DragCombinedFragmentBo
 import com.horstmann.violet.workspace.editorpart.behavior.DragGraphBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.DragSelectedBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.DragTransitionPointBehavior;
+import com.horstmann.violet.workspace.editorpart.behavior.DragUppaalMessageBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.EditSelectedBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.FileCouldBeSavedBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.ResizeElement;
@@ -178,6 +179,7 @@ public class Workspace implements IWorkspace
           //  behaviorManager.addBehavior(new DragMessageBehavaior(this.graphEditor,this.getSideBar().getGraphToolsBar()));
             behaviorManager.addBehavior(new TimingChangeStateBehavior(this.graphEditor,this.getSideBar().getGraphToolsBar()));
             behaviorManager.addBehavior(new DragCombinedFragmentBorderLineBehavior(this.graphEditor,this.getSideBar().getGraphToolsBar()));
+            behaviorManager.addBehavior(new DragUppaalMessageBehavior(this.getEditorPart()));
             
         }
         return this.graphEditor;

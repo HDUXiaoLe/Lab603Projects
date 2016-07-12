@@ -57,31 +57,14 @@ public class WorkspacePanel extends JPanel
     }
 
     public void prepareLayout()
-    {
-    	
+    {    	
         LayoutManager layout = new BorderLayout();
-        setLayout(layout);                    
+        setLayout(layout);
+        JScrollPane scrollGPanel = getScrollableEditorPart();                                			
+    	add(scrollGPanel,BorderLayout.CENTER);         
         JScrollPane scrollSideBarPanel = getScrollableSideBar();
-        add(scrollSideBarPanel, BorderLayout.EAST);       
-        JTaskPane jTaskPane=new JTaskPane();    
-        JTaskPaneGroup group = new JTaskPaneGroup();         
-        Font font = group.getFont().deriveFont(Font.PLAIN);
-        group.setFont(font);
-        group.setTitle("额外功能");
-        group.add(new JButton("额外功能1"));
-        group.add(new JButton("额外功能2"));
-        group.add(new JButton("额外功能3"));
-        group.add(new JButton("额外功能4"));
-        group.add(new JButton("额外功能5"));      
-        jTaskPane.add(group);        
-      //  add(jTaskPane,BorderLayout.EAST);       			
-        JScrollPane scrollGPanel = getScrollableEditorPart();   
-      
-      
-    
-  	
-		
-		add(scrollGPanel,BorderLayout.CENTER);         
+//        if( !workspace.getTitle().toString().endsWith(".uppaal.violet.xml"))
+    	   add(scrollSideBarPanel, BorderLayout.EAST);                         			  
         refreshDisplay();
     }    
     /**
@@ -99,13 +82,11 @@ public class WorkspacePanel extends JPanel
                 {
                     editorPart.getSwingComponent().invalidate();
                     super.paint(g);
-                }
-                
+                }                
             };
             this.scrollableEditorPart.getViewport().setView(panel);
             this.scrollableEditorPart.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener()
-            {
-                
+            {               
                 @Override
                 public void adjustmentValueChanged(AdjustmentEvent e)
                 {
@@ -114,8 +95,7 @@ public class WorkspacePanel extends JPanel
                 }
             });
             this.scrollableEditorPart.getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener()
-            {
-                
+            {               
                 @Override
                 public void adjustmentValueChanged(AdjustmentEvent e)
                 {
@@ -151,8 +131,6 @@ public class WorkspacePanel extends JPanel
         return this.scrollableSideBar;
     }
 
-
-
     public void refreshDisplay()
     {
         SwingUtilities.invokeLater(new Runnable()
@@ -164,12 +142,9 @@ public class WorkspacePanel extends JPanel
         });
     }
 
-
-
     private IWorkspace workspace;
     private JScrollPane scrollableSideBar;
     private JScrollPane scrollableEditorPart;
     private JScrollPane scrollableStatusBar;
-
 
 }

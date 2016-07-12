@@ -1,5 +1,8 @@
 package com.horstmann.violet.framework.file;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -121,47 +124,97 @@ public class GraphFile implements IGraphFile
     @Override
     public void save()
     {
-        if (this.isNewFile()) {
-        	saveToNewLocation();
-        	return;
-        }
-    	try
-        {
-            IFileWriter fileSaver = getFileSaver(false);
-            OutputStream outputStream = fileSaver.getOutputStream();
-            this.filePersistenceService.write(this.graph, outputStream);
-            this.isSaveRequired = false;
-            fireGraphSaved();
-            this.currentFilename = fileSaver.getFileDefinition().getFilename();
-            this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-    }
+//        if (this.isNewFile()) {
+//        	saveToNewLocation();
+//        	return;
+//        }
+//    	try
+//        {
+//            IFileWriter fileSaver = getFileSaver(false);
+//            OutputStream outputStream = fileSaver.getOutputStream();
+//            this.filePersistenceService.write(this.graph, outputStream);
+//            this.isSaveRequired = false;
+//            fireGraphSaved();
+//            this.currentFilename = fileSaver.getFileDefinition().getFilename();
+//            this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
+//        }
+//        catch (Exception e)
+//        {
+//            throw new RuntimeException(e);
+//        }
+    	   if (this.isNewFile()) {
+           	//是新建的文件
+           	saveToNewLocation();
+           	return;
+           }
+       	try
+           {	//不是新建的文件就直接保存在原有的路劲
+               IFileWriter fileSaver = getFileSaver(false);
+               OutputStream outputStream = fileSaver.getOutputStream();
+               this.filePersistenceService.write(this.graph, outputStream);
+               this.isSaveRequired = false;
+               fireGraphSaved();
+               this.currentFilename = fileSaver.getFileDefinition().getFilename();
+               this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
+               System.out.println(currentFilename);
+               System.out.println(currentDirectory);
+           }
+           catch (Exception e)
+           {
+               throw new RuntimeException(e);
+           }
 
+    }
+/*
+ * 张建已改(non-Javadoc)
+ * @see com.horstmann.violet.framework.file.IGraphFile#saveToNewLocation()
+ */
     @Override
     public void saveToNewLocation()
     {
-        try
-        {
-            IFileWriter fileSaver = getFileSaver(true);
-            if (fileSaver == null) { 
-            	// This appends when the action is cancelled
-            	return;
-            }
-            OutputStream outputStream = fileSaver.getOutputStream();
-            this.filePersistenceService.write(this.graph, outputStream);
-            this.isSaveRequired = false;
-            this.currentFilename = fileSaver.getFileDefinition().getFilename();
-            this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
-            fireGraphSaved();
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
+//        try
+//        {
+//            IFileWriter fileSaver = getFileSaver(true);
+//            if (fileSaver == null) { 
+//            	// This appends when the action is cancelled
+//            	return;
+//            }
+//            OutputStream outputStream = fileSaver.getOutputStream();
+//            this.filePersistenceService.write(this.graph, outputStream);
+//            this.isSaveRequired = false;
+//            this.currentFilename = fileSaver.getFileDefinition().getFilename();
+//            this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
+//            fireGraphSaved();
+//        }
+//        catch (Exception e)
+//        {
+//            throw new RuntimeException(e);
+//        }
+    	  try
+          {
+          	
+              IFileWriter fileSaver = getFileSaver(true);
+              if (fileSaver == null) { 
+              	// This appends when the action is cancelled
+              	return;
+              }
+              OutputStream outputStream = fileSaver.getOutputStream();
+              this.filePersistenceService.write(this.graph, outputStream);
+              this.isSaveRequired = false;
+              this.currentFilename = fileSaver.getFileDefinition().getFilename();
+              this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
+              System.out.println( this.getGraph().getClass().getName().toString());
+              System.out.println(currentDirectory);
+              System.out.println(currentFilename);	
+              fireGraphSaved();
+              
+              
+          }
+          catch (Exception e)
+          {
+              throw new RuntimeException(e);
+          }
+
     }
 
     /**
@@ -289,7 +342,123 @@ public class GraphFile implements IGraphFile
         PrintEngine engine = new PrintEngine(this.graph);
         engine.start();
     }
+    /*
+     * 张建
+     */
+    public void saveToOneLocation() throws IOException
+    {	
+    	System.out.println("请将文件放入对应的文件夹下面");
+    	  try
+          {
+              IFileWriter fileSaver = getFileSaver2(true);
+              if (fileSaver == null) { 
+              	// This appends when the action is cancelled
+              	return;
+              }
+              OutputStream outputStream = fileSaver.getOutputStream();
+              this.filePersistenceService.write(this.graph, outputStream);
+              this.isSaveRequired = false;
+              this.currentFilename = fileSaver.getFileDefinition().getFilename();
+              this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
+              System.out.println( this.getGraph().getClass().getName().toString());
+              System.out.println(currentDirectory);
+              System.out.println(currentFilename);	
+              fireGraphSaved();
+              
+          }
+          catch (Exception e)
+          {    
+        	  throw new RuntimeException(e);
+          }
+          
 
+	}
+   /*
+    * 张建
+    */
+     private IFileWriter getFileSaver2(boolean isAskedForNewLocation)
+        {
+            try
+            {
+                if (isAskedForNewLocation)
+                {
+                    ExtensionFilter extensionFilter = this.fileNamingService.getExtensionFilter(this.graph);
+                    ExtensionFilter[] array =
+                    {
+                        extensionFilter
+                    };
+                    return this.fileChooserService.DchooseAndGetFileWriter(array);//这个方法打开保存文件的对话框
+                }
+                System.out.println("哈哈");
+                return this.fileChooserService.getFileWriter(this);
+            }
+            catch (Exception e)
+            {
+                throw new RuntimeException(e);
+            }
+        } 
+/*
+ * 张建 (non-Javadoc)
+ * @see com.horstmann.violet.framework.file.IGraphFile#dsave()
+ */
+    @Override
+	public void dsave() 
+    {
+		if(this.isNewFile()){
+			try {
+				saveToOneLocation();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			  IFileWriter fileSaver = getFileSaver2(false);
+	          OutputStream outputStream = fileSaver.getOutputStream();
+	          this.filePersistenceService.write(this.graph, outputStream);
+	          this.isSaveRequired = false;
+	          fireGraphSaved();
+	          this.currentFilename = fileSaver.getFileDefinition().getFilename();
+	          this.currentDirectory = fileSaver.getFileDefinition().getDirectory();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}
+
+/*
+ * 张建(non-Javadoc)
+ * @see com.horstmann.violet.framework.file.IGraphFile#AutoSave(com.horstmann.violet.framework.file.IFile, java.lang.String)
+ */
+
+	public void AutoSave(IFile file,String path) {
+		//自动保存方法（导入文件的时候自动保存）
+		 try {
+			InputStream in =new FileInputStream(file.getDirectory()+"/"+file.getFilename());
+//			//判断类型，根据类型存放图形的位置
+//			String base="C:/Users/Administrator/Desktop/ModelDriveProjectFile/";
+//			String type=(file.getFilename().split("\\."))[1];
+//			 File f;
+//			 if("class".equals(type)){
+//				f =new File(base+"/ClassDiagram/平台/"); 
+//			 }else{
+//				f =new File("C:/Users/Administrator/Desktop/ModelDriveProjectFile/"); //需要保存的位置
+//			 }
+			 File f =new File( path);
+			if (!f.exists()) {
+				f.mkdirs();
+			}
+		
+			FileOutputStream out =new FileOutputStream(f.getAbsolutePath()+"/"+file.getFilename());
+			byte[] buffer = new byte[1024]; 
+		    int b;
+		    while ( ( b = in.read(buffer)) != -1) { 
+              out.write(buffer, 0, b); 
+            } 
+            in.close(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
     private IGraph graph;
 
     /**

@@ -91,7 +91,7 @@ public class StateTransitionEdge extends ShapeEdge
      * @param g2 the graphics context
      * @return the bounds of the label text
      */
-    private Rectangle2D getLabelBounds()
+    public Rectangle2D getLabelBounds()
     {
         BufferedImage dummy = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         // need a dummy image to get a Graphics to

@@ -162,16 +162,18 @@ public class EditorPart extends JPanel implements IEditorPart
     {
         selectionHandler.addSelectedElement(node);
     }
-
-    @Override
-    public Dimension getPreferredSize()
-    {
-        Dimension parentSize = getParent().getSize();
-        Rectangle2D bounds = graph.getClipBounds();
-        int width = Math.max((int) (zoom * bounds.getMaxX()), (int) parentSize.getWidth());
-        int height = Math.max((int) (zoom * bounds.getMaxY()), (int) parentSize.getHeight());
-        return new Dimension(width, height);
-    }
+/*
+ * 重写该方法,配置合适的大小，这里的方法实际上在每次paint时，会使editpart最大化
+ */
+//    @Override
+//    public Dimension getPreferredSize()
+//    {
+//        Dimension parentSize = getParent().getSize();
+//        Rectangle2D bounds = graph.getClipBounds();
+//        int width = Math.max((int) (zoom * bounds.getMaxX()), (int) parentSize.getWidth());
+//        int height = Math.max((int) (zoom * bounds.getMaxY()), (int) parentSize.getHeight());
+//        return new Dimension(width, height);
+//    }
 
     /*
      * (non-Javadoc)

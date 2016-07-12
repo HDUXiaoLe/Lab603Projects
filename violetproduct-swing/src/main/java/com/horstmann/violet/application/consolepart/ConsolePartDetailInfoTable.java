@@ -8,11 +8,13 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import com.horstmann.violet.application.menu.util.dataBase.RealTestCaseVO;
+
 public class ConsolePartDetailInfoTable extends JTable {
 
 	private static final long serialVersionUID = -8389977798357867875L;
 	private DefaultTableModel defaultTableModel;
-	private final Object[] columnNames = { "抽象测试用例序号", "生成消息","消息详细描述","日期","备注"};
+	private final Object[] columnNames = { "序号", "测试用例名称","测试用例路径","备注"};
 
 	public ConsolePartDetailInfoTable(int index) {
 
@@ -33,27 +35,47 @@ public class ConsolePartDetailInfoTable extends JTable {
 		this.setColumnWidth(0, 50);
 		this.doLayout();
 		initRowsData(index);
-	}
-
+	}    
 	public void initRowsData(int i) {
+		
 		this.removeRowsData();
-
-		List<ConsolePartDetailInfo> list = ConsolePartDataTestDao.getDetailInfoList(i);
+		if(i==1){//实例化
+		List<RealTestCaseVO> list = ConsolePartDataTestDao.getRealTestCaseList();
 		Object[] rowData = new Object[columnNames.length];
 		int index = 1;// 用来显示序号的
-
+  
 		if (list != null && !list.isEmpty()) {
-			for (ConsolePartDetailInfo info : list) {
+			for (RealTestCaseVO info : list) {
 				rowData[0] = index++;// 用来显示序号的
-				rowData[1] = info.getMessage();// 消息
+				rowData[1] = info.getName();//测试用例名称
 				
-				rowData[2] = info.getMessagedetail();
-				rowData[3] = info.getDate();// 日期
-				rowData[4] =info.getNote();
+				rowData[2] = info.getProcessList();//路径
+				rowData[3] = info.getRemark();// 备注
+				
 				defaultTableModel.addRow(rowData);
 			}
 		}
+		}
+		if(i==0)//抽象
+		{
+			List<RealTestCaseVO> list = ConsolePartDataTestDao.getRealTestCaseList();
+			Object[] rowData = new Object[columnNames.length];
+			int index = 1;// 用来显示序号的
+	  
+			if (list != null && !list.isEmpty()) {
+				for (RealTestCaseVO info : list) {
+					rowData[0] = index++;// 用来显示序号的
+					rowData[1] = info.getName();//测试用例名称
+					
+					rowData[2] = info.getProcessList();//路径
+					rowData[3] = info.getRemark();// 备注
+					
+					defaultTableModel.addRow(rowData);
+				}
+			}
+		}
 		this.revalidate();
+		
 	}
 
 	private void removeRowsData() {

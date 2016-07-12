@@ -12,7 +12,7 @@ public class MarkovNode extends EllipticalNode {
 	
 	public MarkovNode()
 	{
-		name= new MultiLineString();
+		name= "";
 	}
 	
 	   
@@ -43,7 +43,7 @@ public class MarkovNode extends EllipticalNode {
 	        g2.fill(circle);  
 	        // Restore first color
 	        g2.setColor(oldColor);
-	        name.draw(g2, getBounds());
+	        g2.drawString(name,(int)getBounds().getX(),(int)getBounds().getY());
 	    }
 
 	    /**
@@ -51,17 +51,17 @@ public class MarkovNode extends EllipticalNode {
 	     * 
 	     * @param dummy
 	     */
-	    public void setName(MultiLineString newValue){
+	    public void setName(String newValue){
 	    	name = newValue;
 	    }
-	    public MultiLineString getName()
+	    public String getName()
 	    {
 	    	return name;
 	    }
 	    public MarkovNode clone()
 	    {
 	    	MarkovNode cloned =(MarkovNode) super.clone();
-	    	cloned.name=name.clone();
+	    	
 	    	return cloned;
 	    }
 	    public void setFinal(boolean dummy)
@@ -70,7 +70,7 @@ public class MarkovNode extends EllipticalNode {
 	    }
 
 	    /** default node diameter */
-	    private MultiLineString name;
+	    private String name;
 	    private static int DEFAULT_DIAMETER = 34;
 	
 

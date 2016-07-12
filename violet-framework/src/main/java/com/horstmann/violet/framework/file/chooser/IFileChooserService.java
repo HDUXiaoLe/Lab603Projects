@@ -80,5 +80,13 @@ public interface IFileChooserService
      * @throws IOException
      */
     public IFileWriter getFileWriter(IFile file) throws IOException;
+    /**
+     * 自己定义的选择文件保存的方法
+     * @param extensions
+     * @return
+     * @throws IOException
+     */
+    public IFileWriter DchooseAndGetFileWriter(ExtensionFilter... extensions) throws IOException;
+
 
 }

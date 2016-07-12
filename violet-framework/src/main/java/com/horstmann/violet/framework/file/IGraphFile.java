@@ -79,5 +79,13 @@ public interface IGraphFile extends IFile
      * @return graph file location (or null if not saved yet)
      */
     public String getDirectory();
+    
+     
+    public abstract void AutoSave( IFile  ifile,String path);
+        
+        /**
+         *自己定义的保存行为 
+         */
+    public  abstract void dsave();
 
 }

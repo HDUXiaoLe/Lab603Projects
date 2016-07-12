@@ -173,4 +173,10 @@ public class JNLPFileChooserService implements IFileChooserService
     @InjectedBean
     private FileNamingService fileNamingService;
 
+	@Override
+	public IFileWriter DchooseAndGetFileWriter(ExtensionFilter... extensions) throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

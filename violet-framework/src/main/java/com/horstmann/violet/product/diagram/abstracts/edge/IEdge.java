@@ -57,7 +57,15 @@ public interface IEdge extends Serializable, Cloneable, IIdentifiable
     
     void setBelongtoEndFlag(int index);
     
-    int getBelongtoEndFlag();
+    int getBelongtoEndFlag();  
+    
+    void setLabelBounds(Rectangle2D rectangle);
+    
+    Rectangle2D getLabelBounds();
+    
+    void setLabelLocation(Point2D pLocation);
+    
+    Point2D getLabelLocation();
     
 //    Point2D getStartLocationOnGraph();
 //    

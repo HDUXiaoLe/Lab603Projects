@@ -12,7 +12,7 @@ public class CircularNode extends EllipticalNode {
 	
 	public CircularNode()
 	{
-		name= new MultiLineString();
+		name="";
 	}
 	
 	   
@@ -43,7 +43,7 @@ public class CircularNode extends EllipticalNode {
 	        g2.fill(circle);  
 	        // Restore first color
 	        g2.setColor(oldColor);
-	        name.draw(g2, getBounds());
+	        g2.drawString(getName(),(int)getBounds().getX(),(int)getBounds().getY());
 	    }
 
 	    /**
@@ -51,28 +51,23 @@ public class CircularNode extends EllipticalNode {
 	     * 
 	     * @param dummy
 	     */
-	    public void setName(MultiLineString newValue){
+	    public void setName(String newValue){
 	    	name = newValue;
 	    }
-	    public MultiLineString getName()
+	    public String getName()
 	    {
 	    	return name;
 	    }
-	    public CircularNode clone()
-	    {
-	    	CircularNode cloned =(CircularNode) super.clone();
-	    	cloned.name=name.clone();
-	    	return cloned;
-	    }
+	 
 	    public void setFinal(boolean dummy)
 	    {
 	        // Nothing to do
 	    }
 
 	    /** default node diameter */
-	    private MultiLineString name;
+	    private String name;
 	    private static int DEFAULT_DIAMETER = 34;
-	
+		
 
 	}
 

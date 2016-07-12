@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -85,7 +86,121 @@ public class JFileChooserService implements IFileChooserService
     {
         return false;
     }
+    /*
+     * 张建(non-Javadoc)
+     * @see com.horstmann.violet.framework.file.chooser.IFileChooserService#DchooseAndGetFileWriter(com.horstmann.violet.framework.file.naming.ExtensionFilter[])
+     */
+    public IFileWriter DchooseAndGetFileWriter(ExtensionFilter... filters) throws IOException {
+		//初始化一个属性编辑框（只要设置文件名）
+		//JFileChooser fileChooser = new JFileChooser();
+		//根据文件类型确定文件保存的路径
+		//返回要保存的IFileWriter保存文件
+			List<File> l=new ArrayList<File>();
+			File file =new File("D://ModelDriverProjectFile");//把所有的文件放在此文件夹
+			l.add(file);
+			String basePath=file.getAbsolutePath();
+			File file1=new File(basePath+"/SequenceDiagram");
+			l.add(file1);
+			File file10=new File(basePath+"/SequenceDiagram/Violet");
+			l.add(file10);
+			File file2=new File(basePath+"/UsecaseDiagram");
+			l.add(file2);
+			File file11=new File(basePath+"/UsecaseDiagram/Violet");
+			l.add(file11);
+			File file3=new File(basePath+"/TimingDiagram");
+			l.add(file3);
+			File file12=new File(basePath+"/TimingDiagram/Violet");
+			l.add(file12);
+			File file4=new File(basePath+"/StateDiagram");
+			l.add(file4);
+			File file13=new File(basePath+"/StateDiagram/Violet");
+			l.add(file13);
+			File file5=new File(basePath+"/UPPAL");
+			l.add(file5);
+			File file6=new File(basePath+"/UPPAL/2.UML Model Transfer");
+			l.add(file6);
+			File file7=new File(basePath+"/UPPAL/3.Abstract TestCase");
+			l.add(file7);
+			File file8=new File(basePath+"/UPPAL/4.Real TestCase");
+			l.add(file8);
+			File file9=new File(basePath+"/ActivityDiagram");
+			l.add(file9);
+			File file14=new File(basePath+"/ActivityDiagram/Violet");
+			l.add(file14);
+			
+			
+			if(!file.exists()){
+				file.mkdirs();
+			}
+			for (int i = 0; i < l.size(); i++) {
+				 String filePath = file.getAbsolutePath();
+			        if (filePath == null || filePath.isEmpty()) {
+			             file.mkdirs();
+			        }
+			        File f = l.get(i);
+			       if(!(f.exists() && f.isDirectory())) { f.mkdirs();}
+			}
+		   JFileChooser fileChooser = new JFileChooser(file);//初始化一个文件路劲选择框
+		   fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		   fileChooser.setCurrentDirectory(file);
+	        fileChooser.setAcceptAllFileFilterUsed(false);
+	  
+	        for (int i = 0; i < filters.length; i++)
+	        {
+	            ExtensionFilter aFilter = filters[i];
+	            //将可选择文件过滤器列表重置为其开始状态。
+	            fileChooser.addChoosableFileFilter(aFilter);
+ 	            fileChooser.setFileFilter(aFilter);
+	        }
+	        int response =  fileChooser.showOpenDialog(null);
+//	        int response = fileChooser.showSaveDialog(null);
+	        File selectedFile = null;
+	        if (response == JFileChooser.APPROVE_OPTION)
+	        {//JFileChooser.APPROVE_OPTION 选择确认（yes、ok）后返回该值。
+	        	this.currentDirectory = fileChooser.getCurrentDirectory();
+	        	selectedFile = fileChooser.getSelectedFile();//返回选中的文件
+	            ExtensionFilter selectedFilter = (ExtensionFilter) fileChooser.getFileFilter();
+	            //定义文件的默认位置
+	            String fullPath = selectedFile.getAbsolutePath();
+	            String extension = selectedFilter.getExtension();
+	            System.out.println("文件后缀："+extension);
+	            
+	            
+	            if (!fullPath.toLowerCase().endsWith(extension)) {
+	                fullPath = fullPath + extension;
+	                selectedFile = new File(fullPath);
+	            }
+	            if (selectedFile.exists())
+	            {
+	                JOptionPane optionPane = new JOptionPane();
+	                optionPane.setMessage(this.overwriteDialogBoxMessage);
+	                optionPane.setOptionType(JOptionPane.YES_NO_OPTION);
+	                optionPane.setIcon(this.overwriteDialogBoxIcon);
+	                this.dialogFactory.showDialog(optionPane, this.overwriteDialogBoxTitle, true);
 
+	                int result = JOptionPane.NO_OPTION;
+	                if (!JOptionPane.UNINITIALIZED_VALUE.equals(optionPane.getValue()))
+	                {
+	                    result = ((Integer) optionPane.getValue()).intValue();
+	                }
+
+	                if (result == JOptionPane.NO_OPTION)
+	                {
+	                    selectedFile = null;
+	                }
+	            }
+	        }
+	        if (response == JFileChooser.CANCEL_OPTION)
+	        {
+	        	this.currentDirectory = fileChooser.getCurrentDirectory();
+	        }
+	        if (selectedFile == null)
+	        {
+	            return null;
+	        }
+	        IFileWriter fsh = new JFileWriter(selectedFile);
+	        return fsh;
+	}
     @Override
     public IFileReader getFileReader(IFile file) throws FileNotFoundException
     {
@@ -137,6 +252,7 @@ public class JFileChooserService implements IFileChooserService
         }
         IFileReader foh = new JFileReader(selectedFile);
         return foh;
+    	
     }
 
     @Override
@@ -145,6 +261,7 @@ public class JFileChooserService implements IFileChooserService
         try
         {
             LocalFile localFile = new LocalFile(file);
+            
             IFileWriter fsh = new JFileWriter(localFile.toFile());
             return fsh;
         }

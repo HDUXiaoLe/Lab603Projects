@@ -24,6 +24,9 @@ package com.horstmann.violet.product.diagram.abstracts.edge;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.lang.reflect.GenericArrayType;
+
+import javax.swing.plaf.SeparatorUI;
 
 import com.horstmann.violet.product.diagram.abstracts.Direction;
 import com.horstmann.violet.product.diagram.abstracts.IGraph;
@@ -46,11 +49,24 @@ public abstract class AbstractEdge implements IEdge
     {
         this.start = startingNode;
     }
-
+    @Override
+    public Rectangle2D getLabelBounds() 
+    {
+	return null;
+	}
+    @Override
+    public void setLabelLocation(Point2D pLocation) {};
+    @Override
+    public void setLabelBounds(Rectangle2D rectangle) {};
     @Override
     public INode getStart()
     {
         return start;
+    }
+    @Override
+    public Point2D getLabelLocation() {
+    	// TODO Auto-generated method stub
+    	return null;
     }
 
     @Override
@@ -61,7 +77,7 @@ public abstract class AbstractEdge implements IEdge
    
     
 
-	
+
 	
 	@Override
 	public void setBelongtoStartFlag(int index) {

@@ -21,7 +21,11 @@
 
 package com.horstmann.violet.application.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,44 +33,43 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 
+import javax.swing.BorderFactory;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+
 import javax.swing.JTree;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreeNode;
+
 
 import com.horstmann.violet.application.menu.FileMenu;
-import com.horstmann.violet.framework.file.GraphFile;
-import com.horstmann.violet.framework.file.IFile;
-import com.horstmann.violet.framework.file.IGraphFile;
-import com.horstmann.violet.framework.file.persistence.IFileReader;
-import com.horstmann.violet.product.diagram.classes.ClassDiagramGraph;
-import com.horstmann.violet.workspace.IWorkspace;
-import com.horstmann.violet.workspace.Workspace;
+import com.l2fprod.common.swing.JTaskPane;
+import com.l2fprod.common.swing.JTaskPaneGroup;
 
 public class ProjectTree extends JPanel
 {
 
-    public ProjectTree(FileMenu fileMenu,MainFrame mainFrame)
+    private MainFrame mainFrame;
+	public ProjectTree(FileMenu fileMenu,MainFrame mainFrame)
     {      
         this.fileMenu = fileMenu;
-        this.mainFrame=mainFrame;
-        this.setBackground(Color.DARK_GRAY);
+        this.mainFrame=mainFrame;    
         setLayout(new GridLayout(1, 1));
-        add(getProjectTree());//添加项目树          
+        init();
+        this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black)
+        		,"建立UML模型",TitledBorder.CENTER,TitledBorder.ABOVE_TOP,
+        		new Font("宋体",Font.BOLD,20),new Color(60, 60, 60)));
+        this.add(projectjTree);
+        setSize(0,0);//不起作用
     } 
-    private JTree getProjectTree()
-    {
-    	init();
-    	return projectjTree;
-    }
+   
     private void init() {
-		// TODO Auto-generated method stub		 		   
-		 
-	       top = new DefaultMutableTreeNode("Project");                  					    
+		// TODO Auto-generated method stub		 		   		 
+	       top = new DefaultMutableTreeNode("UML模型");                  					    
 	       final JMenu newMenu = this.fileMenu.getFileNewMenu();
 	        for (int i = 0; i < newMenu.getItemCount(); i++)
             {      	
@@ -89,36 +92,46 @@ public class ProjectTree extends JPanel
 				    if (e.getButton() == e.BUTTON3) {  //BUTTON3是鼠标右键
 				     final DefaultMutableTreeNode  node =  (DefaultMutableTreeNode)projectjTree.getLastSelectedPathComponent();
 				  
-				     popupMenu=new JPopupMenu();
-				     newDiagram=new JMenuItem("新建");
-				     importDiagram = new JMenuItem("导入");
-				     popupMenu.add(newDiagram);
-				     popupMenu.add(importDiagram);
-				     importDiagram.addActionListener(new ActionListener() {
-							
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								// TODO Auto-generated method stub
-								//导入文件
-								fileMenu.fileOpenItem.doClick();//File目录下的导入标签										                 
-								node.add(new DefaultMutableTreeNode(1));				
-							}
-						});
-				     popupMenu.show(e.getComponent(),e.getX(),e.getY());
+				  
 				      for (int i = 0; i < newMenu.getItemCount(); i++)
 			            {
 				    	  final JMenuItem item = newMenu.getItem(i);
 				    	  for (int j = 0; j < ((JMenu) item).getItemCount(); j++)
 		                    {
-		                        final JMenuItem subItem = ((JMenu) item).getItem(j);		                      
-				    	  if(node.toString().equals(subItem.getText().toLowerCase()))
-				    	  {				    		
-				    		  newDiagram.addActionListener(new ActionListener() {								
+		                  final JMenuItem subItem = ((JMenu) item).getItem(j);		                      
+				    	  if(node.toString().equals(subItem.getText().toLowerCase()))			   		 
+				    	  {		
+				    		   popupMenu=new JPopupMenu();
+							     newDiagram=new JMenuItem("新建");
+							     importDiagram = new JMenuItem("导入");
+							     popupMenu.add(newDiagram);
+							     popupMenu.add(importDiagram);
+							     importDiagram.addActionListener(new ActionListener() {
+										
+										@Override
+										public void actionPerformed(ActionEvent e) {
+											// TODO Auto-generated method stub
+											//导入文件	
+											
+											fileMenu.fileOpenItem.doClick();//File目录下的导入标签										                 
+										    node.add(new DefaultMutableTreeNode("1"));
+//										    repaint();
+//										    updateUI();
+//										    revalidate();
+//										    invalidate();
+										  
+										
+										}
+									});
+							     popupMenu.show(e.getComponent(),e.getX(),e.getY());
+				    		     newDiagram.addActionListener(new ActionListener() {
+				    				
 								@Override
 								public void actionPerformed(ActionEvent e) {
-									// TODO Auto-generated method stub						
-									subItem.doClick();
-			                        node.add(new DefaultMutableTreeNode(new File("1")));						
+									// TODO Auto-generated method stub 
+								 subItem.doClick();
+								 node.add(new DefaultMutableTreeNode(1));
+								 																																	                     			                        
 								}
 							});				    		
 				    	  }
@@ -131,6 +144,8 @@ public class ProjectTree extends JPanel
 				    	  if(node.isLeaf()) //是叶节点
 				    	  {
 				    	     //对node.getUserObject()进行处理;
+				    		  System.out.println(1111);
+				    		 // mainFrame.addTabbedPane(workspace);
 				    	  }
 				    }
 			}});
@@ -141,6 +156,6 @@ public class ProjectTree extends JPanel
 	  public JMenuItem importDiagram;
 	  public JTree projectjTree;	     
       private FileMenu fileMenu;
-      private MainFrame mainFrame;
+     
     
 }

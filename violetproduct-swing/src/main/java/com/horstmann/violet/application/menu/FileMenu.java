@@ -31,6 +31,11 @@ import java.awt.event.FocusListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -49,10 +54,27 @@ import javax.swing.JOptionPane;
 
 import com.horstmann.violet.application.ApplicationStopper;
 import com.horstmann.violet.application.gui.MainFrame;
+import com.horstmann.violet.application.menu.util.CreateActivityDiagramEAXml;
+import com.horstmann.violet.application.menu.util.CreateActivityDiagramVioletXML;
+import com.horstmann.violet.application.menu.util.CreateClassDiagramEAXML;
+import com.horstmann.violet.application.menu.util.CreateClassDiagramVioletXML;
+import com.horstmann.violet.application.menu.util.CreateStateDiagramEAXml;
+import com.horstmann.violet.application.menu.util.CreateStateDiagramVioletXML;
+import com.horstmann.violet.application.menu.util.CreateUseCaseDiagramEAXml;
+import com.horstmann.violet.application.menu.util.CreateUseCaseDiagramVioletXml;
+import com.horstmann.violet.application.menu.util.readActivityXMLFormViolet;
+import com.horstmann.violet.application.menu.util.readActivityXMLFromEA;
+import com.horstmann.violet.application.menu.util.readClassXMLFormViolet;
+import com.horstmann.violet.application.menu.util.readClassXMLFromEA;
+import com.horstmann.violet.application.menu.util.readStateXMLFormViolet;
+import com.horstmann.violet.application.menu.util.readStateXMLFromEA;
+import com.horstmann.violet.application.menu.util.readUcaseXMLFormViolet;
+import com.horstmann.violet.application.menu.util.readUseCaseXMLFromEA;
 import com.horstmann.violet.framework.dialog.DialogFactory;
 import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.framework.file.IFile;
 import com.horstmann.violet.framework.file.IGraphFile;
+import com.horstmann.violet.framework.file.LocalFile;
 import com.horstmann.violet.framework.file.chooser.IFileChooserService;
 import com.horstmann.violet.framework.file.export.FileExportService;
 import com.horstmann.violet.framework.file.naming.ExtensionFilter;
@@ -95,6 +117,7 @@ public class FileMenu extends JMenu
         this.mainFrame = mainFrame;
         createMenu();
         addWindowsClosingListener();
+        
     }
 
     /**
@@ -127,7 +150,8 @@ public class FileMenu extends JMenu
         initFileExportMenu();
         initFilePrintItem();
         initFileExitItem();
-
+        initFileDsaveItem();//张建新加
+        this.add(this.fileDsaveItem);//自定义保存
         this.add(this.fileNewMenu);
         this.add(this.fileOpenItem);
         this.add(this.fileCloseItem);
@@ -410,61 +434,296 @@ public class FileMenu extends JMenu
                         mainFrame.removeDiagramPanel(workspace);
                         userPreferencesService.removeOpenedFile(graphFile);
                     }
-                    List<IWorkspace> workspaceList = mainFrame.getWorkspaceList();
-                    if (workspaceList.size() == 0)
-                    {
-                        mainFrame.requestFocus();
-                    }
+                   // List<IWorkspace> workspaceList = mainFrame.getWorkspaceList();
+//                    if (workspaceList.size() == 0)
+//                    {
+//                        mainFrame.requestFocus();
+//                    }
                 }
             }
         });
     }
-
+    /*
+     * 张建新加
+     */
+    public IFile exchangeFile( IFile selectedFile,IGraphFile graphFile,boolean flag) throws Exception{
+    	String url =selectedFile.getDirectory()+"\\"+selectedFile.getFilename();
+    	String base="D:\\ModelDriverProjectFile";
+    	String type=(selectedFile.getFilename().split("\\."))[1];
+    	String path = null;
+    	File ff=null;
+    	if(flag==true){
+    		 graphFile = new GraphFile(selectedFile);
+    		//选择的文件是平台保存的文件XML格式
+        	if("class".equals(type)){
+        		path=base+"/ClassDiagram/";
+        	 	graphFile.AutoSave(selectedFile, path+"Violet/");
+        		readClassXMLFormViolet rc =new readClassXMLFormViolet(url);
+        		CreateClassDiagramEAXML c =new CreateClassDiagramEAXML();
+        		 ff =new File(path+"EA");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		StringBuffer name = dealEAFileName(selectedFile);
+        		c.create(rc, path+"EA/"+name);
+        	}else if("ucase".equals(type)){
+        		path=base+"/UseCaseDiagram/";
+        		graphFile.AutoSave(selectedFile, path+"Violet/");
+        		readUcaseXMLFormViolet ru =new readUcaseXMLFormViolet(url);
+        		CreateUseCaseDiagramEAXml cu =new CreateUseCaseDiagramEAXml();
+        		ff =new File(path+"EA");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		StringBuffer name = dealEAFileName(selectedFile);
+        		cu.create(ru, path+"EA/"+name);
+        	}else if("seq".equals(type)){
+        		path=base+"/SequenceDiagram/";
+        	}else if("state".equals(type)){
+        		path=base+"/StateDiagram/";
+        		graphFile.AutoSave(selectedFile, path+"Violet/");
+        		readStateXMLFormViolet rs =new readStateXMLFormViolet(url);
+        		CreateStateDiagramEAXml cs =new CreateStateDiagramEAXml();
+        		ff =new File(path+"EA/");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		StringBuffer name = dealEAFileName(selectedFile);
+        		cs.create(rs, path+"EA/"+name);
+        	}else if("timing".equals(type)){
+        		path=base+"/TimingDiagram/";
+        	}else if("uppaal".equals(type)){
+        		path=base+"/UPPAL/";
+        	}else if("activity".equals(type)){
+        		path=base+"/ActivityDiagram/";
+        		graphFile.AutoSave(selectedFile, path+"Violet/");
+        		readActivityXMLFormViolet ra =new readActivityXMLFormViolet(url);
+        		CreateActivityDiagramEAXml ca =new CreateActivityDiagramEAXml();
+        		ff =new File(path+"EA/");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		StringBuffer name = dealEAFileName(selectedFile);
+        		ca.create(ra, path+"EA/"+name);
+        	}else if("object".equals(type)){
+        		path=base+"/ObjectDiagram/";
+        		graphFile.AutoSave(selectedFile, path+"Violet/");
+        		readStateXMLFormViolet rs =new readStateXMLFormViolet(url);
+        		CreateStateDiagramEAXml cs =new CreateStateDiagramEAXml();
+        		 ff =new File(path+"EA/");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		StringBuffer name = dealEAFileName(selectedFile);
+        		cs.create(rs, path+"EA/"+name);
+        	}
+    	}else if(flag==false){
+    		System.out.println("你好");
+    		System.out.println(type);
+    		String name="";
+    		//选择的文件是EA格式的文件 
+    		if("class".equals(type)){
+        		path=base+"/ClassDiagram/";
+        		System.out.println("第一个点");
+        		System.out.println(url);
+        		readClassXMLFromEA rc =new readClassXMLFromEA(url,selectedFile);
+        		System.out.println("哈哈");
+        		CreateClassDiagramVioletXML c =new CreateClassDiagramVioletXML();
+        		ff =new File(path+"Violet/");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		System.out.println("文件名哈哈"+selectedFile.getFilename().replaceAll("EA", ""));
+        		 name=selectedFile.getFilename().replaceAll("EA", "");	
+        		c.create(rc, path+"Violet/"+name);
+        		
+        		
+        	}else if("ucase".equals(type)){
+        		path=base+"/UseCaseDiagram/";
+        		readUseCaseXMLFromEA ru =new readUseCaseXMLFromEA(url,selectedFile);
+        		CreateUseCaseDiagramVioletXml cu =new CreateUseCaseDiagramVioletXml();
+        		ff =new File(path+"Violet/");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		 name=selectedFile.getFilename().replaceAll("EA", "");	
+        		cu.create(ru, path+"Violet/"+name);
+        		
+        		
+        	}else if("seq".equals(type)){
+        		path=base+"/SequenceDiagram/";
+        	}else if("state".equals(type)){
+        		path=base+"/StateDiagram/";
+        		readStateXMLFromEA rs =new readStateXMLFromEA(url,selectedFile);
+        		CreateStateDiagramVioletXML cs =new CreateStateDiagramVioletXML();
+        		ff =new File(path+"Violet");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		name=selectedFile.getFilename().replaceAll("EA", "");	
+        		cs.create(rs, path+"Violet/"+name);
+        	}else if("timing".equals(type)){
+        		path=base+"/TimingDiagram/";
+        	}else if("uppaal".equals(type)){
+        		path=base+"/UPPAL/";
+        	}else if("activity".equals(type)){
+        		path=base+"/ActivityDiagram/";
+        		readActivityXMLFromEA ra =new readActivityXMLFromEA(url,selectedFile);
+        		CreateActivityDiagramVioletXML ca =new CreateActivityDiagramVioletXML();
+        		ff =new File(path+"Violet");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		name=selectedFile.getFilename().replaceAll("EA", "");	
+        		ca.create(ra, path+"Violet/"+name);
+        	}else if("object".equals(type)){
+        		path=base+"/ObjectDiagram/";
+        		readStateXMLFromEA rs =new readStateXMLFromEA(url,selectedFile);
+        		CreateStateDiagramVioletXML cs =new CreateStateDiagramVioletXML();
+        		ff =new File(path+"Violet");
+        		if(!ff.exists()){
+        			ff.mkdirs();
+        		}
+        		name=selectedFile.getFilename().replaceAll("EA", "");	
+        		cs.create(rs, path+"Violet/"+name);
+        	}
+    		File f =new File(path+"Violet/"+name);
+    		deleteFileFirstLine(f);
+    		selectedFile =new LocalFile(f);
+//    		System.out.println("改变的文件"+selectedFile.getDirectory()+"\\"+selectedFile.getFilename());
+//    		graphFile =new GraphFile(selectedFile);
+    	}
+    	
+    	return selectedFile;
+    }
+    /*
+     * 张建
+     */
+    private void deleteFileFirstLine(File f){
+    	try {
+			BufferedReader br =new BufferedReader(new FileReader(f));
+			StringBuffer sb =new StringBuffer(4096);
+//			int line=0;
+//			int num=0;
+			String temp =null;
+			while((temp =br.readLine())!=null){
+//				line++;
+//				if(line==num) continue;
+//				sb.append(temp).append( "\r\n ");
+				if(temp.toString().contains("encoding")&&temp.toString().contains("version"))
+					continue;
+					sb.append(temp).append( "\r\n ");
+			}
+			br.close();
+			BufferedWriter bw =new BufferedWriter(new FileWriter(f));
+			bw.write(sb.toString());
+			bw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    /*
+     * 张建
+     */
+    private StringBuffer dealEAFileName(IFile selectedFile) {
+		String[] ss =selectedFile.getFilename().split("\\.");
+		StringBuffer name=new StringBuffer();
+		name.append("EA"+ss[0]);
+		for (int i = 1; i < ss.length-2; i++) {
+			name.append("."+ss[i]);
+		}
+		name.append("."+ss[ss.length-1]);
+		return name;
+	}
     /**
-     * Init open menu entry
+     * Init open menu entry。张建已改
      */
    public void initFileOpenItem()
     {
-        this.fileOpenItem.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent event)
-            {           	
-                IFile selectedFile = null;
-                try
-                { 
-                    ExtensionFilter[] filters = fileNamingService.getFileFilters();                 
-                    IFileReader fileOpener = fileChooserService.chooseAndGetFileReader(filters);
-                   
-                    if (fileOpener == null)
-                    {
-                        // Action cancelled by user
-                        return;
-                    }
-                 
-                    selectedFile = fileOpener.getFileDefinition();
-                     
-                    IGraphFile graphFile = new GraphFile(selectedFile);
-                
-                    IWorkspace workspace = new Workspace(graphFile);
-                    
-                    mainFrame.addTabbedPane(workspace);
+//        this.fileOpenItem.addActionListener(new ActionListener()
+//        {
+//            public void actionPerformed(ActionEvent event)
+//            {           	
+//                IFile selectedFile = null;
+//                try
+//                { 
+//                    ExtensionFilter[] filters = fileNamingService.getFileFilters();                 
+//                    IFileReader fileOpener = fileChooserService.chooseAndGetFileReader(filters);
+//                   
+//                    if (fileOpener == null)
+//                    {
+//                        // Action cancelled by user
+//                        return;
+//                    }
+//                 
+//                    selectedFile = fileOpener.getFileDefinition();
+//                     
+//                    IGraphFile graphFile = new GraphFile(selectedFile);
+//                
+//                    IWorkspace workspace = new Workspace(graphFile);
+//                    
+//                    mainFrame.addTabbedPane(workspace);
+//                  
+//                    userPreferencesService.addOpenedFile(graphFile);
+//                    userPreferencesService.addRecentFile(graphFile);
+//                }
+//                catch (StreamException se)
+//                {
+//                    dialogFactory.showErrorDialog(dialogOpenFileIncompatibilityMessage);
+//                }
+//                catch (Exception e)
+//                {
+//                    dialogFactory.showErrorDialog(dialogOpenFileErrorMessage + " : " + e.getMessage());
+//                }
+//            }
+//        });
+//        if (this.fileChooserService == null) this.fileOpenItem.setEnabled(false);
+	   this.fileOpenItem.addActionListener(new ActionListener()
+       {
+           public void actionPerformed(ActionEvent event)
+           {	
+               IFile selectedFile = null;
+               try
+               {
+                   ExtensionFilter[] filters = fileNamingService.getFileFilters();
+                   IFileReader fileOpener = fileChooserService.chooseAndGetFileReader(filters);//弹出文件框
+                   if (fileOpener == null)
+                   {
+                       // Action cancelled by user
+                       return;
+                   }
+                   selectedFile = fileOpener.getFileDefinition();//返回一个绝对路径的文件   
+                   boolean flag=!(selectedFile.getFilename().contains("EA"));//是EA格式的文件
+                   System.out.println(flag);
+                   //如果是平台保存的XML文件
+                   IGraphFile graphFile = null;
+//                 //增加转换的方法
+                   System.out.println("1");
+                   selectedFile= exchangeFile(selectedFile, graphFile , flag);
+                   System.out.println("2");
+                   graphFile = new GraphFile(selectedFile);
+                   System.out.println("3");
                   
-                    userPreferencesService.addOpenedFile(graphFile);
-                    userPreferencesService.addRecentFile(graphFile);
-                }
-                catch (StreamException se)
-                {
-                    dialogFactory.showErrorDialog(dialogOpenFileIncompatibilityMessage);
-                }
-                catch (Exception e)
-                {
-                    dialogFactory.showErrorDialog(dialogOpenFileErrorMessage + " : " + e.getMessage());
-                }
-            }
-        });
-        if (this.fileChooserService == null) this.fileOpenItem.setEnabled(false);
-    }
+                   //显示文件图形
+                   IWorkspace workspace = new Workspace(graphFile);
+                   mainFrame.addTabbedPane(workspace);
+                   userPreferencesService.addOpenedFile(graphFile);
+                   userPreferencesService.addRecentFile(graphFile);
+               }
+               catch (StreamException se)
+               {
+                   dialogFactory.showErrorDialog(dialogOpenFileIncompatibilityMessage);
+               }
+               catch (Exception e)
+               {
+                   dialogFactory.showErrorDialog(dialogOpenFileErrorMessage + " : " + e.getMessage());
+               }
+           }
+       });
+       if (this.fileChooserService == null) this.fileOpenItem.setEnabled(false);
 
+    }
+      
     /**
      * Init new menu entry
      */
@@ -627,6 +886,28 @@ public class FileMenu extends JMenu
             return null;
         }
     }
+   /*
+    * 张建新加
+    */
+        private void initFileDsaveItem()
+        {
+            this.fileDsaveItem.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e)
+                {
+                    IWorkspace workspace = mainFrame.getActiveWorkspace();
+                    if (workspace != null)
+                    {
+                        IGraphFile graphFile = workspace.getGraphFile();
+                        graphFile.dsave();
+                    }
+                }
+            });
+            if (this.fileChooserService == null || (this.fileChooserService != null && this.fileChooserService.isWebStart()))
+            {
+                this.fileDsaveItem.setEnabled(false);
+            }
+        }
 
     /** The file chooser to use with with menu */
     @InjectedBean
@@ -664,6 +945,9 @@ public class FileMenu extends JMenu
     @ResourceBundleBean(key = "file.open")
     public JMenuItem fileOpenItem;
 
+    @ResourceBundleBean(key="file.dsave")
+    private JMenuItem fileDsaveItem;
+    
     @ResourceBundleBean(key = "file.recent")
     private JMenu fileRecentMenu;
 

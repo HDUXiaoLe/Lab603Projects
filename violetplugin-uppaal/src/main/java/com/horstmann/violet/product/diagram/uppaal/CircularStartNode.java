@@ -14,7 +14,7 @@ public class CircularStartNode extends EllipticalNode{
 	
 	    public CircularStartNode()
 	    {
-		  name = new MultiLineString();
+		  name = new String();
 	    } 
 	    @Override
 	    public Rectangle2D getBounds()
@@ -56,23 +56,18 @@ public class CircularStartNode extends EllipticalNode{
 
 	        // Restore first color
 	        g2.setColor(oldColor);
-	        name.draw(g2, getBounds());
+	        g2.drawString(name,(int)getBounds().getX(),(int)getBounds().getY());
 	    }
-	    public void setName(MultiLineString newValue)
+	    public void setName(String newValue)
 	    {
 	    	name = newValue;
 	    }
-	    public MultiLineString getName()
+	    public String getName()
 	    {
 	    	return name;
 	    }
-	    public CircularStartNode clone()
-	    {
-	    	CircularStartNode cloned =(CircularStartNode)super.clone();
-	    	cloned.name=name.clone();
-	    	return cloned;
-	    }
-        private MultiLineString name;
+	
+        private String name;
 	    /** default node diameter */
 	    private static int DEFAULT_DIAMETER = 29;
 
