@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">operator:_init|null</name></location><location id="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_roll:set_radio_in(int)|null</name></location><location id="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_pitch:set_radio_in(int)|null</name></location><location id="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_yaw:set_radio_in(int)|null</name></location><location id="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_throttle:set_radio_in(int)|null</name></location><location id="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC" x="30" y="30"><name x="30" y="30">channel_mode:set_radio_in(int)|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_yaw_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_init_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_pitch_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_init_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_roll_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_init_7688215B_3B50_456d_BAF9_5F949CA955E9" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_throttle_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_init_FB272394_8F60_4e98_9B93_19EE13212CDC" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_mode_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29" timeDuration="null"><source ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><target ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_pitch_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6" timeDuration="null"><source ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><target ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_roll_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4_7688215B_3B50_456d_BAF9_5F949CA955E9" timeDuration="null"><source ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><target ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_throttle_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4_FB272394_8F60_4e98_9B93_19EE13212CDC" timeDuration="null"><source ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><target ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_mode_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4" timeDuration="null"><source ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><target ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_yaw_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6" timeDuration="null"><source ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><target ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_roll_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29_7688215B_3B50_456d_BAF9_5F949CA955E9" timeDuration="null"><source ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><target ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_throttle_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29_FB272394_8F60_4e98_9B93_19EE13212CDC" timeDuration="null"><source ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><target ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_mode_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4" timeDuration="null"><source ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><target ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_yaw_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29" timeDuration="null"><source ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><target ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_pitch_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6_7688215B_3B50_456d_BAF9_5F949CA955E9" timeDuration="null"><source ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><target ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_throttle_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6_FB272394_8F60_4e98_9B93_19EE13212CDC" timeDuration="null"><source ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><target ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_mode_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_7688215B_3B50_456d_BAF9_5F949CA955E9_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4" timeDuration="null"><source ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><target ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_yaw_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_7688215B_3B50_456d_BAF9_5F949CA955E9_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29" timeDuration="null"><source ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><target ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_pitch_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_7688215B_3B50_456d_BAF9_5F949CA955E9_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6" timeDuration="null"><source ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><target ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_roll_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_7688215B_3B50_456d_BAF9_5F949CA955E9_FB272394_8F60_4e98_9B93_19EE13212CDC" timeDuration="null"><source ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><target ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_mode_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_FB272394_8F60_4e98_9B93_19EE13212CDC_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4" timeDuration="null"><source ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><target ref="loc_id_AF7908A4_305C_4aa3_9E6F_05D983FF1CC4"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_yaw_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_FB272394_8F60_4e98_9B93_19EE13212CDC_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29" timeDuration="null"><source ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><target ref="loc_id_C0EC3CF3_C7E4_4ddd_8D5A_2977B96B6B29"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_pitch_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_FB272394_8F60_4e98_9B93_19EE13212CDC_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6" timeDuration="null"><source ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><target ref="loc_id_6C4EEF72_37A9_46f5_B832_A8160E9FF9F6"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_roll_input
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_FB272394_8F60_4e98_9B93_19EE13212CDC_7688215B_3B50_456d_BAF9_5F949CA955E9" timeDuration="null"><source ref="loc_id_FB272394_8F60_4e98_9B93_19EE13212CDC"/><target ref="loc_id_7688215B_3B50_456d_BAF9_5F949CA955E9"/><label kind="synchronisation" x="30" y="30">set_radio_in(int)[par]/channel_throttle_input
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

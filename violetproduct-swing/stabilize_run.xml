@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:stabilize_run(int)|null</name></location><location id="loc_id_93EF70AE_1341_466a_AD6A_34861A2749AD" x="30" y="30" timeDuration="null"><name x="30" y="30">attitude_control:set_throttle_out_unstabilized(float, bool, float)|null</name></location><location id="loc_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_stabilizing(bool)|null</name></location><location id="loc_id_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_throttle(float)|null</name></location><location id="loc_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:desired_lean_angles(int, int)|null</name></location><location id="loc_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:desired_yaw_rate(int, int)|null</name></location><location id="loc_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:desired_throttle(int, int)|null</name></location><location id="loc_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A" x="30" y="30" timeDuration="null"><name x="30" y="30">attitude_control:angle_ef_roll_pitch_rate_ef_yaw_smooth(float, float, float, AP_AHRS)|null</name></location><location id="loc_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_stabilizing(bool)|null</name></location><location id="loc_id_FDA10C47_C536_482a_BCD4_741122F33C2A" x="30" y="30"><name x="30" y="30">_motorsmanager:set_throttle(float)|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_91EAF812_C964_4c49_8ADF_8508EC8A995B" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B"/><label kind="synchronisation" x="30" y="30">stabilize_run(int)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_93EF70AE_1341_466a_AD6A_34861A2749AD" timeDuration="null"><source ref="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B"/><target ref="loc_id_93EF70AE_1341_466a_AD6A_34861A2749AD"/><label kind="synchronisation" x="30" y="30">set_throttle_out_unstabilized(float, bool, float)[alt]/copter.is_armed==false || copter.ap.throttle_zero==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4" T1="0" T2="0" timeDuration="null"><source ref="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B"/><target ref="loc_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4"/><label kind="synchronisation" x="30" y="30">desired_lean_angles(int, int)![alt]/else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_93EF70AE_1341_466a_AD6A_34861A2749AD_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC" timeDuration="null"><source ref="loc_id_93EF70AE_1341_466a_AD6A_34861A2749AD"/><target ref="loc_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC"/><label kind="synchronisation" x="30" y="30">set_stabilizing(bool)[alt]/copter.is_armed==false || copter.ap.throttle_zero==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E" timeDuration="null"><source ref="loc_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC"/><target ref="loc_id_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E"/><label kind="synchronisation" x="30" y="30">set_throttle(float)[alt]/copter.is_armed==false || copter.ap.throttle_zero==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4_C8A19E8A_240B_4fd8_A033_7D70E11BF42E" timeDuration="null"><source ref="loc_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4"/><target ref="loc_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E"/><label kind="synchronisation" x="30" y="30">desired_yaw_rate(int, int)?[alt]/else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7" T1="0" T2="0" timeDuration="null"><source ref="loc_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E"/><target ref="loc_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7"/><label kind="synchronisation" x="30" y="30">desired_throttle(int, int)![alt]/else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7_5681AA41_3965_4aed_83E2_6BFE4B646F7A" timeDuration="null"><source ref="loc_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7"/><target ref="loc_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A"/><label kind="synchronisation" x="30" y="30">angle_ef_roll_pitch_rate_ef_yaw_smooth(float, float, float, AP_AHRS)?[alt]/else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A_A6660587_6621_4f3d_8BB8_BC6FB014FA3E" timeDuration="null"><source ref="loc_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A"/><target ref="loc_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E"/><label kind="synchronisation" x="30" y="30">set_stabilizing(bool)[alt]/else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E_FDA10C47_C536_482a_BCD4_741122F33C2A" timeDuration="null"><source ref="loc_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E"/><target ref="loc_id_FDA10C47_C536_482a_BCD4_741122F33C2A"/><label kind="synchronisation" x="30" y="30">set_throttle(float)[alt]/else
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

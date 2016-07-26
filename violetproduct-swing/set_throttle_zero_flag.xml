@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_1CBB0377_202B_489e_A4AC_7BBC3AB60905" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:check_throttle_zero(int)|null</name></location><location id="loc_id_64F8AF99_1A6C_49c9_AF1E_416992581BE8" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_throttle:throttle_control_in_zero|null</name></location><location id="loc_id_B418E273_7F93_4800_B7F0_A91EACD78F0A" x="30" y="30"><name x="30" y="30">operator:output|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_1CBB0377_202B_489e_A4AC_7BBC3AB60905" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_1CBB0377_202B_489e_A4AC_7BBC3AB60905"/><label kind="synchronisation" x="30" y="30">check_throttle_zero(int)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_1CBB0377_202B_489e_A4AC_7BBC3AB60905_64F8AF99_1A6C_49c9_AF1E_416992581BE8" timeDuration="null"><source ref="loc_id_1CBB0377_202B_489e_A4AC_7BBC3AB60905"/><target ref="loc_id_64F8AF99_1A6C_49c9_AF1E_416992581BE8"/><label kind="synchronisation" x="30" y="30">throttle_control_in_zero
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_64F8AF99_1A6C_49c9_AF1E_416992581BE8_B418E273_7F93_4800_B7F0_A91EACD78F0A" timeDuration="null"><source ref="loc_id_64F8AF99_1A6C_49c9_AF1E_416992581BE8"/><target ref="loc_id_B418E273_7F93_4800_B7F0_A91EACD78F0A"/><label kind="synchronisation" x="30" y="30">output
+time:null
+in:null
+out:channel_throttle.last_nonzero_throttle_ms.copter.ap.throttle_zero;</label></transition></template><system>system template_;</system></nta>

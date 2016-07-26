@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">operator:_init|null</name></location><location id="loc_id_290C55FE_F2C4_44a3_9183_41A7E4A6884F" x="30" y="30"><name x="30" y="30">way_point:set_way_point(int, int, int)|null</name></location><location id="loc_id_94940DEC_346D_4555_B2E7_CDCFE8775845" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:get_motors_status|null</name></location><location id="loc_id_1DC7F79B_CB88_4808_A49B_7C4E34D0F72E" x="30" y="30"><name x="30" y="30">operator:display|null</name></location><location id="loc_id_C00E9380_14C5_459a_88D8_B98FC2A10F98" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:battery_failsafe_status|null</name></location><location id="loc_id_6681FFE0_28D6_4312_B72F_59F8906F2160" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:set_mode(int)|null</name></location><location id="loc_id_C6D118F5_C1C5_4143_9C1D_3A0C02905162" x="30" y="30"><name x="30" y="30">operator:display|null</name></location><location id="loc_id_784B0645_F634_4b22_9BE1_43D8746F20B0" x="30" y="30"><name x="30" y="30">way_point:null|null</name></location><location id="loc_id_8DB34FF6_3AD1_491c_8217_34CB925DC6BA" x="30" y="30"><name x="30" y="30">copter:get_current_alt|null</name></location><location id="loc_id_B505718E_AF53_48f4_89E2_5132DFD655DD" x="30" y="30"><name x="30" y="30">GPS_monitor:get_current_xy|null</name></location><location id="loc_id_470477CF_B7DC_40b6_B6C1_F9D1F19CD1BC" x="30" y="30" timeDuration="null"><name x="30" y="30">operator:display|null</name></location><location id="loc_id_905F9D8E_C520_45fc_B78B_9BEF9541D2DF" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_target_roll_pitch_yaw|null</name></location><location id="loc_id_298D6D16_B1FA_4065_B25A_5AD64B85D19A" x="30" y="30"><name x="30" y="30">motors:send_motors_output|null</name></location><location id="loc_id_97456479_0268_451f_A0DA_E3023DFDE161" x="30" y="30" timeDuration="null"><name x="30" y="30">way_point:waypoint_is_arrived()|null</name></location><location id="loc_id_AEA00FE7_BA51_4dc6_8018_AE53CDA0C81A" x="30" y="30"><name x="30" y="30">copter:set_mode(int)|null</name></location><location id="loc_id_211551B9_8670_42dc_8DF3_68A487ED9856" x="30" y="30"><name x="30" y="30">operator:display|null</name></location><location id="loc_id_F428A36D_3C2B_4740_A02B_1DE41E488847" x="30" y="30"><name x="30" y="30">way_point:null|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_290C55FE_F2C4_44a3_9183_41A7E4A6884F" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_290C55FE_F2C4_44a3_9183_41A7E4A6884F"/><label kind="synchronisation" x="30" y="30">set_way_point(int, int, int)
+time:null
+in:null
+out:void;params=;paramsDlg=x, y, z;</label></transition><transition id="tran_id_290C55FE_F2C4_44a3_9183_41A7E4A6884F_94940DEC_346D_4555_B2E7_CDCFE8775845"><source ref="loc_id_290C55FE_F2C4_44a3_9183_41A7E4A6884F"/><target ref="loc_id_94940DEC_346D_4555_B2E7_CDCFE8775845"/><label kind="synchronisation" x="30" y="30">get_motors_status
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_94940DEC_346D_4555_B2E7_CDCFE8775845_1DC7F79B_CB88_4808_A49B_7C4E34D0F72E" timeDuration="null"><source ref="loc_id_94940DEC_346D_4555_B2E7_CDCFE8775845"/><target ref="loc_id_1DC7F79B_CB88_4808_A49B_7C4E34D0F72E"/><label kind="synchronisation" x="30" y="30">display[alt]/waypoint.is_armed==false
+time:null
+in:null
+out:not armed;</label></transition><transition id="tran_id_94940DEC_346D_4555_B2E7_CDCFE8775845_C00E9380_14C5_459a_88D8_B98FC2A10F98"><source ref="loc_id_94940DEC_346D_4555_B2E7_CDCFE8775845"/><target ref="loc_id_C00E9380_14C5_459a_88D8_B98FC2A10F98"/><label kind="synchronisation" x="30" y="30">battery_failsafe_status[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C00E9380_14C5_459a_88D8_B98FC2A10F98_6681FFE0_28D6_4312_B72F_59F8906F2160" timeDuration="null"><source ref="loc_id_C00E9380_14C5_459a_88D8_B98FC2A10F98"/><target ref="loc_id_6681FFE0_28D6_4312_B72F_59F8906F2160"/><label kind="synchronisation" x="30" y="30">set_mode(int)[alt-loop-opt]/waypoint.is_armed==true--cycle==50ms--way_point.failsafe==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C00E9380_14C5_459a_88D8_B98FC2A10F98_8DB34FF6_3AD1_491c_8217_34CB925DC6BA"><source ref="loc_id_C00E9380_14C5_459a_88D8_B98FC2A10F98"/><target ref="loc_id_8DB34FF6_3AD1_491c_8217_34CB925DC6BA"/><label kind="synchronisation" x="30" y="30">get_current_alt[alt-loop]/waypoint.is_armed==true--cycle==50ms--!(way_point.failsafe==true)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_6681FFE0_28D6_4312_B72F_59F8906F2160_C6D118F5_C1C5_4143_9C1D_3A0C02905162" timeDuration="null"><source ref="loc_id_6681FFE0_28D6_4312_B72F_59F8906F2160"/><target ref="loc_id_C6D118F5_C1C5_4143_9C1D_3A0C02905162"/><label kind="synchronisation" x="30" y="30">display[alt-loop-opt]/waypoint.is_armed==true--cycle==50ms--way_point.failsafe==true
+time:null
+in:null
+out:battery failsafe,copter.control_mode;</label></transition><transition id="tran_id_C6D118F5_C1C5_4143_9C1D_3A0C02905162_784B0645_F634_4b22_9BE1_43D8746F20B0" T1="0" T2="0"><source ref="loc_id_C6D118F5_C1C5_4143_9C1D_3A0C02905162"/><target ref="loc_id_784B0645_F634_4b22_9BE1_43D8746F20B0"/><label kind="synchronisation" x="30" y="30">null![alt-loop-opt]/waypoint.is_armed==true--cycle==50ms--way_point.failsafe==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_784B0645_F634_4b22_9BE1_43D8746F20B0_8DB34FF6_3AD1_491c_8217_34CB925DC6BA"><source ref="loc_id_784B0645_F634_4b22_9BE1_43D8746F20B0"/><target ref="loc_id_8DB34FF6_3AD1_491c_8217_34CB925DC6BA"/><label kind="synchronisation" x="30" y="30">get_current_alt?[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_8DB34FF6_3AD1_491c_8217_34CB925DC6BA_B505718E_AF53_48f4_89E2_5132DFD655DD"><source ref="loc_id_8DB34FF6_3AD1_491c_8217_34CB925DC6BA"/><target ref="loc_id_B505718E_AF53_48f4_89E2_5132DFD655DD"/><label kind="synchronisation" x="30" y="30">get_current_xy[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_B505718E_AF53_48f4_89E2_5132DFD655DD_470477CF_B7DC_40b6_B6C1_F9D1F19CD1BC"><source ref="loc_id_B505718E_AF53_48f4_89E2_5132DFD655DD"/><target ref="loc_id_470477CF_B7DC_40b6_B6C1_F9D1F19CD1BC"/><label kind="synchronisation" x="30" y="30">display[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_470477CF_B7DC_40b6_B6C1_F9D1F19CD1BC_905F9D8E_C520_45fc_B78B_9BEF9541D2DF" timeDuration="null"><source ref="loc_id_470477CF_B7DC_40b6_B6C1_F9D1F19CD1BC"/><target ref="loc_id_905F9D8E_C520_45fc_B78B_9BEF9541D2DF"/><label kind="synchronisation" x="30" y="30">set_target_roll_pitch_yaw[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_905F9D8E_C520_45fc_B78B_9BEF9541D2DF_298D6D16_B1FA_4065_B25A_5AD64B85D19A" timeDuration="null"><source ref="loc_id_905F9D8E_C520_45fc_B78B_9BEF9541D2DF"/><target ref="loc_id_298D6D16_B1FA_4065_B25A_5AD64B85D19A"/><label kind="synchronisation" x="30" y="30">send_motors_output[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:motor1_pwm,motor2_pwm,motor3_pwm,motor4_pwm;</label></transition><transition id="tran_id_298D6D16_B1FA_4065_B25A_5AD64B85D19A_97456479_0268_451f_A0DA_E3023DFDE161" T1="0" T2="0"><source ref="loc_id_298D6D16_B1FA_4065_B25A_5AD64B85D19A"/><target ref="loc_id_97456479_0268_451f_A0DA_E3023DFDE161"/><label kind="synchronisation" x="30" y="30">waypoint_is_arrived()![alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_97456479_0268_451f_A0DA_E3023DFDE161_C00E9380_14C5_459a_88D8_B98FC2A10F98"><source ref="loc_id_97456479_0268_451f_A0DA_E3023DFDE161"/><target ref="loc_id_C00E9380_14C5_459a_88D8_B98FC2A10F98"/><label kind="synchronisation" x="30" y="30">battery_failsafe_status[alt-loop]/waypoint.is_armed==true--cycle==50ms--!(waypoint.is_arrived==true)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_97456479_0268_451f_A0DA_E3023DFDE161_AEA00FE7_BA51_4dc6_8018_AE53CDA0C81A" timeDuration="null"><source ref="loc_id_97456479_0268_451f_A0DA_E3023DFDE161"/><target ref="loc_id_AEA00FE7_BA51_4dc6_8018_AE53CDA0C81A"/><label kind="synchronisation" x="30" y="30">set_mode(int)?[alt-loop-opt]/waypoint.is_armed==true--cycle==50ms--waypoint.is_arrived==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AEA00FE7_BA51_4dc6_8018_AE53CDA0C81A_211551B9_8670_42dc_8DF3_68A487ED9856"><source ref="loc_id_AEA00FE7_BA51_4dc6_8018_AE53CDA0C81A"/><target ref="loc_id_211551B9_8670_42dc_8DF3_68A487ED9856"/><label kind="synchronisation" x="30" y="30">display[alt-loop-opt]/waypoint.is_armed==true--cycle==50ms--waypoint.is_arrived==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_211551B9_8670_42dc_8DF3_68A487ED9856_F428A36D_3C2B_4740_A02B_1DE41E488847"><source ref="loc_id_211551B9_8670_42dc_8DF3_68A487ED9856"/><target ref="loc_id_F428A36D_3C2B_4740_A02B_1DE41E488847"/><label kind="synchronisation" x="30" y="30">null!?[alt-loop-opt]/waypoint.is_armed==true--cycle==50ms--waypoint.is_arrived==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_F428A36D_3C2B_4740_A02B_1DE41E488847_C00E9380_14C5_459a_88D8_B98FC2A10F98"><source ref="loc_id_F428A36D_3C2B_4740_A02B_1DE41E488847"/><target ref="loc_id_C00E9380_14C5_459a_88D8_B98FC2A10F98"/><label kind="synchronisation" x="30" y="30">battery_failsafe_status[alt-loop]/waypoint.is_armed==true--cycle==50ms
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B" x="30" y="30"><name x="30" y="30">copter:read_barometer()|null</name></location><location id="loc_id_6D5C4063_EAED_4850_9111_3B2EAB2402D2" x="30" y="30" timeDuration="t&lt;0.5s;"><name x="30" y="30">barometer:update()|t&lt;0.5s;</name></location><location id="loc_id_CD20D824_C44A_4437_9B00_04F616EE058F" x="30" y="30" timeDuration="null"><name x="30" y="30">baro:_copy_to_frontend|null</name></location><location id="loc_id_D81FBD28_B1A1_447a_8B65_3DDE923D6D44" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:set_baro_copter_param(AP_Baro)|null</name></location><location id="loc_id_8A970084_D8C8_4c47_9F57_182B2871B53E" x="30" y="30"><name x="30" y="30">operator:show|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B"><source ref="loc_id_init"/><target ref="loc_id_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B"/><label kind="synchronisation" x="30" y="30">read_barometer()[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B_6D5C4063_EAED_4850_9111_3B2EAB2402D2"><source ref="loc_id_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B"/><target ref="loc_id_6D5C4063_EAED_4850_9111_3B2EAB2402D2"/><label kind="synchronisation" x="30" y="30">update()[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_6D5C4063_EAED_4850_9111_3B2EAB2402D2_CD20D824_C44A_4437_9B00_04F616EE058F" timeDuration="null"><source ref="loc_id_6D5C4063_EAED_4850_9111_3B2EAB2402D2"/><target ref="loc_id_CD20D824_C44A_4437_9B00_04F616EE058F"/><label kind="synchronisation" x="30" y="30">_copy_to_frontend[loop]/cycle=100ms
+time:null
+in:barometer.pressure,barometer.temperature,barometer.last_update_ms;
+out:null</label></transition><transition id="tran_id_CD20D824_C44A_4437_9B00_04F616EE058F_D81FBD28_B1A1_447a_8B65_3DDE923D6D44" timeDuration="null"><source ref="loc_id_CD20D824_C44A_4437_9B00_04F616EE058F"/><target ref="loc_id_D81FBD28_B1A1_447a_8B65_3DDE923D6D44"/><label kind="synchronisation" x="30" y="30">set_baro_copter_param(AP_Baro)[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_D81FBD28_B1A1_447a_8B65_3DDE923D6D44_8A970084_D8C8_4c47_9F57_182B2871B53E" timeDuration="null"><source ref="loc_id_D81FBD28_B1A1_447a_8B65_3DDE923D6D44"/><target ref="loc_id_8A970084_D8C8_4c47_9F57_182B2871B53E"/><label kind="synchronisation" x="30" y="30">show[loop]/cycle=100ms
+time:null
+in:null
+out:"copter.baro_alt,copter.baro_climbrate";</label></transition><transition id="tran_id_8A970084_D8C8_4c47_9F57_182B2871B53E_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B"><source ref="loc_id_8A970084_D8C8_4c47_9F57_182B2871B53E"/><target ref="loc_id_398D08B9_3CF1_4ab9_89A9_B4A97CE8BD7B"/><label kind="synchronisation" x="30" y="30">read_barometer()[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

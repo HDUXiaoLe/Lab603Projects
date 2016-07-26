@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_BA618469_DB7F_428e_8B38_00181055160B" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:fast_loop(int)|null</name></location><location id="loc_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0_4" x="30" y="30"><name x="30" y="30">ahrs:update(int)|null</name></location><location id="loc_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA_4" x="30" y="30" timeDuration="null"><name x="30" y="30">ins:update()|null</name></location><location id="loc_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA_4" x="30" y="30" timeDuration="null"><name x="30" y="30">imu:_get_gyro_sample|null</name></location><location id="loc_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D_4" x="30" y="30" timeDuration="t&lt;0.2s;"><name x="30" y="30">imu:_get_accel_sample|t&lt;0.2s;</name></location><location id="loc_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E_4" x="30" y="30" timeDuration="null"><name x="30" y="30">ahrs:calculate(AP_InertialSensor)|null</name></location><location id="loc_id_5F472714_968E_46ce_BA5C_72DAAB1C7811_4" x="30" y="30" timeDuration="null"><name x="30" y="30">operator:output|null</name></location><location id="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_5" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:stabilize_run(int)|null</name></location><location id="loc_id_93EF70AE_1341_466a_AD6A_34861A2749AD_5" x="30" y="30" timeDuration="null"><name x="30" y="30">attitude_control:set_throttle_out_unstabilized(float, bool, float)|null</name></location><location id="loc_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC_5" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_stabilizing(bool)|null</name></location><location id="loc_id_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E_5" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_throttle(float)|null</name></location><location id="loc_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4_5" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:desired_lean_angles(int, int)|null</name></location><location id="loc_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E_5" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:desired_yaw_rate(int, int)|null</name></location><location id="loc_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7_5" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:desired_throttle(int, int)|null</name></location><location id="loc_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A_5" x="30" y="30" timeDuration="null"><name x="30" y="30">attitude_control:angle_ef_roll_pitch_rate_ef_yaw_smooth(float, float, float, AP_AHRS)|null</name></location><location id="loc_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E_5" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_stabilizing(bool)|null</name></location><location id="loc_id_FDA10C47_C536_482a_BCD4_741122F33C2A_5" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_throttle(float)|null</name></location><location id="loc_id_158F92A1_8162_4008_ADEB_531044BC4CD7" x="30" y="30" timeDuration="null"><name x="30" y="30">attitude_control:rate_controller_run(Vector3f, AP_AHRS)|null</name></location><location id="loc_id_037B161D_5AB6_45e3_BFC9_0DE16C014E0B" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_roll(int)|null</name></location><location id="loc_id_A44C5670_2AEC_4c60_B141_5302C09B8D47" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_pitch(int)|null</name></location><location id="loc_id_8CC8547C_6736_4158_BA2B_43BCE64B77F0" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:set_yaw(int)|null</name></location><location id="loc_id_067D9E6E_4F03_49e3_BDDD_0F19A6EAFBE9" x="30" y="30" timeDuration="null"><name x="30" y="30">_motorsmanager:out_put(bool, int, int, int, int)|null</name></location><location id="loc_id_6B722437_5C55_4b0d_87B5_BEDA71BF92AD" x="30" y="30"><name x="30" y="30">motors:send|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_BA618469_DB7F_428e_8B38_00181055160B" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_BA618469_DB7F_428e_8B38_00181055160B"/><label kind="synchronisation" x="30" y="30">fast_loop(int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_BA618469_DB7F_428e_8B38_00181055160B_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0_4" timeDuration="null"><source ref="loc_id_BA618469_DB7F_428e_8B38_00181055160B"/><target ref="loc_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0_4"/><label kind="synchronisation" x="30" y="30">update(int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0_4_E097428A_ED04_4ca5_ABEB_5EA6759596CA_4"><source ref="loc_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0_4"/><target ref="loc_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA_4"/><label kind="synchronisation" x="30" y="30">update()[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA_4_961F1EB0_EE28_4bed_B4E0_6193C7290CEA_4" timeDuration="null"><source ref="loc_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA_4"/><target ref="loc_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA_4"/><label kind="synchronisation" x="30" y="30">_get_gyro_sample[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA_4_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D_4" timeDuration="null"><source ref="loc_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA_4"/><target ref="loc_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D_4"/><label kind="synchronisation" x="30" y="30">_get_accel_sample[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D_4_78D6F6D2_01F4_4acd_9E77_05D826CA184E_4" T1="0" T2="0" timeDuration="null"><source ref="loc_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D_4"/><target ref="loc_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E_4"/><label kind="synchronisation" x="30" y="30">calculate(AP_InertialSensor)![alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E_4_5F472714_968E_46ce_BA5C_72DAAB1C7811_4" timeDuration="null"><source ref="loc_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E_4"/><target ref="loc_id_5F472714_968E_46ce_BA5C_72DAAB1C7811_4"/><label kind="synchronisation" x="30" y="30">output?[alt]/cycle=2.5ms
+time:null
+in:null
+out:ahrs.roll_sensor,ahrs.pitch_sensor,ahrs.yaw_sensor,ahrs.roll,ahrs.pitch,ahrs.yaw;</label></transition><transition id="tran_id_5F472714_968E_46ce_BA5C_72DAAB1C7811_4_91EAF812_C964_4c49_8ADF_8508EC8A995B_5" timeDuration="null"><source ref="loc_id_5F472714_968E_46ce_BA5C_72DAAB1C7811_4"/><target ref="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_5"/><label kind="synchronisation" x="30" y="30">stabilize_run(int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_5_93EF70AE_1341_466a_AD6A_34861A2749AD_5" timeDuration="null"><source ref="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_5"/><target ref="loc_id_93EF70AE_1341_466a_AD6A_34861A2749AD_5"/><label kind="synchronisation" x="30" y="30">set_throttle_out_unstabilized(float, bool, float)[alt-alt]/cycle=2.5ms--copter.is_armed==false || copter.ap.throttle_zero==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_5_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4_5" T1="0" T2="0" timeDuration="null"><source ref="loc_id_91EAF812_C964_4c49_8ADF_8508EC8A995B_5"/><target ref="loc_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4_5"/><label kind="synchronisation" x="30" y="30">desired_lean_angles(int, int)![alt-alt]/cycle=2.5ms--else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_93EF70AE_1341_466a_AD6A_34861A2749AD_5_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC_5" timeDuration="null"><source ref="loc_id_93EF70AE_1341_466a_AD6A_34861A2749AD_5"/><target ref="loc_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC_5"/><label kind="synchronisation" x="30" y="30">set_stabilizing(bool)[alt-alt]/cycle=2.5ms--copter.is_armed==false || copter.ap.throttle_zero==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC_5_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E_5" timeDuration="null"><source ref="loc_id_5C6CE24E_7C3E_44b6_A954_0B69D5CC2DEC_5"/><target ref="loc_id_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E_5"/><label kind="synchronisation" x="30" y="30">set_throttle(float)[alt-alt]/cycle=2.5ms--copter.is_armed==false || copter.ap.throttle_zero==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E_5_158F92A1_8162_4008_ADEB_531044BC4CD7" timeDuration="null"><source ref="loc_id_F3224A1E_BB49_495c_BBD5_EBBAD1BD219E_5"/><target ref="loc_id_158F92A1_8162_4008_ADEB_531044BC4CD7"/><label kind="synchronisation" x="30" y="30">rate_controller_run(Vector3f, AP_AHRS)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4_5_C8A19E8A_240B_4fd8_A033_7D70E11BF42E_5" timeDuration="null"><source ref="loc_id_AD517E4C_DAAF_4a39_96B0_BE5370FEE4B4_5"/><target ref="loc_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E_5"/><label kind="synchronisation" x="30" y="30">desired_yaw_rate(int, int)?[alt-alt]/cycle=2.5ms--else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E_5_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7_5" T1="0" T2="0" timeDuration="null"><source ref="loc_id_C8A19E8A_240B_4fd8_A033_7D70E11BF42E_5"/><target ref="loc_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7_5"/><label kind="synchronisation" x="30" y="30">desired_throttle(int, int)![alt-alt]/cycle=2.5ms--else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7_5_5681AA41_3965_4aed_83E2_6BFE4B646F7A_5" timeDuration="null"><source ref="loc_id_CFCAC406_5ACF_4984_BE82_86B11BB6EBA7_5"/><target ref="loc_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A_5"/><label kind="synchronisation" x="30" y="30">angle_ef_roll_pitch_rate_ef_yaw_smooth(float, float, float, AP_AHRS)?[alt-alt]/cycle=2.5ms--else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A_5_A6660587_6621_4f3d_8BB8_BC6FB014FA3E_5" timeDuration="null"><source ref="loc_id_5681AA41_3965_4aed_83E2_6BFE4B646F7A_5"/><target ref="loc_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E_5"/><label kind="synchronisation" x="30" y="30">set_stabilizing(bool)[alt-alt]/cycle=2.5ms--else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E_5_FDA10C47_C536_482a_BCD4_741122F33C2A_5" timeDuration="null"><source ref="loc_id_A6660587_6621_4f3d_8BB8_BC6FB014FA3E_5"/><target ref="loc_id_FDA10C47_C536_482a_BCD4_741122F33C2A_5"/><label kind="synchronisation" x="30" y="30">set_throttle(float)[alt-alt]/cycle=2.5ms--else
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_FDA10C47_C536_482a_BCD4_741122F33C2A_5_158F92A1_8162_4008_ADEB_531044BC4CD7" timeDuration="null"><source ref="loc_id_FDA10C47_C536_482a_BCD4_741122F33C2A_5"/><target ref="loc_id_158F92A1_8162_4008_ADEB_531044BC4CD7"/><label kind="synchronisation" x="30" y="30">rate_controller_run(Vector3f, AP_AHRS)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_158F92A1_8162_4008_ADEB_531044BC4CD7_037B161D_5AB6_45e3_BFC9_0DE16C014E0B" timeDuration="null"><source ref="loc_id_158F92A1_8162_4008_ADEB_531044BC4CD7"/><target ref="loc_id_037B161D_5AB6_45e3_BFC9_0DE16C014E0B"/><label kind="synchronisation" x="30" y="30">set_roll(int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_037B161D_5AB6_45e3_BFC9_0DE16C014E0B_A44C5670_2AEC_4c60_B141_5302C09B8D47" timeDuration="null"><source ref="loc_id_037B161D_5AB6_45e3_BFC9_0DE16C014E0B"/><target ref="loc_id_A44C5670_2AEC_4c60_B141_5302C09B8D47"/><label kind="synchronisation" x="30" y="30">set_pitch(int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_A44C5670_2AEC_4c60_B141_5302C09B8D47_8CC8547C_6736_4158_BA2B_43BCE64B77F0" timeDuration="null"><source ref="loc_id_A44C5670_2AEC_4c60_B141_5302C09B8D47"/><target ref="loc_id_8CC8547C_6736_4158_BA2B_43BCE64B77F0"/><label kind="synchronisation" x="30" y="30">set_yaw(int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_8CC8547C_6736_4158_BA2B_43BCE64B77F0_067D9E6E_4F03_49e3_BDDD_0F19A6EAFBE9" timeDuration="null"><source ref="loc_id_8CC8547C_6736_4158_BA2B_43BCE64B77F0"/><target ref="loc_id_067D9E6E_4F03_49e3_BDDD_0F19A6EAFBE9"/><label kind="synchronisation" x="30" y="30">out_put(bool, int, int, int, int)[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_067D9E6E_4F03_49e3_BDDD_0F19A6EAFBE9_6B722437_5C55_4b0d_87B5_BEDA71BF92AD" timeDuration="null"><source ref="loc_id_067D9E6E_4F03_49e3_BDDD_0F19A6EAFBE9"/><target ref="loc_id_6B722437_5C55_4b0d_87B5_BEDA71BF92AD"/><label kind="synchronisation" x="30" y="30">send[alt]/cycle=2.5ms
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

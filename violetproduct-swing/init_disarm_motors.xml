@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">copter:_init|null</name></location><location id="loc_id_61364CFA_8013_4694_84E1_D5424609273D" x="30" y="30" timeDuration="null"><name x="30" y="30">ahrs:use_compass()|null</name></location><location id="loc_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D" x="30" y="30" timeDuration="null"><name x="30" y="30">compass:set_and_save_offsets()|null</name></location><location id="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042" x="30" y="30"><name x="30" y="30">motors:disarm|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_61364CFA_8013_4694_84E1_D5424609273D"><source ref="loc_id_init"/><target ref="loc_id_61364CFA_8013_4694_84E1_D5424609273D"/><label kind="synchronisation" x="30" y="30">use_compass()
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_61364CFA_8013_4694_84E1_D5424609273D_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D" timeDuration="null"><source ref="loc_id_61364CFA_8013_4694_84E1_D5424609273D"/><target ref="loc_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D"/><label kind="synchronisation" x="30" y="30">set_and_save_offsets()[opt]/copter.ahrs_use_compass==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_61364CFA_8013_4694_84E1_D5424609273D_EA9C9A06_A921_43b5_979D_2409F7BB7042" timeDuration="null"><source ref="loc_id_61364CFA_8013_4694_84E1_D5424609273D"/><target ref="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042"/><label kind="synchronisation" x="30" y="30">disarm!(copter.ahrs_use_compass==true)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D_EA9C9A06_A921_43b5_979D_2409F7BB7042" timeDuration="null"><source ref="loc_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D"/><target ref="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042"/><label kind="synchronisation" x="30" y="30">disarm
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0" x="30" y="30"><name x="30" y="30">ahrs:update(int)|null</name></location><location id="loc_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA" x="30" y="30" timeDuration="null"><name x="30" y="30">ins:update()|null</name></location><location id="loc_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA" x="30" y="30" timeDuration="null"><name x="30" y="30">imu:_get_gyro_sample|null</name></location><location id="loc_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D" x="30" y="30" timeDuration="t&lt;0.2s;"><name x="30" y="30">imu:_get_accel_sample|t&lt;0.2s;</name></location><location id="loc_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E" x="30" y="30" timeDuration="null"><name x="30" y="30">ahrs:calculate(AP_InertialSensor)|null</name></location><location id="loc_id_5F472714_968E_46ce_BA5C_72DAAB1C7811" x="30" y="30"><name x="30" y="30">operator:output|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0"/><label kind="synchronisation" x="30" y="30">update(int)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0_E097428A_ED04_4ca5_ABEB_5EA6759596CA"><source ref="loc_id_D76D2E29_13A6_4b7a_B91E_BBA2D37E96C0"/><target ref="loc_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA"/><label kind="synchronisation" x="30" y="30">update()
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA_961F1EB0_EE28_4bed_B4E0_6193C7290CEA" timeDuration="null"><source ref="loc_id_E097428A_ED04_4ca5_ABEB_5EA6759596CA"/><target ref="loc_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA"/><label kind="synchronisation" x="30" y="30">_get_gyro_sample
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D" timeDuration="null"><source ref="loc_id_961F1EB0_EE28_4bed_B4E0_6193C7290CEA"/><target ref="loc_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D"/><label kind="synchronisation" x="30" y="30">_get_accel_sample
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D_78D6F6D2_01F4_4acd_9E77_05D826CA184E" T1="0" T2="0" timeDuration="null"><source ref="loc_id_8C7CB6E8_4CD6_4b03_9470_352F79C4E09D"/><target ref="loc_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E"/><label kind="synchronisation" x="30" y="30">calculate(AP_InertialSensor)!
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E_5F472714_968E_46ce_BA5C_72DAAB1C7811" timeDuration="null"><source ref="loc_id_78D6F6D2_01F4_4acd_9E77_05D826CA184E"/><target ref="loc_id_5F472714_968E_46ce_BA5C_72DAAB1C7811"/><label kind="synchronisation" x="30" y="30">output?
+time:null
+in:null
+out:ahrs.roll_sensor,ahrs.pitch_sensor,ahrs.yaw_sensor,ahrs.roll,ahrs.pitch,ahrs.yaw;</label></transition></template><system>system template_;</system></nta>

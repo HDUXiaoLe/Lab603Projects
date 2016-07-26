@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_CBE91153_F5D1_40e4_8EB8_4132F130214C" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:read_control_switch(int)|null</name></location><location id="loc_id_3D58CE0B_B1FB_4343_92F7_D26009872B58" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_mode:pwm_to_switch_position(int)|null</name></location><location id="loc_id_47D06222_09D3_42b1_9E3A_3D567AC079A1" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:get_desired_mode(int, Parameters)|null</name></location><location id="loc_id_F7F8CAB3_1D9C_43f2_A092_205597AB1E5B" x="30" y="30" timeDuration="null"><name x="30" y="30">copter:mode_init(bool)|null</name></location><location id="loc_id_CA4FAF06_7962_4773_88C6_DEC579B40670" x="30" y="30"><name x="30" y="30">operator:output|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_CBE91153_F5D1_40e4_8EB8_4132F130214C" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_CBE91153_F5D1_40e4_8EB8_4132F130214C"/><label kind="synchronisation" x="30" y="30">read_control_switch(int)
+time:null
+in:now_time;alias=io=in,;
+out:null</label></transition><transition id="tran_id_CBE91153_F5D1_40e4_8EB8_4132F130214C_3D58CE0B_B1FB_4343_92F7_D26009872B58" timeDuration="null"><source ref="loc_id_CBE91153_F5D1_40e4_8EB8_4132F130214C"/><target ref="loc_id_3D58CE0B_B1FB_4343_92F7_D26009872B58"/><label kind="synchronisation" x="30" y="30">pwm_to_switch_position(int)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_3D58CE0B_B1FB_4343_92F7_D26009872B58_47D06222_09D3_42b1_9E3A_3D567AC079A1" T1="0" T2="0" timeDuration="null"><source ref="loc_id_3D58CE0B_B1FB_4343_92F7_D26009872B58"/><target ref="loc_id_47D06222_09D3_42b1_9E3A_3D567AC079A1"/><label kind="synchronisation" x="30" y="30">get_desired_mode(int, Parameters)!
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_47D06222_09D3_42b1_9E3A_3D567AC079A1_F7F8CAB3_1D9C_43f2_A092_205597AB1E5B" timeDuration="null"><source ref="loc_id_47D06222_09D3_42b1_9E3A_3D567AC079A1"/><target ref="loc_id_F7F8CAB3_1D9C_43f2_A092_205597AB1E5B"/><label kind="synchronisation" x="30" y="30">mode_init(bool)?[opt]/copter.failsafe_radio==false &amp;&amp;  now_time-copter.last_mode_update_time&gt;200  &amp;&amp; copter.desired_mode!=copter.control_mode
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_47D06222_09D3_42b1_9E3A_3D567AC079A1_CA4FAF06_7962_4773_88C6_DEC579B40670" timeDuration="null"><source ref="loc_id_47D06222_09D3_42b1_9E3A_3D567AC079A1"/><target ref="loc_id_CA4FAF06_7962_4773_88C6_DEC579B40670"/><label kind="synchronisation" x="30" y="30">output!(copter.failsafe_radio==false &amp;&amp;  now_time-copter.last_mode_update_time&gt;200  &amp;&amp; copter.desired_mode!=copter.control_mode)
+time:null
+in:null
+out:copter.control_mode,copter.last_mode_update_time,copter.switch_position;</label></transition><transition id="tran_id_F7F8CAB3_1D9C_43f2_A092_205597AB1E5B_CA4FAF06_7962_4773_88C6_DEC579B40670" timeDuration="null"><source ref="loc_id_F7F8CAB3_1D9C_43f2_A092_205597AB1E5B"/><target ref="loc_id_CA4FAF06_7962_4773_88C6_DEC579B40670"/><label kind="synchronisation" x="30" y="30">output
+time:null
+in:null
+out:copter.control_mode,copter.last_mode_update_time,copter.switch_position;</label></transition></template><system>system template_;</system></nta>

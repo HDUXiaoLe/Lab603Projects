@@ -211,12 +211,11 @@ public abstract class RectangularNode extends AbstractNode implements IColorable
 
 
 
-@XStreamOmitField
-  private Color  backgroundColor = ColorToolsBarPanel.DEFAULT_COLOR.getBackgroundColor();
-@XStreamOmitField
-    private Color  borderColor =  ColorToolsBarPanel.DEFAULT_COLOR.getBorderColor();
-@XStreamOmitField
-    private Color  textColor =  ColorToolsBarPanel.DEFAULT_COLOR.getTextColor();
+     private Color  backgroundColor = ColorToolsBarPanel.DEFAULT_COLOR.getBackgroundColor();
+ 
+     private Color  borderColor =  ColorToolsBarPanel.DEFAULT_COLOR.getBorderColor();
+
+     private Color  textColor =  ColorToolsBarPanel.DEFAULT_COLOR.getTextColor();
 @XStreamOmitField
      private double height;
 @XStreamOmitField

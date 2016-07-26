@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">copter:_init|null</name></location><location id="loc_id_F7906E46_F028_403d_BA95_F61DA7C33F4C" x="30" y="30"><name x="30" y="30">motors:get_motors_status|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_F7906E46_F028_403d_BA95_F61DA7C33F4C" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_F7906E46_F028_403d_BA95_F61DA7C33F4C"/><label kind="synchronisation" x="30" y="30">get_motors_status
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

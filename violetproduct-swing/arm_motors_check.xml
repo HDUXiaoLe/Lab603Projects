@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">timer:_init|null</name></location><location id="loc_id_4F996268_AFD9_4f86_996B_F9524F6051C3" x="30" y="30"><name x="30" y="30">copter:arm_motors_check(int)|null</name></location><location id="loc_id_CAEB5242_264E_41d5_A142_A09C9C39D96F" x="30" y="30" timeDuration="null"><name x="30" y="30">channel_throttle:get_control_in()|null</name></location><location id="loc_id_20E51B5B_1B7C_426a_8060_EE4F3079D072" x="30" y="30" timeDuration="t&gt;10s;"><name x="30" y="30">channel_yaw:consecutive20yawover(int, int)|t&gt;10s;</name></location><location id="loc_id_7E2753AF_A9A0_48cd_BE21_8239501FAFCB" x="30" y="30" timeDuration="null"><name x="30" y="30">motors:arm_motors|null</name></location><location id="loc_id_FE338EE5_6ECB_473c_94F7_CB25E195E7EA" x="30" y="30" timeDuration="null"><name x="30" y="30">operator:display|null</name></location><location id="loc_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1" x="30" y="30" timeDuration="t&gt;10s;"><name x="30" y="30">channel_yaw:consecutive20yawblew(int, int)|t&gt;10s;</name></location><location id="loc_id_CE34B015_4173_499d_9DD2_38904BA3A90E" x="30" y="30" timeDuration="null"><name x="30" y="30">motors:disarm_motors|null</name></location><location id="loc_id_EDA20099_FFCB_4512_8B18_AF3D7040E109" x="30" y="30" timeDuration="null"><name x="30" y="30">operator:display|null</name></location><location id="loc_id_A1F268D0_8E1B_48fb_B778_16C389230802" x="30" y="30"><name x="30" y="30">operator:output|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_4F996268_AFD9_4f86_996B_F9524F6051C3" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_4F996268_AFD9_4f86_996B_F9524F6051C3"/><label kind="synchronisation" x="30" y="30">arm_motors_check(int)[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_4F996268_AFD9_4f86_996B_F9524F6051C3_CAEB5242_264E_41d5_A142_A09C9C39D96F"><source ref="loc_id_4F996268_AFD9_4f86_996B_F9524F6051C3"/><target ref="loc_id_CAEB5242_264E_41d5_A142_A09C9C39D96F"/><label kind="synchronisation" x="30" y="30">get_control_in()[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_CAEB5242_264E_41d5_A142_A09C9C39D96F_20E51B5B_1B7C_426a_8060_EE4F3079D072" timeDuration="null"><source ref="loc_id_CAEB5242_264E_41d5_A142_A09C9C39D96F"/><target ref="loc_id_20E51B5B_1B7C_426a_8060_EE4F3079D072"/><label kind="synchronisation" x="30" y="30">consecutive20yawover(int, int)[loop-alt]/cycle=100ms--channel_throttle.control_in==0
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_20E51B5B_1B7C_426a_8060_EE4F3079D072_7E2753AF_A9A0_48cd_BE21_8239501FAFCB" timeDuration="null"><source ref="loc_id_20E51B5B_1B7C_426a_8060_EE4F3079D072"/><target ref="loc_id_7E2753AF_A9A0_48cd_BE21_8239501FAFCB"/><label kind="synchronisation" x="30" y="30">arm_motors[loop-alt-opt]/cycle=100ms--channel_throttle.control_in==0--copter.is_armed==false &amp;&amp; copter.should_arm_motors==true
+time:null
+in:null
+out:void;</label></transition><transition id="tran_id_20E51B5B_1B7C_426a_8060_EE4F3079D072_626777DE_F6B4_4cd8_9BB5_53EBA22053E1" timeDuration="null"><source ref="loc_id_20E51B5B_1B7C_426a_8060_EE4F3079D072"/><target ref="loc_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1"/><label kind="synchronisation" x="30" y="30">consecutive20yawblew(int, int)[loop-alt]/cycle=100ms--channel_throttle.control_in==0--!(copter.is_armed==false &amp;&amp; copter.should_arm_motors==true)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_7E2753AF_A9A0_48cd_BE21_8239501FAFCB_FE338EE5_6ECB_473c_94F7_CB25E195E7EA" timeDuration="null"><source ref="loc_id_7E2753AF_A9A0_48cd_BE21_8239501FAFCB"/><target ref="loc_id_FE338EE5_6ECB_473c_94F7_CB25E195E7EA"/><label kind="synchronisation" x="30" y="30">display[loop-alt-opt]/cycle=100ms--channel_throttle.control_in==0--copter.is_armed==false &amp;&amp; copter.should_arm_motors==true
+time:null
+in:null
+out:"arm success!";</label></transition><transition id="tran_id_FE338EE5_6ECB_473c_94F7_CB25E195E7EA_626777DE_F6B4_4cd8_9BB5_53EBA22053E1" timeDuration="null"><source ref="loc_id_FE338EE5_6ECB_473c_94F7_CB25E195E7EA"/><target ref="loc_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1"/><label kind="synchronisation" x="30" y="30">consecutive20yawblew(int, int)[loop-alt]/cycle=100ms--channel_throttle.control_in==0
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1_CE34B015_4173_499d_9DD2_38904BA3A90E" timeDuration="null"><source ref="loc_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1"/><target ref="loc_id_CE34B015_4173_499d_9DD2_38904BA3A90E"/><label kind="synchronisation" x="30" y="30">disarm_motors[loop-alt-opt]/cycle=100ms--channel_throttle.control_in==0--copter.is_armed==true &amp;&amp; should_disarm_motors==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1_A1F268D0_8E1B_48fb_B778_16C389230802" timeDuration="null"><source ref="loc_id_626777DE_F6B4_4cd8_9BB5_53EBA22053E1"/><target ref="loc_id_A1F268D0_8E1B_48fb_B778_16C389230802"/><label kind="synchronisation" x="30" y="30">output[loop]/cycle=100ms--!(copter.is_armed==true &amp;&amp; should_disarm_motors==true)
+time:null
+in:null
+out:copter.is_armed,copter.auto_disarm,copter.ap.land_complete,copter.failsafe_battery;</label></transition><transition id="tran_id_CE34B015_4173_499d_9DD2_38904BA3A90E_EDA20099_FFCB_4512_8B18_AF3D7040E109" timeDuration="null"><source ref="loc_id_CE34B015_4173_499d_9DD2_38904BA3A90E"/><target ref="loc_id_EDA20099_FFCB_4512_8B18_AF3D7040E109"/><label kind="synchronisation" x="30" y="30">display[loop-alt-opt]/cycle=100ms--channel_throttle.control_in==0--copter.is_armed==true &amp;&amp; should_disarm_motors==true
+time:null
+in:null
+out:"copter is disarmed!";</label></transition><transition id="tran_id_EDA20099_FFCB_4512_8B18_AF3D7040E109_A1F268D0_8E1B_48fb_B778_16C389230802" timeDuration="null"><source ref="loc_id_EDA20099_FFCB_4512_8B18_AF3D7040E109"/><target ref="loc_id_A1F268D0_8E1B_48fb_B778_16C389230802"/><label kind="synchronisation" x="30" y="30">output[loop]/cycle=100ms
+time:null
+in:null
+out:copter.is_armed,copter.auto_disarm,copter.ap.land_complete,copter.failsafe_battery;</label></transition><transition id="tran_id_A1F268D0_8E1B_48fb_B778_16C389230802_4F996268_AFD9_4f86_996B_F9524F6051C3" timeDuration="null"><source ref="loc_id_A1F268D0_8E1B_48fb_B778_16C389230802"/><target ref="loc_id_4F996268_AFD9_4f86_996B_F9524F6051C3"/><label kind="synchronisation" x="30" y="30">arm_motors_check(int)[loop]/cycle=100ms
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

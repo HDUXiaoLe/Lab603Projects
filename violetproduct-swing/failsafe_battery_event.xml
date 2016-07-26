@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta><declaration>// Place global declarations here.</declaration><template><name x="30" y="30">template_</name><declaration/><location id="loc_id_init" x="30" y="30" R1="0" R2="0" Energe="0"><name x="30" y="30">copter:_init|null</name></location><location id="loc_id_F7906E46_F028_403d_BA95_F61DA7C33F4C_7" x="30" y="30"><name x="30" y="30">motors:get_motors_status|null</name></location><location id="loc_id_61364CFA_8013_4694_84E1_D5424609273D_8" x="30" y="30" timeDuration="null"><name x="30" y="30">ahrs:use_compass()|null</name></location><location id="loc_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D_8" x="30" y="30" timeDuration="null"><name x="30" y="30">compass:set_and_save_offsets()|null</name></location><location id="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042_8" x="30" y="30"><name x="30" y="30">motors:disarm|null</name></location><location id="loc_id_C4A76FAF_4441_49b4_A59B_4D96C2D45C85" x="30" y="30"><name x="30" y="30">copter:set_mode_land_with_pause()|null</name></location><init ref="loc_id_init"/><transition id="tran_id_init_F7906E46_F028_403d_BA95_F61DA7C33F4C_7" timeDuration="null"><source ref="loc_id_init"/><target ref="loc_id_F7906E46_F028_403d_BA95_F61DA7C33F4C_7"/><label kind="synchronisation" x="30" y="30">get_motors_status
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_F7906E46_F028_403d_BA95_F61DA7C33F4C_7_61364CFA_8013_4694_84E1_D5424609273D_8"><source ref="loc_id_F7906E46_F028_403d_BA95_F61DA7C33F4C_7"/><target ref="loc_id_61364CFA_8013_4694_84E1_D5424609273D_8"/><label kind="synchronisation" x="30" y="30">use_compass()[opt-opt]/copter.is_armed==true &amp;&amp; copter.g.failsafe_battery_enable!=0 &amp;&amp; copter.control_mode==0--copter.ap.throttle_zero==true || copter.ap.land_complete==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_F7906E46_F028_403d_BA95_F61DA7C33F4C_7_C4A76FAF_4441_49b4_A59B_4D96C2D45C85"><source ref="loc_id_F7906E46_F028_403d_BA95_F61DA7C33F4C_7"/><target ref="loc_id_C4A76FAF_4441_49b4_A59B_4D96C2D45C85"/><label kind="synchronisation" x="30" y="30">set_mode_land_with_pause()!?[opt]/copter.is_armed==true &amp;&amp; copter.g.failsafe_battery_enable!=0 &amp;&amp; copter.control_mode==0--!(copter.ap.throttle_zero==true || copter.ap.land_complete==true)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_61364CFA_8013_4694_84E1_D5424609273D_8_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D_8" timeDuration="null"><source ref="loc_id_61364CFA_8013_4694_84E1_D5424609273D_8"/><target ref="loc_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D_8"/><label kind="synchronisation" x="30" y="30">set_and_save_offsets()[opt-opt-opt]/copter.is_armed==true &amp;&amp; copter.g.failsafe_battery_enable!=0 &amp;&amp; copter.control_mode==0--copter.ap.throttle_zero==true || copter.ap.land_complete==true--copter.ahrs_use_compass==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_61364CFA_8013_4694_84E1_D5424609273D_8_EA9C9A06_A921_43b5_979D_2409F7BB7042_8" timeDuration="null"><source ref="loc_id_61364CFA_8013_4694_84E1_D5424609273D_8"/><target ref="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042_8"/><label kind="synchronisation" x="30" y="30">disarm[opt-opt]/copter.is_armed==true &amp;&amp; copter.g.failsafe_battery_enable!=0 &amp;&amp; copter.control_mode==0--copter.ap.throttle_zero==true || copter.ap.land_complete==true--!(copter.ahrs_use_compass==true)
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D_8_EA9C9A06_A921_43b5_979D_2409F7BB7042_8" timeDuration="null"><source ref="loc_id_E44DF4D6_78DE_4db6_ABCD_5ACF9B69F62D_8"/><target ref="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042_8"/><label kind="synchronisation" x="30" y="30">disarm[opt-opt]/copter.is_armed==true &amp;&amp; copter.g.failsafe_battery_enable!=0 &amp;&amp; copter.control_mode==0--copter.ap.throttle_zero==true || copter.ap.land_complete==true
+time:null
+in:null
+out:null</label></transition><transition id="tran_id_EA9C9A06_A921_43b5_979D_2409F7BB7042_8_C4A76FAF_4441_49b4_A59B_4D96C2D45C85"><source ref="loc_id_EA9C9A06_A921_43b5_979D_2409F7BB7042_8"/><target ref="loc_id_C4A76FAF_4441_49b4_A59B_4D96C2D45C85"/><label kind="synchronisation" x="30" y="30">set_mode_land_with_pause()!?[opt]/copter.is_armed==true &amp;&amp; copter.g.failsafe_battery_enable!=0 &amp;&amp; copter.control_mode==0
+time:null
+in:null
+out:null</label></transition></template><system>system template_;</system></nta>

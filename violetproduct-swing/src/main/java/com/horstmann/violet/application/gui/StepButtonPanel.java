@@ -23,6 +23,8 @@ import com.horstmann.violet.application.consolepart.ConsoleMessageTabbedPane;
 import com.horstmann.violet.application.consolepart.ConsolePart;
 import com.horstmann.violet.application.consolepart.ConsolePartDetailInfoTable;
 import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
+import com.horstmann.violet.application.gui.util.SD2UppaalMain;
+import com.horstmann.violet.application.gui.util.xiaole.TransToVioletUppaal;
 import com.horstmann.violet.workspace.IWorkspace;
 
 public class StepButtonPanel extends JPanel {
@@ -40,6 +42,7 @@ public class StepButtonPanel extends JPanel {
     StepFourCenterTabbedPane stepFourCenterTabbedPane=new StepFourCenterTabbedPane();
     private JButton Threestart=new JButton("开始");
     private JButton Fourstart=new JButton("开始");
+    private JButton Twostart=new JButton("开始");
 	public StepButtonPanel(MainFrame mainFrame) {
 		this.setBackground(Color.DARK_GRAY);
 		this.mainFrame=mainFrame;	
@@ -134,6 +137,20 @@ public class StepButtonPanel extends JPanel {
 	  this.operationPanel.removeAll();
   }
 	private void SetButtonListener() {
+		Twostart.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+			   	try {
+					SD2UppaalMain.transEA();
+					TransToVioletUppaal.TransToViolet();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 Threestart.addActionListener(new ActionListener() {
 			
 			@Override
@@ -155,7 +172,7 @@ Fourstart.addActionListener(new ActionListener() {
 		
 		
 		stepFourCenterTabbedPane.getConsolePartScrollPane()
-		.getViewport().add(new ConsolePartDetailInfoTable(0));			
+		.getViewport().add(new ConsolePartDetailInfoTable(1));			
 	    stepFourCenterTabbedPane.getConsolePartScrollPane().getViewport().repaint();
 		
 		
@@ -237,7 +254,7 @@ Fourstart.addActionListener(new ActionListener() {
 				labelpanel.setLayout(new GridBagLayout());
 				labelpanel.removeAll();
 				labelpanel.add(jLabel,new GBC(0, 0).setWeight(1, 0));
-				labelpanel.add(new JButton("开始"),new GBC(1, 0));
+				labelpanel.add(Twostart,new GBC(1, 0));
 				labelpanel.add(new JButton("暂停"),new GBC(2, 0));
 				
 				ClearOpreationPanel();

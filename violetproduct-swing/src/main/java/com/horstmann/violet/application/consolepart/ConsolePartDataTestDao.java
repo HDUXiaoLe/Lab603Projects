@@ -2,7 +2,11 @@ package com.horstmann.violet.application.consolepart;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import com.horstmann.violet.application.menu.util.dataBase.AbstractTestCase;
+import com.horstmann.violet.application.menu.util.dataBase.AbstractTestCaseVO;
 import com.horstmann.violet.application.menu.util.dataBase.DataBaseUtil;
 import com.horstmann.violet.application.menu.util.dataBase.RealProcess;
 import com.horstmann.violet.application.menu.util.dataBase.RealTestCase;
@@ -44,6 +48,15 @@ public class ConsolePartDataTestDao {
     	return list;
 		
 	}
+	public static List<AbstractTestCaseVO> getAbsTestCaseList() {
+	
+		//这里只查询四条记录，后期要修改
+    	List<AbstractTestCaseVO> rl =DataBaseUtil.ShowAllAbstractTestCase();
+  
+    	return rl;
+		
+	}
+	
 	
 	
 
