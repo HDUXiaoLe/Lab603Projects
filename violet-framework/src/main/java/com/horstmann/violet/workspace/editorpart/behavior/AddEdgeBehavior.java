@@ -38,8 +38,10 @@ public class AddEdgeBehavior extends AbstractEditorPartBehavior
     @Override
     public void onMousePressed(MouseEvent event)
     {
+    
         if (!isConditionOK(event))
         {
+        	
             cancel();
             return;
         }
@@ -118,16 +120,20 @@ public class AddEdgeBehavior extends AbstractEditorPartBehavior
         {
             return false;
         }
+        String str = "class com.horstmann.violet.product.diagram.sequence.TimeEdge";
         if (GraphTool.SELECTION_TOOL.equals(this.graphToolsBar.getSelectedTool()))
         {
             return false;
         }
-        GraphTool selectedTool = this.selectionHandler.getSelectedTool();
+        GraphTool selectedTool = this.selectionHandler.getSelectedTool();      
         if (!IEdge.class.isInstance(selectedTool.getNodeOrEdge()))
         {
             return false;
         }
-       
+        if (str.equals(selectedTool.getNodeOrEdge().getClass().toString()))
+        {
+            return false;
+        }
         return true;
     }
 

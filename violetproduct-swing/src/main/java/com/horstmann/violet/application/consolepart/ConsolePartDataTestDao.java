@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.horstmann.violet.application.menu.util.dataBase.AbstractTestCase;
-import com.horstmann.violet.application.menu.util.dataBase.AbstractTestCaseVO;
-import com.horstmann.violet.application.menu.util.dataBase.DataBaseUtil;
-import com.horstmann.violet.application.menu.util.dataBase.RealProcess;
-import com.horstmann.violet.application.menu.util.dataBase.RealTestCase;
-import com.horstmann.violet.application.menu.util.dataBase.RealTestCaseVO;
+import com.horstmann.violet.application.menu.util.dataBase.zj.AbstractTestCase;
+import com.horstmann.violet.application.menu.util.dataBase.zj.AbstractTestCaseVO;
+import com.horstmann.violet.application.menu.util.dataBase.zj.DataBaseUtil;
+import com.horstmann.violet.application.menu.util.dataBase.zj.RealProcess;
+import com.horstmann.violet.application.menu.util.dataBase.zj.RealTestCase;
+import com.horstmann.violet.application.menu.util.dataBase.zj.RealTestCaseVO;
 
 public class ConsolePartDataTestDao {
 	/**

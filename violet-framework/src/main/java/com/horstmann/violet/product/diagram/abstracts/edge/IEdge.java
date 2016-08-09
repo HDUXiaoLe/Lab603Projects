@@ -42,7 +42,9 @@ public interface IEdge extends Serializable, Cloneable, IIdentifiable
      * @param startingNode
      */
     void setStart(INode startingNode);
+    
     String getID();
+    
     void setID(String id);
     /**
      * Gets the starting node.
@@ -50,7 +52,7 @@ public interface IEdge extends Serializable, Cloneable, IIdentifiable
      * @return the starting node
      */
     INode getStart();
-    
+       
     void setBelongtoStartFlag(int index);
     
     int getBelongtoStartFlag();
@@ -177,5 +179,13 @@ public interface IEdge extends Serializable, Cloneable, IIdentifiable
      * @return a deep copy of this object
      */
     IEdge clone();
+    
+    IEdge getStartEdge();
+    
+    void setStartEdge(IEdge edge);
+    
+    IEdge getEndEdge();
+    
+    void setEndEdge(IEdge edge);
 
 }

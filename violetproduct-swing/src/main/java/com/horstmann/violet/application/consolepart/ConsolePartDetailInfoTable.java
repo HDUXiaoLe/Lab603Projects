@@ -5,11 +5,12 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-import com.horstmann.violet.application.menu.util.dataBase.AbstractTestCaseVO;
-import com.horstmann.violet.application.menu.util.dataBase.RealTestCaseVO;
+import com.horstmann.violet.application.menu.util.dataBase.zj.AbstractTestCaseVO;
+import com.horstmann.violet.application.menu.util.dataBase.zj.RealTestCaseVO;
 
 public class ConsolePartDetailInfoTable extends JTable {
 
@@ -41,21 +42,28 @@ public class ConsolePartDetailInfoTable extends JTable {
 		
 		this.removeRowsData();
 		if(i==1){//实例化
-		List<RealTestCaseVO> list = ConsolePartDataTestDao.getRealTestCaseList();
-		Object[] rowData = new Object[columnNames.length];
-		int index = 1;// 用来显示序号的
-  
-		if (list != null && !list.isEmpty()) {
-			for (RealTestCaseVO info : list) {
-				rowData[0] = index++;// 用来显示序号的
-				rowData[1] = info.getName();//测试用例名称
-				
-				rowData[2] = info.getProcessList();//路径
-				rowData[3] = info.getRemark();// 备注
-				
-				defaultTableModel.addRow(rowData);
-			}
-		}
+	
+		
+				List<RealTestCaseVO> list = ConsolePartDataTestDao.getRealTestCaseList();
+		        Object[] rowData = new Object[columnNames.length];
+		        int index = 1;// 用来显示序号的
+		        int Index=0;
+				// TODO Auto-generated method stub
+		        while(Index+47<list.size()){
+		        	
+					//	Thread.sleep(1000);
+						if (list != null && !list.isEmpty()) {
+							for (RealTestCaseVO info : list.subList(Index, Index+47)) {
+								rowData[0] = index++;// 用来显示序号的
+								rowData[1] = info.getName();//测试用例名称								
+								rowData[2] = info.getProcessList();//路径
+								rowData[3] = info.getRemark();// 备注			
+								defaultTableModel.addRow(rowData);	
+								defaultTableModel.fireTableDataChanged();													
+							}			
+						      }	
+						Index+=47;										
+		        }																										        		
 		}
 		if(i==0)//抽象
 		{
@@ -75,8 +83,7 @@ public class ConsolePartDetailInfoTable extends JTable {
 				}
 			}
 		}
-		this.revalidate();
-		
+		this.revalidate();		
 	}
 
 	private void removeRowsData() {

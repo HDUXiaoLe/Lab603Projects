@@ -207,7 +207,7 @@ public class UMLEditorApplication
 
    // @InjectedBean
     //private VersionChecker versionChecker;
-
+ 
     @InjectedBean
     private PluginLoader pluginLoader;
 

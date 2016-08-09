@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.IHorizontalChild;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.workspace.sidebar.graphtools.GraphTool;
@@ -34,7 +35,14 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
         this.selectedLines.clear();
         addSelectedElement(edge);
     }
-
+    @Override
+	public void setSelectedElement(ISequenceTimeEdge sequenceTimeEdge) {
+		// TODO Auto-generated method stub
+		    this.selectedNodes.clear();
+	        this.selectedEdges.clear();
+	        this.selectedLines.clear();
+	        addSelectedElement(sequenceTimeEdge);
+	}
     public void updateSelectedElements(INode[] nodes)
     {
         for (int i = 0; i < nodes.length; i++)
@@ -42,6 +50,16 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
             if (isElementAlreadySelected(nodes[i]))
             {
                 addSelectedElement(nodes[i]);
+            }
+        }
+    }
+    public void updateSelectedElements(ISequenceTimeEdge[] edges)
+    {
+        for (int i = 0; i < edges.length; i++)
+        {
+            if (isElementAlreadySelected(edges[i]))
+            {
+                addSelectedElement(edges[i]);
             }
         }
     }
@@ -90,7 +108,14 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
         }
         this.selectedEdges.add(edge);
     }
-
+    public void addSelectedElement(ISequenceTimeEdge sequenceTimeEdge)
+    {
+        if (this.selectedNodes.contains(sequenceTimeEdge))
+        {
+            this.removeElementFromSelection(sequenceTimeEdge);
+        }
+        this.selectedSequenceTimeEdges.add(sequenceTimeEdge);
+    }
     public void removeElementFromSelection(INode node)
     {
         if (this.selectedNodes.contains(node))
@@ -115,7 +140,14 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
             this.selectedEdges.remove(i);
         }
     }
-
+    public void removeElementFromSelection(ISequenceTimeEdge edge)
+    {
+    	if(this.selectedSequenceTimeEdges.contains(edge))
+    	{
+    		int i=this.selectedSequenceTimeEdges.indexOf(edge);
+    		this.selectedSequenceTimeEdges.remove(i);
+    	}
+    }
     public boolean isElementAlreadySelected(INode node)
     {
         if (this.selectedNodes.contains(node)) return true;
@@ -131,12 +163,17 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
         if (this.selectedEdges.contains(edge)) return true;
         return false;
     }
-
+    public boolean isElementAlreadySelected(ISequenceTimeEdge edge)
+    {
+        if (this.selectedSequenceTimeEdges.contains(edge)) return true;
+        return false;
+    }
     public void clearSelection()
     {
         this.selectedNodes.clear();
         this.selectedEdges.clear();
         this.selectedLines.clear();
+        this.selectedSequenceTimeEdges.clear();
     }
  
     
@@ -153,7 +190,11 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
     {
         return getLastElement(this.selectedEdges);
     }
-
+    @Override
+    public ISequenceTimeEdge getLastSelectedTimeEdge()
+    {
+        return getLastElement(this.selectedSequenceTimeEdges);
+    }
     public boolean isNodeSelectedAtLeast()
     {
         return this.selectedNodes.size() > 0;
@@ -167,7 +208,10 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
     {
         return this.selectedEdges.size() > 0;
     }
-
+    public boolean isTimeEdgeSelectedAtLeast()
+    {
+        return this.selectedSequenceTimeEdges.size() > 0;
+    }
     public List<INode> getSelectedNodes()
     {
         return Collections.unmodifiableList(selectedNodes);
@@ -182,6 +226,12 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
     {
     	return Collections.unmodifiableList(selectedLines);
     }
+    public List<ISequenceTimeEdge> getSelectedTimeLines()
+    {
+    	return Collections.unmodifiableList(selectedSequenceTimeEdges);
+    }
+    
+   
     @Override
     public GraphTool getSelectedTool()
     {
@@ -217,13 +267,16 @@ public class EditorPartSelectionHandler implements IEditorPartSelectionHandler
     private List<IEdge> selectedEdges = new ArrayList<IEdge>();
     //by xiaole
     private List<IHorizontalChild> selectedLines=new ArrayList<IHorizontalChild >();
-    
+    private List<ISequenceTimeEdge> selectedSequenceTimeEdges=new ArrayList<>();
     private GraphTool selectedTool;
-
-
-
-
-
-	
-
+	@Override
+	public boolean isElmentAlreadySelected(ISequenceTimeEdge sequenceTimeEdge) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public List<ISequenceTimeEdge> getSelectedTimeEdges() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -38,6 +38,7 @@ import com.horstmann.violet.framework.injection.resources.ResourceBundleConstant
 import com.horstmann.violet.framework.util.GrabberUtils;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
+import com.horstmann.violet.product.diagram.common.PointEdge;
 import com.horstmann.violet.product.diagram.common.PointNode;
 
 public class GraphTool
@@ -64,26 +65,25 @@ public class GraphTool
             {
                 return ICON_SIZE;
             }
-
+//画指定的图标
             public void paintIcon(Component c, Graphics g, int x, int y)
             {//根据X,y和组件C的参数来画特定的Icon
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                 //文本抗锯齿提示值——使用某种抗锯齿形式完成文本呈现。
                 PointNode p = new PointNode();//新建一个点P
+              
                 p.translate(OFFSET, OFFSET);//将P点X和Y坐标都平移4
                 PointNode q = new PointNode();//新建一个点Q
                 q.translate(ICON_SIZE - OFFSET, ICON_SIZE - OFFSET);//将点Q的坐标平移16（20-4）
                 e.setStart(p);//将边e的起点设为P点
                 e.setStartLocation(new Point2D.Double(0, 0));//
                 e.setEnd(q);
-                e.setEndLocation(new Point2D.Double(0, 0));
-  
+                e.setEndLocation(new Point2D.Double(0, 0));                                                
                 Rectangle2D bounds = new Rectangle2D.Double();
                 bounds.add(p.getBounds());
                 bounds.add(q.getBounds());
-                bounds.add(e.getBounds());
-
+                bounds.add(e.getBounds());                           
                 double width = bounds.getWidth();
                 double height = bounds.getHeight();
                 double scaleX = (ICON_SIZE - OFFSET) / width;

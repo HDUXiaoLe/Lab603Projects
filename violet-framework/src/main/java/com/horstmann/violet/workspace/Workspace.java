@@ -39,6 +39,7 @@ import com.horstmann.violet.workspace.editorpart.IEditorPart;
 import com.horstmann.violet.workspace.editorpart.IEditorPartBehaviorManager;
 import com.horstmann.violet.workspace.editorpart.behavior.AddEdgeBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.AddNodeBehavior;
+import com.horstmann.violet.workspace.editorpart.behavior.AddSequenceTimeConditionEdgeBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.AddTransitionPointBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.ChangeToolByWeelBehavior;
 import com.horstmann.violet.workspace.editorpart.behavior.ColorizeBehavior;
@@ -180,6 +181,7 @@ public class Workspace implements IWorkspace
             behaviorManager.addBehavior(new TimingChangeStateBehavior(this.graphEditor,this.getSideBar().getGraphToolsBar()));
             behaviorManager.addBehavior(new DragCombinedFragmentBorderLineBehavior(this.graphEditor,this.getSideBar().getGraphToolsBar()));
             behaviorManager.addBehavior(new DragUppaalMessageBehavior(this.getEditorPart()));
+            behaviorManager.addBehavior(new AddSequenceTimeConditionEdgeBehavior(this.getEditorPart(), this.getSideBar().getGraphToolsBar()));
             
         }
         return this.graphEditor;

@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.IHorizontalChild;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.workspace.editorpart.behavior.IEditorPartBehavior;
@@ -105,12 +106,30 @@ public class EditorPartBehaviorManager implements IEditorPartBehaviorManager
             aBehavior.afterEditingNode(node);
     }
     @Override
+    public void fireBeforeEditingTimeEdge(ISequenceTimeEdge edge) {
+    	// TODO Auto-generated method stub
+    	 for (IEditorPartBehavior aBehavior : this.behaviors)
+             aBehavior.beforeEditingTimeEdge(edge);
+    }
+    @Override
+    public void fireWhileEditingTimeEdge(ISequenceTimeEdge edge, PropertyChangeEvent event) {
+    	// TODO Auto-generated method stub
+    	for (IEditorPartBehavior aBehavior : this.behaviors)
+            aBehavior.whileEditingTimeEdge(edge,event);
+    }
+    @Override
+    public void fireAfterEditingTimeEdge(ISequenceTimeEdge edge) {
+    	// TODO Auto-generated method stub
+    	for (IEditorPartBehavior aBehavior : this.behaviors)
+            aBehavior.afterEditingTimeEdge(edge);
+    }
+    @Override
     public void fireBeforeEditingHorizontalChild(IHorizontalChild edge)
     {
         for (IEditorPartBehavior aBehavior : this.behaviors)
             aBehavior.beforeEditingHorizontalChild(edge);
     }
-
+    
     @Override
     public void fireWhileEditingHorizontalChild(IHorizontalChild edge, PropertyChangeEvent event)
     {
@@ -187,6 +206,19 @@ public class EditorPartBehaviorManager implements IEditorPartBehaviorManager
         for (IEditorPartBehavior aBehavior : this.behaviors)
             aBehavior.afterAddingEdgeAtPoints(edge, startPoint, endPoint);
     }
+    @Override
+    public void fireBeforeAddingEdgeAtPoints(ISequenceTimeEdge edge, Point2D startPoint, Point2D endPoint)
+    {
+        for (IEditorPartBehavior aBehavior : this.behaviors)
+            aBehavior.beforeAddingTimeEdgeAtPoints(edge, startPoint, endPoint);
+    }
+
+    @Override
+    public void fireAfterAddingEdgeAtPoints(ISequenceTimeEdge edge, Point2D startPoint, Point2D endPoint)
+    {
+        for (IEditorPartBehavior aBehavior : this.behaviors)
+            aBehavior.afterAddingTimeEdgeAtPoints(edge, startPoint, endPoint);
+    }
 
     @Override
     public void fireOnEdgeSelected(IEdge edge)
@@ -199,6 +231,12 @@ public class EditorPartBehaviorManager implements IEditorPartBehaviorManager
     {
         for (IEditorPartBehavior aBehavior : this.behaviors)
             aBehavior.onHorizontalChildSelected(edge);
+    }
+    @Override
+    public void fireOnTimeEdgeSelected(ISequenceTimeEdge edge)
+    {
+        for (IEditorPartBehavior aBehavior : this.behaviors)
+            aBehavior.onTimeEdgeSelected(edge);
     }
     @Override
     public void fireOnNodeSelected(INode node)
@@ -241,5 +279,8 @@ public class EditorPartBehaviorManager implements IEditorPartBehaviorManager
     	 for (IEditorPartBehavior aBehavior : this.behaviors)
 	            aBehavior.afterChangingStatelineTwo(n);
     }
+
+	
+	
 
 }

@@ -79,7 +79,7 @@ public class SequenceDiagramPlugin implements IDiagramPlugin, Violet016FileFilte
         replaceMap.put("com.horstmann.violet.CallNode", ActivationBarNode.class.getName());
         replaceMap.put("com.horstmann.violet.ImplicitParameterNode", LifelineNode.class.getName());
         replaceMap.put("com.horstmann.violet.ReturnEdge", ReturnEdge.class.getName());
-        replaceMap.put("com.horstmann.violet.SequenceDiagramGraph", SequenceDiagramGraph.class.getName());
+        replaceMap.put("com.horstmann.violet.SequenceDiagramGraph", SequenceDiagramGraph.class.getName());     
         return replaceMap;
     }
 

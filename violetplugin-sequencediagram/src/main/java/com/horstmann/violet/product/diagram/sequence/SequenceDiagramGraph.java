@@ -29,6 +29,7 @@ import java.util.ResourceBundle;
 
 import com.horstmann.violet.product.diagram.abstracts.AbstractGraph;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.common.NoteEdge;
 import com.horstmann.violet.product.diagram.common.NoteNode;
@@ -51,7 +52,7 @@ public class SequenceDiagramGraph extends AbstractGraph
         }
         return super.addNode(newNode, p);
     }
-
+   
     
     public List<INode> getNodePrototypes()
     {
@@ -66,6 +67,8 @@ public class SequenceDiagramGraph extends AbstractGraph
     private static final List<INode> NODE_PROTOTYPES = new ArrayList<INode>();
 
     private static final List<IEdge> EDGE_PROTOTYPES = new ArrayList<IEdge>();
+    
+  
 
     static
     {
@@ -83,6 +86,7 @@ public class SequenceDiagramGraph extends AbstractGraph
         noteNode.setToolTip(rs.getString("node2.tooltip"));
         NODE_PROTOTYPES.add(noteNode);
     
+              
         CombinedFragment timeNode = new CombinedFragment();
         timeNode.setToolTip(rs.getString("node3.tooltip"));
         NODE_PROTOTYPES.add(timeNode);
@@ -98,6 +102,10 @@ public class SequenceDiagramGraph extends AbstractGraph
         NoteEdge noteEdge = new NoteEdge();
         noteEdge.setToolTip(rs.getString("edge2.tooltip"));
         EDGE_PROTOTYPES.add(noteEdge);
+        
+        TimeEdge timeEdge= new TimeEdge();      
+        timeEdge.setToolTip(rs.getString("edge3.tooltip"));
+        EDGE_PROTOTYPES.add(timeEdge);
     }
 
 }

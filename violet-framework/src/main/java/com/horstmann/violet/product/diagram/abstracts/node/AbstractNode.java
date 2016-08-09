@@ -32,6 +32,7 @@ import com.horstmann.violet.product.diagram.abstracts.AbstractGraph;
 import com.horstmann.violet.product.diagram.abstracts.IGraph;
 import com.horstmann.violet.product.diagram.abstracts.Id;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.property.Condition;
 import com.horstmann.violet.product.diagram.abstracts.property.FragmentPart;
@@ -342,6 +343,7 @@ public abstract class AbstractNode implements INode
                 {
                     return new ArrayList<IEdge>();
                 }
+              
             };
         }
     	return this.graph;

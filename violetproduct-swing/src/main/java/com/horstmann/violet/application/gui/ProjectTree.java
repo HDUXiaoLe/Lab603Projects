@@ -50,7 +50,7 @@ import com.horstmann.violet.application.menu.FileMenu;
 import com.l2fprod.common.swing.JTaskPane;
 import com.l2fprod.common.swing.JTaskPaneGroup;
 
-public class ProjectTree extends JPanel
+public class ProjectTree extends JPanel 
 {
 
     private MainFrame mainFrame;

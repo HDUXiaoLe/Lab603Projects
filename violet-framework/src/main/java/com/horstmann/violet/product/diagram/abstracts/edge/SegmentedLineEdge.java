@@ -236,16 +236,16 @@ public abstract class SegmentedLineEdge extends ShapeEdge
      */
     public void draw(Graphics2D g2)
     {
+    	//System.out.println("draw....+SegmentedLineEdge");
     	Color oldColor = g2.getColor();
-    	g2.setColor(Color.BLACK);
+    	g2.setColor(Color.BLACK);   	
     	ArrayList<Point2D> points = getPoints();
         Stroke oldStroke = g2.getStroke();
         g2.setStroke(getLineStyle().getStroke());
-        g2.draw(getSegmentPath());
+        g2.draw(getSegmentPath());      
         g2.setStroke(oldStroke);
         getStartArrowHead().draw(g2, (Point2D) points.get(1), (Point2D) points.get(0));
         getEndArrowHead().draw(g2, (Point2D) points.get(points.size() - 2), (Point2D) points.get(points.size() - 1));
-
         drawString(g2, (Point2D) points.get(1), (Point2D) points.get(0), getStartArrowHead(), startLabel, false);
         drawString(g2, (Point2D) points.get(points.size() / 2 - 1), (Point2D) points.get(points.size() / 2), null, middleLabel,
                 true);
@@ -378,7 +378,7 @@ public abstract class SegmentedLineEdge extends ShapeEdge
         return path;
     }
 
-    private GeneralPath getSegmentPath()
+    public GeneralPath getSegmentPath()
     {
         ArrayList<Point2D> points = getPoints();
 
@@ -400,10 +400,11 @@ public abstract class SegmentedLineEdge extends ShapeEdge
      */
     public ArrayList<Point2D> getPoints()
     {
+    	
         Line2D connectionPoints = getConnectionPoints();
         Point2D startingPoint = connectionPoints.getP1();
         Point2D endingPoint = connectionPoints.getP2();
-        
+      
         // Path for self loop
         if (getStart().equals(getEnd())) {
         	int gapX = 20;

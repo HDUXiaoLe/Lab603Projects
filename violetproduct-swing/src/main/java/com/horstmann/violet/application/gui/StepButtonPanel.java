@@ -18,14 +18,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 
 import com.horstmann.violet.application.consolepart.ConsoleMessageTabbedPane;
 import com.horstmann.violet.application.consolepart.ConsolePart;
 import com.horstmann.violet.application.consolepart.ConsolePartDetailInfoTable;
 import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
-import com.horstmann.violet.application.gui.util.SD2UppaalMain;
+import com.horstmann.violet.application.gui.util.layout.LayoutUppaal;
+import com.horstmann.violet.application.gui.util.wujun.SD2UppaalMain;
+import com.horstmann.violet.application.gui.util.xiaole.ImportByDoubleClick;
 import com.horstmann.violet.application.gui.util.xiaole.TransToVioletUppaal;
+import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.workspace.IWorkspace;
+import com.horstmann.violet.workspace.Workspace;
 
 public class StepButtonPanel extends JPanel {
 	private JButton homebutton;
@@ -43,6 +48,10 @@ public class StepButtonPanel extends JPanel {
     private JButton Threestart=new JButton("开始");
     private JButton Fourstart=new JButton("开始");
     private JButton Twostart=new JButton("开始");
+	JTextArea StepTwoArea=new JTextArea();
+	JTextArea StepThreeArea=new JTextArea();
+	JTextArea StepFourArea=new JTextArea();
+	JTextArea StepFiveArea=new JTextArea();
 	public StepButtonPanel(MainFrame mainFrame) {
 		this.setBackground(Color.DARK_GRAY);
 		this.mainFrame=mainFrame;	
@@ -141,10 +150,39 @@ public class StepButtonPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				StepTwoArea.append("UML模型正在转换中......\n");	
 				// TODO Auto-generated method stub
 			   	try {
-					SD2UppaalMain.transEA();
-					TransToVioletUppaal.TransToViolet();
+			   		SwingUtilities.invokeLater(new Runnable() {
+						
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							try {
+								SD2UppaalMain.transEA();
+								
+							    String filename1=TransToVioletUppaal.TransToViolet();
+							    GraphFile fGraphFile1=ImportByDoubleClick.importFileByDoubleClick("UPPAAL",filename1);
+			    			    IWorkspace workspace1=new Workspace(fGraphFile1);  
+			    			    mainFrame.addTabbedPane(workspace1,2);
+//			    			    mainFrame.repaint();
+//			    			    Thread.sleep(5000);
+								//先进行布局
+								LayoutUppaal.layout("stabilize_run.xml");
+								String filename2=TransToVioletUppaal.TransToViolet();
+							    GraphFile fGraphFile2=ImportByDoubleClick.importFileByDoubleClick("UPPAAL",filename2);
+			    			    IWorkspace workspace2=new Workspace(fGraphFile2);  
+			    			    /*
+			    			     * 这里为什么刷新不了？？？？？
+			    			    */  
+			    			    StepTwoArea.append("UML模型到时间自动机模型已经转换完成!\n");
+			    			    mainFrame.addTabbedPane(workspace2,2);
+			    			   
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}														
+					}});			   				  		   
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -155,11 +193,32 @@ Threestart.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				StepThreeArea.append("抽象时间迁移的时间自动机正在生成.....\n");
 				// TODO Auto-generated method stub
 				
-				stepThreeCenterTabbedPane.getConsolePartScrollPane()
-				.getViewport().add(new ConsolePartDetailInfoTable(0));			
-			stepThreeCenterTabbedPane.getConsolePartScrollPane().getViewport().repaint();
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						String absfilename="abs.uppaal.violet.xml";
+				        String no_time_absfilename="no_time_abs.uppaal.violet.xml";
+						// TODO Auto-generated method stub
+						GraphFile absfGraphFile=ImportByDoubleClick.importFileByDoubleClick("UPPAAL",absfilename);
+						GraphFile no_time_absfGraphFile=ImportByDoubleClick.importFileByDoubleClick("UPPAAL",no_time_absfilename);
+		 			    IWorkspace absworkspace=new Workspace(absfGraphFile);
+		 			    IWorkspace no_time_absworkspace=new Workspace(no_time_absfGraphFile);
+		 			    mainFrame.addTabbedPane(absworkspace,3);
+		 			    StepThreeArea.append("抽象时间迁移的时间自动机生成完成!\n");
+		 			    StepThreeArea.append("不含时间迁移的时间自动机正在生成.....\n");
+		 			    mainFrame.addTabbedPane(no_time_absworkspace,3);
+		 			    StepThreeArea.append("不含时间迁移的时间自动机生成完成!\n");
+		 			    StepThreeArea.append("抽象测试用例正在生成.....\n");
+						stepThreeCenterTabbedPane.getConsolePartScrollPane()
+						.getViewport().add(new ConsolePartDetailInfoTable(0));			
+					    stepThreeCenterTabbedPane.getConsolePartScrollPane().getViewport().repaint();
+					    StepThreeArea.append("抽象测试用例生成完成!.....\n");
+					}
+				});
 				
 				
 			}
@@ -169,11 +228,18 @@ Fourstart.addActionListener(new ActionListener() {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-		
-		stepFourCenterTabbedPane.getConsolePartScrollPane()
-		.getViewport().add(new ConsolePartDetailInfoTable(1));			
-	    stepFourCenterTabbedPane.getConsolePartScrollPane().getViewport().repaint();
+		StepFourArea.append("实例化测试用例正在生成.....\n");
+		SwingUtilities.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				stepFourCenterTabbedPane.getConsolePartScrollPane()
+				.getViewport().add(new ConsolePartDetailInfoTable(1));			
+			    stepFourCenterTabbedPane.getConsolePartScrollPane().getViewport().repaint();
+			    StepFourArea.append("实例化测试用例生成成功!");
+			}
+		});
 		
 		
 	}
@@ -260,11 +326,14 @@ Fourstart.addActionListener(new ActionListener() {
 				ClearOpreationPanel();
 			    operationPanel.add(mainFrame.getModelTransformationPanel());
 			    
-				mainFrame.getCenterTabPanel().removeAll();
-				mainFrame.getCenterTabPanel().add(mainFrame.getStepTwoCenterTabbedPane());
 			    clearConsolePart();			    
 			    consolePart.setTitle("UML模型转化时间自动机过程信息");
-				consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("UML模型正在转化中......\n\n\n\n\n\n")));	
+				
+				consolePart.add(new ConsoleMessageTabbedPane("详细信息",StepTwoArea));
+						
+				mainFrame.getCenterTabPanel().removeAll();
+				mainFrame.getCenterTabPanel().add(mainFrame.getStepTwoCenterTabbedPane());
+			
 				
 							
 				mainFrame.getContentPane().repaint();
@@ -297,11 +366,10 @@ Fourstart.addActionListener(new ActionListener() {
 				ClearOpreationPanel();//
 				operationPanel.add(new AbstractTestCaseGenerationPanel());				
 				clearConsolePart();			    
-				    consolePart.setTitle("抽象测试用例生成过程信息");
-					consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("抽象测试用例正在生成...\n\n\n\n\n\n\n")));	
-					
-					mainFrame.getContentPane().repaint();
-					step4button.setEnabled(true);
+				consolePart.setTitle("抽象测试用例生成过程信息");
+			    consolePart.add(new ConsoleMessageTabbedPane("详细信息",StepThreeArea));			
+				mainFrame.getContentPane().repaint();
+				step4button.setEnabled(true);
 			}
 		});
 		step4button.addActionListener(new ActionListener() {
@@ -334,8 +402,7 @@ Fourstart.addActionListener(new ActionListener() {
 				clearConsolePart();	
 			
 				consolePart.setTitle("抽象测试用例实例化过程信息");
-				consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("抽象测试用例正在实例化...\n\n\n\n\n\n\n")));	
-				
+				consolePart.add(new ConsoleMessageTabbedPane("详细信息",StepFourArea));
 				mainFrame.getContentPane().repaint();
 				step5button.setEnabled(true);
 			}
@@ -369,7 +436,7 @@ Fourstart.addActionListener(new ActionListener() {
 				clearConsolePart();
 			
 				consolePart.setTitle("测试用例实例验证过程信息");
-    			consolePart.add(new ConsoleMessageTabbedPane("详细信息",new JTextArea("测试用例实例正在验证中......\n\n\n\n\n\n")));	
+    			consolePart.add(new ConsoleMessageTabbedPane("详细信息",StepFiveArea));	
 							
 				mainFrame.getContentPane().repaint();
 			}

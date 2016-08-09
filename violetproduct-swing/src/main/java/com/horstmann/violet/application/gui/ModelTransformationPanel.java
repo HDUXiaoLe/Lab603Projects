@@ -28,6 +28,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
+import com.horstmann.violet.application.gui.util.xiaole.ImportByDoubleClick;
 import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.framework.file.LocalFile;
 import com.horstmann.violet.workspace.IWorkspace;
@@ -94,9 +95,9 @@ public class ModelTransformationPanel extends JPanel{
 	    			// TODO Auto-generated method stub
 	    		   if(e.getClickCount()==2)
 	    		   {
-	    			   System.out.println(node);
+	    			  
 	    			   if(node!=null&&node.isLeaf()){
-	    			   GraphFile fGraphFile=importFileByDoubleClick("SequenceDiagram",node.toString());
+	    			   GraphFile fGraphFile=ImportByDoubleClick.importFileByDoubleClick("SequenceDiagram",node.toString());
 	    			   IWorkspace workspace=new Workspace(fGraphFile);
 	    			   mainFrame.addTabbedPane(workspace,1);
 	    			 }
@@ -135,61 +136,7 @@ public class ModelTransformationPanel extends JPanel{
 	         
 	           
 	    }	
-	    private GraphFile importFileByDoubleClick(String type,String name){
-	    	GraphFile graphFile=null;
 	    
-	    	String base="D://ModelDriverProjectFile";
-	    	//根据type找到相应的文件夹
-	    	if("ClassDiagram".equals(type)){
-	    		base+="\\ClassDiagram\\Violet";
-	    	
-	    	}else if("StateDiagram".equals(type)){
-	    		base+="\\StateDiagram\\Violet";
-	    	
-	    	}else if("UseCaseDiagram".equals(type)){
-	    		
-	    		base+="\\UseCaseDiagram\\Violet";
-	    	
-	    	}else if("ActivityDiagram".equals(type)){
-	    		
-	    		base+="\\ActivityDiagram\\Violet";
-	    	
-	    	}else if("ObjectDiagram".equals(type)){
-	    		
-	    		base+="\\ObjectDiagram\\Violet";
-	    	
-	    	}else if("TimingDiagram".equals(type)){
-	    		
-	    		base+="\\TimingDiagram\\Violet";
-	    	
-	    	}else if("UPPAAL".equals(type)){
-	    		
-	    		base+="\\UPPAL\\";
-	    	
-	    	}else if("SequenceDiagram".equals(type)){
-	
-	    		base+="\\SequenceDiagram\\Violet";    		
-	    	}
-	    	//根据名字导入文件夹里面的文件
-	    	 File file =new File(base);
-			 File[] fList=file.listFiles();
-			 System.out.println("数目:"+fList.length);
-			 for (int i = 0; i < fList.length; i++) {
-				 System.out.println("名字："+fList[i].getName());
-				 String fname =fList[i].getName();
-				 if(name.equals(fname)){
-					 try {
-						graphFile=new GraphFile(new LocalFile(fList[i]));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				 }	
-			}
-			 System.out.println("吹来对的："+graphFile.getFilename());
-	    	
-	    	return graphFile;
-	    }
 
 	public void initFileList() {
 		File[] sdFilelists = getAllFileByDiagramType("sequence");

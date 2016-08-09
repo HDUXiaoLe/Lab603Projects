@@ -7,6 +7,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
+import javax.swing.JTree;
+
 import com.horstmann.violet.product.diagram.abstracts.IGraph;
 import com.horstmann.violet.product.diagram.abstracts.Id;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
@@ -16,7 +18,7 @@ import com.horstmann.violet.workspace.editorpart.IEditorPartSelectionHandler;
 import com.horstmann.violet.workspace.sidebar.graphtools.GraphTool;
 import com.horstmann.violet.workspace.sidebar.graphtools.IGraphToolsBar;
 
-public class AddNodeBehavior extends AbstractEditorPartBehavior
+public class AddNodeBehavior extends AbstractEditorPartBehavior 
 {
 
     public AddNodeBehavior(IEditorPart editorPart, IGraphToolsBar graphToolsBar)
@@ -29,7 +31,7 @@ public class AddNodeBehavior extends AbstractEditorPartBehavior
     }  
     public void onMouseClicked(MouseEvent event)
     {
-    
+       
         if (event.getClickCount() > 1)
         {
             return;
@@ -118,4 +120,8 @@ public class AddNodeBehavior extends AbstractEditorPartBehavior
     private IEditorPartBehaviorManager behaviorManager;
 
     private IGraphToolsBar graphToolsBar;
+
+    
+    
+    
 }

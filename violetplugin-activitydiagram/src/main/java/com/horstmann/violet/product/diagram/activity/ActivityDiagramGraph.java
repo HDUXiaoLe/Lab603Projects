@@ -29,6 +29,7 @@ import java.util.ResourceBundle;
 
 import com.horstmann.violet.product.diagram.abstracts.AbstractGraph;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.abstracts.property.BentStyle;
 import com.horstmann.violet.product.diagram.common.NoteEdge;
@@ -122,5 +123,7 @@ public class ActivityDiagramGraph extends AbstractGraph
         noteEdge.setToolTip(rs.getString("edge1.tooltip"));
         EDGE_PROTOTYPES.add(noteEdge);
     }
+
+	
 
 }

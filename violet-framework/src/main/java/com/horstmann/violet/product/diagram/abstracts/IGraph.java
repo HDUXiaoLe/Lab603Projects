@@ -9,6 +9,7 @@ import java.util.List;
 import com.horstmann.violet.product.diagram.abstracts.edge.HorizontalChild;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.IHorizontalChild;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 
@@ -32,7 +33,7 @@ public interface IGraph
     //得到一个特点的边类型
     public abstract List<IEdge> getEdgePrototypes();
 
-   
+  
     /**
      * Gets ALL the nodes of this graph.
      * 
@@ -56,6 +57,7 @@ public interface IGraph
      */
     public abstract void removeEdge(IEdge... edgesToRemove);
     
+   
     
     public abstract void removeHorizontal(IHorizontalChild... linesToRemove);
     /**
@@ -88,7 +90,7 @@ public interface IGraph
      */
     public abstract boolean connect(IEdge e, INode start, Point2D startLocation, INode end, Point2D endLocation, Point2D[] transitionPoints);
 
-
+    public abstract boolean connectEdge(IEdge e,IEdge start,IEdge end);
     /**
      * Finds a node by its id. This internal method should only be used by network features (for the moment because
      * node ids are still generated automatically)
@@ -116,7 +118,6 @@ public interface IGraph
      * @return the found edge or null if no one found
      */
     public abstract IEdge findEdge(Id id);
-
 
     /**
      * Finds an edge containing the given point.

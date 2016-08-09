@@ -28,6 +28,7 @@ import java.util.ResourceBundle;
 
 import com.horstmann.violet.product.diagram.abstracts.AbstractGraph;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.abstracts.property.ArrowHead;
 import com.horstmann.violet.product.diagram.abstracts.property.BentStyle;
@@ -105,5 +106,7 @@ public class UseCaseDiagramGraph extends AbstractGraph
         noteEdge.setToolTip(rs.getString("edge4.tooltip"));
         EDGE_PROTOTYPES.add(noteEdge);
     }
+
+
 
 }

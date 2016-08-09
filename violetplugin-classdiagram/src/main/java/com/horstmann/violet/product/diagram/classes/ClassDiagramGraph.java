@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.horstmann.violet.product.diagram.abstracts.AbstractGraph;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.classes.edges.AggregationEdge;
 import com.horstmann.violet.product.diagram.classes.edges.AssociationEdge;
@@ -93,5 +94,7 @@ public class ClassDiagramGraph extends AbstractGraph
         noteEdge.setToolTip(rs.getString("edge6.tooltip"));
         EDGE_PROTOTYPES.add(noteEdge);
     }
+
+	
 
 }

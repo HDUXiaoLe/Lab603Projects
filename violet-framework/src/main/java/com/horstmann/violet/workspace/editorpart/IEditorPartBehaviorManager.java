@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.IHorizontalChild;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.workspace.editorpart.behavior.IEditorPartBehavior;
@@ -50,6 +51,12 @@ public interface IEditorPartBehaviorManager
     public abstract void fireWhileEditingEdge(IEdge edge, PropertyChangeEvent event);
 
     public abstract void fireAfterEditingEdge(IEdge edge);
+    
+    public abstract void fireBeforeEditingTimeEdge(ISequenceTimeEdge edge);
+    
+    public abstract void fireWhileEditingTimeEdge(ISequenceTimeEdge edge, PropertyChangeEvent event);
+
+    public abstract void fireAfterEditingTimeEdge(ISequenceTimeEdge edge);
 
     public abstract void fireBeforeRemovingSelectedElements();
 
@@ -60,12 +67,18 @@ public interface IEditorPartBehaviorManager
     public abstract void fireAfterAddingNodeAtPoint(INode node, Point2D location);
 
     public abstract void fireBeforeAddingEdgeAtPoints(IEdge edge, Point2D startPoint, Point2D endPoint);
+    
+    public abstract void fireBeforeAddingEdgeAtPoints(ISequenceTimeEdge edge, Point2D startPoint, Point2D endPoint);
 
+    public abstract void fireAfterAddingEdgeAtPoints(ISequenceTimeEdge edge, Point2D startPoint, Point2D endPoint);
+    
     public abstract void fireAfterAddingEdgeAtPoints(IEdge edge, Point2D startPoint, Point2D endPoint);
     
     public abstract void fireOnNodeSelected(INode node);
     
     public abstract void fireOnEdgeSelected(IEdge edge);
+    
+    public abstract void fireOnTimeEdgeSelected(ISequenceTimeEdge sequenceTimeEdge);
     
     public abstract void fireBeforeChangingStateline(INode n);
     

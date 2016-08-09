@@ -8,12 +8,13 @@ import java.beans.PropertyChangeEvent;
 
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.IHorizontalChild;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.workspace.sidebar.graphtools.GraphTool;
 
 
-public abstract class AbstractEditorPartBehavior implements IEditorPartBehavior
+public  abstract class AbstractEditorPartBehavior implements IEditorPartBehavior
 {
     @Override
     public void afterAddingEdgeAtPoints(IEdge edge, Point2D startPoint, Point2D endPoint)
@@ -224,5 +225,41 @@ public abstract class AbstractEditorPartBehavior implements IEditorPartBehavior
         // TODO Auto-generated method stub
         
     }
+
+	@Override
+	public void onTimeEdgeSelected(ISequenceTimeEdge sequenceTimeEdge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeEditingTimeEdge(ISequenceTimeEdge edge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void whileEditingTimeEdge(ISequenceTimeEdge edge, PropertyChangeEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterEditingTimeEdge(ISequenceTimeEdge edge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeAddingTimeEdgeAtPoints(ISequenceTimeEdge edge, Point2D startPoint, Point2D endPoint) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterAddingTimeEdgeAtPoints(ISequenceTimeEdge edge, Point2D startPoint, Point2D endPoint) {
+		// TODO Auto-generated method stub
+		
+	}
     
 }

@@ -257,11 +257,11 @@ public class MainFrame extends JFrame
      	    System.out.println("repaint");
      	}
     }
-    public void  addTabbedPane(final IWorkspace workspace,int flag )
+    public void addTabbedPane(final IWorkspace workspace,int flag )
     {
 //       replaceWelcomePanelByTabbedPane(); 
     	//在添加图形元素的时候，首先判断下是哪种图形
-    
+    if(flag==2){
         if(workspace.getTitle().toString().endsWith(".timing.violet.xml")
         		||workspace.getTitle().toString().substring(2, 4).equals("Ti"))//时序图
      	{
@@ -312,6 +312,44 @@ public class MainFrame extends JFrame
      		listenToDiagramPanelEvents(workspace,UppaalspaceList);    	  
      	    repaint();     		    
      	}
+    }
+    if(flag==3)
+    {
+    	/*
+    	 * 含有时间迁移自动机
+    	 */
+    	if(workspace.getTitle().toString().startsWith("abs"))         		
+      	{
+      		if(this.UppaalspaceList.contains(workspace))
+      		{
+      			return;
+      		}
+      		this.UppaalspaceList.clear();//保证每一次新建或导入只会有1个Type页
+      		this.UppaalspaceList.add(workspace);
+      		this.getStepThreeCenterTabbedPane().getAbstractUppaalTabbedPane().removeAll();
+      		this.getStepThreeCenterTabbedPane().getAbstractUppaalTabbedPane()
+      		.add(workspace.getAWTComponent(),new GBC(0,0).setWeight(1, 1).setFill(GBC.BOTH));
+      		 listenToDiagramPanelEvents(workspace,UppaalspaceList);    			  
+      	    repaint();    		    
+      	}
+    	/*
+    	 * 去时间迁移自动机
+    	 */
+    	if(workspace.getTitle().toString().startsWith("no_time_abs"))         		
+      	{
+      		if(this.UppaalspaceList.contains(workspace))
+      		{
+      			return;
+      		}
+      		this.UppaalspaceList.clear();//保证每一次新建或导入只会有1个Type页
+      		this.UppaalspaceList.add(workspace);
+      		this.getStepThreeCenterTabbedPane().getUppaalTabbedPane().removeAll();
+      		this.getStepThreeCenterTabbedPane().getUppaalTabbedPane()
+      		.add(workspace.getAWTComponent(),new GBC(0,0).setWeight(1, 1).setFill(GBC.BOTH));
+      		 listenToDiagramPanelEvents(workspace,UppaalspaceList);    			  
+      	    repaint();    		    
+      	}
+    }
      	
     }
     /**

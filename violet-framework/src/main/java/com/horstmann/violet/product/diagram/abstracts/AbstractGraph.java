@@ -35,6 +35,7 @@ import java.util.List;
 import com.horstmann.violet.product.diagram.abstracts.edge.HorizontalChild;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.IHorizontalChild;
+import com.horstmann.violet.product.diagram.abstracts.edge.ISequenceTimeEdge;
 import com.horstmann.violet.product.diagram.abstracts.edge.SEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.abstracts.node.RectangularNode;
@@ -44,7 +45,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 /**
  * A graph consisting of selectable nodes and edges.
  */
-public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
+public abstract  class AbstractGraph implements Serializable, Cloneable, IGraph
 {
     @Override
 	public void removeHorizontal(IHorizontalChild... linesToRemove) {
@@ -52,7 +53,7 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
 		
 	}
 
-	
+
 	/**
      * Constructs a graph with no nodes or edges.
      */
@@ -172,8 +173,9 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
         for (int i = 0; i < edges.size(); i++)
         {
             IEdge e = (IEdge) edges.get(i);
-            e.draw(g2);
+            e.draw(g2);//主要是在这里画
         }
+      
         // Special nodes are always drawn upon other elements
         for (INode n : specialNodes)
         {
@@ -223,7 +225,10 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
 
     @Override
     public abstract List<IEdge> getEdgePrototypes();
-
+    
+   
+	
+    	
     @Override
     public Collection<INode> getAllNodes()//递归地获取所有节点
     {
@@ -275,7 +280,7 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
         nodes.add(newNode);
         return true;
     }
-
+  
     @Override
     public void removeNode(INode... nodesToRemove)
     {
@@ -315,7 +320,7 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
         IEdge[] edgesToRemoveAsArray = edgesToRemove.toArray(new IEdge[edgesToRemove.size()]);
         removeEdge(edgesToRemoveAsArray);
     }
-
+    
     @Override
     public boolean connect(IEdge e, INode start, Point2D startLocation, INode end, Point2D endLocation, Point2D[] transitionPoints)
     {
@@ -342,7 +347,24 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
         }
         return false;
     }
+    @Override
+    public boolean connectEdge(IEdge e, IEdge start, IEdge end)
+    {
+       
+        e.setStartEdge(start);
+        e.setEndEdge(end);
 
+		Point2D P1=new Point2D.Double(
+				start.getStartLocation().getX(),
+				start.getStartLocation().getY());
+		Point2D P2=new Point2D.Double(
+				end.getStartLocation().getX(),
+				end.getStartLocation().getY());
+        e.setStartLocation(P1);
+        e.setEndLocation(P2);
+        edges.add(e);
+        return true;      
+    }
     @Override
     public void removeEdge(IEdge... edgesToRemove)
     {
@@ -384,8 +406,15 @@ public abstract class AbstractGraph implements Serializable, Cloneable, IGraph
     {
         this.gridSticker = positionCorrector;
     }
-    private ArrayList<INode> nodes;
+    
+  
+
+
+	
+
+	private ArrayList<INode> nodes;
     private ArrayList<IEdge> edges;
+    
     private transient Rectangle2D 
     minBounds;
     private transient IGridSticker gridSticker;

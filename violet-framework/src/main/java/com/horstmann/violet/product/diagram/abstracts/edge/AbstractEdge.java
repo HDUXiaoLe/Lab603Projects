@@ -43,7 +43,26 @@ public abstract class AbstractEdge implements IEdge
     public AbstractEdge()
     {
         // Nothing to do
-    }  	
+    } 
+    @Override
+    public void setStartEdge(IEdge edge) {
+    	// TODO Auto-generated method stub
+    	this.startEdge=edge;
+    }
+    @Override
+    public IEdge getStartEdge() {
+    	return startEdge;
+    }
+    @Override
+    public void setEndEdge(IEdge edge) {
+    	// TODO Auto-generated method stub
+    	this.endEdge=edge;
+    }
+    @Override
+    public IEdge getEndEdge() {
+    	// TODO Auto-generated method stub
+    	return this.endEdge;
+    }
 	@Override
     public void setStart(INode startingNode)
     {
@@ -61,6 +80,7 @@ public abstract class AbstractEdge implements IEdge
     @Override
     public INode getStart()
     {
+    
         return start;
     }
     @Override
@@ -194,6 +214,7 @@ public abstract class AbstractEdge implements IEdge
     {
         INode startingNode = getStart();
         INode endingNode = getEnd();
+       
         Point2D startingNodeLocation = startingNode.getLocation();
         Point2D endingNodeLocation = endingNode.getLocation();
         Point2D startingNodeLocationOnGraph = startingNode.getLocationOnGraph();
@@ -293,7 +314,10 @@ public abstract class AbstractEdge implements IEdge
 
     /** The node where the edge ends */
     private INode end;
-
+     
+    private IEdge startEdge;
+    
+    private IEdge endEdge;
     /** The point inside the starting node where this edge begins */
     private Point2D startLocation;
 
