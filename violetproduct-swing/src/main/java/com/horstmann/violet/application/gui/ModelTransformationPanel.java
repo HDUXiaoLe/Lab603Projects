@@ -25,10 +25,11 @@ import javax.swing.JTree;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.horstmann.violet.application.consolepart.ConsolePartTextArea;
-import com.horstmann.violet.application.gui.util.xiaole.ImportByDoubleClick;
+import com.horstmann.violet.application.gui.util.xiaole.UppaalTransfrom.ImportByDoubleClick;
 import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.framework.file.LocalFile;
 import com.horstmann.violet.workspace.IWorkspace;
@@ -83,7 +84,7 @@ public class ModelTransformationPanel extends JPanel{
 					// TODO Auto-generated method stub
 					 
 						node =(DefaultMutableTreeNode)UMLDiagramTree.getLastSelectedPathComponent();
-						System.out.println(node);
+						
 				}
 			});
 	    	
@@ -140,8 +141,7 @@ public class ModelTransformationPanel extends JPanel{
 
 	public void initFileList() {
 		File[] sdFilelists = getAllFileByDiagramType("sequence");
-		File[] tdFilelists= getAllFileByDiagramType("timing");
-		System.out.println("hahah");
+		File[] tdFilelists= getAllFileByDiagramType("timing");	
 	   // File[] uppaalFilelists=getAllFileByDiagramType("UPPAAL2");
 	    for(File sdFile : sdFilelists)
 	    {
@@ -165,7 +165,14 @@ public class ModelTransformationPanel extends JPanel{
 	  * @return
 	  */
 	 public   File[] getAllFileByDiagramType(String type){
-		 String baseUrl ="D://ModelDriverProjectFile";
+		 File f =FileSystemView.getFileSystemView().getHomeDirectory();
+		String s =f .getAbsolutePath();
+//		 String baseUrl ="D://ModelDriverProjectFile";
+		String baseUrl =s+"//ModelDriverProjectFile";
+//		File bFile = new File(baseUrl);
+//		if(!bFile.exists()){
+//			bFile.mkdirs();
+//		}
 		 File[] fList =null;
 		 File file=null;
 		 if("sequence".equals(type)){

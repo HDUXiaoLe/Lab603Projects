@@ -144,7 +144,7 @@ public class ProjectTree extends JPanel
 				    	  if(node.isLeaf()) //是叶节点
 				    	  {
 				    	     //对node.getUserObject()进行处理;
-				    		  System.out.println(1111);
+				    		
 				    		 // mainFrame.addTabbedPane(workspace);
 				    	  }
 				    }

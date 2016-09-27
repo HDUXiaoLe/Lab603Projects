@@ -246,15 +246,15 @@ public class MainFrame extends JFrame
      		.add(workspace.getAWTComponent(),new GBC(0,0).setWeight(1, 1).setFill(GBC.BOTH));    		    		   	  
      	    repaint();     		    
      	}
-     	System.out.println(workspace.getTitle().toString().substring(0, 3));
+     
      	if(workspace.getTitle().toString().substring(0, 3).equals(("abs")))
      	{
-     		System.out.println("------");
+     		
      		this.getStepThreeCenterTabbedPane().getAbstractUppaalTabbedPane().removeAll();
      		this.getStepThreeCenterTabbedPane().getAbstractUppaalTabbedPane()
      		.add(workspace.getAWTComponent(),new GBC(0,0).setWeight(1, 1).setFill(GBC.BOTH));    		    		   	  
      	    repaint();    
-     	    System.out.println("repaint");
+     	 
      	}
     }
     public void addTabbedPane(final IWorkspace workspace,int flag )

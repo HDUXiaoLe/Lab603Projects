@@ -9,8 +9,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-import com.horstmann.violet.application.menu.util.dataBase.zj.AbstractTestCaseVO;
-import com.horstmann.violet.application.menu.util.dataBase.zj.RealTestCaseVO;
+import com.horstmann.violet.application.menu.util.zhangjian.Database.AbstractTestCaseVO;
+import com.horstmann.violet.application.menu.util.zhangjian.Database.RealTestCaseVO;
 
 public class ConsolePartDetailInfoTable extends JTable {
 

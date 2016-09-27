@@ -51,25 +51,26 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
 
 import com.horstmann.violet.application.ApplicationStopper;
 import com.horstmann.violet.application.gui.MainFrame;
-import com.horstmann.violet.application.menu.util.zj.CreateActivityDiagramEAXml;
-import com.horstmann.violet.application.menu.util.zj.CreateActivityDiagramVioletXML;
-import com.horstmann.violet.application.menu.util.zj.CreateClassDiagramEAXML;
-import com.horstmann.violet.application.menu.util.zj.CreateClassDiagramVioletXML;
-import com.horstmann.violet.application.menu.util.zj.CreateStateDiagramEAXml;
-import com.horstmann.violet.application.menu.util.zj.CreateStateDiagramVioletXML;
-import com.horstmann.violet.application.menu.util.zj.CreateUseCaseDiagramEAXml;
-import com.horstmann.violet.application.menu.util.zj.CreateUseCaseDiagramVioletXml;
-import com.horstmann.violet.application.menu.util.zj.readActivityXMLFormViolet;
-import com.horstmann.violet.application.menu.util.zj.readActivityXMLFromEA;
-import com.horstmann.violet.application.menu.util.zj.readClassXMLFormViolet;
-import com.horstmann.violet.application.menu.util.zj.readClassXMLFromEA;
-import com.horstmann.violet.application.menu.util.zj.readStateXMLFormViolet;
-import com.horstmann.violet.application.menu.util.zj.readStateXMLFromEA;
-import com.horstmann.violet.application.menu.util.zj.readUcaseXMLFormViolet;
-import com.horstmann.violet.application.menu.util.zj.readUseCaseXMLFromEA;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateActivityDiagramEAXml;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateActivityDiagramVioletXML;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateClassDiagramEAXML;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateClassDiagramVioletXML;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateStateDiagramEAXml;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateStateDiagramVioletXML;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateUseCaseDiagramEAXml;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.CreateUseCaseDiagramVioletXml;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readActivityXMLFormViolet;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readActivityXMLFromEA;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readClassXMLFormViolet;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readClassXMLFromEA;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readStateXMLFormViolet;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readStateXMLFromEA;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readUcaseXMLFormViolet;
+import com.horstmann.violet.application.menu.util.zhangjian.UMLTransfrom.readUseCaseXMLFromEA;
 import com.horstmann.violet.framework.dialog.DialogFactory;
 import com.horstmann.violet.framework.file.GraphFile;
 import com.horstmann.violet.framework.file.IFile;
@@ -448,7 +449,11 @@ public class FileMenu extends JMenu
      */
     public IFile exchangeFile( IFile selectedFile,IGraphFile graphFile,boolean flag) throws Exception{
     	String url =selectedFile.getDirectory()+"\\"+selectedFile.getFilename();
-    	String base="D:\\ModelDriverProjectFile";
+//    	String base="D:\\ModelDriverProjectFile";
+    	 File ffff =FileSystemView.getFileSystemView().getHomeDirectory();
+ 		String s =ffff .getAbsolutePath();
+// 		 String baseUrl ="D://ModelDriverProjectFile";
+ 		String base=s+"\\ModelDriverProjectFile";
     	String type=(selectedFile.getFilename().split("\\."))[1];
     	String path = null;
     	File ff=null;
@@ -518,22 +523,21 @@ public class FileMenu extends JMenu
         		cs.create(rs, path+"EA/"+name);
         	}
     	}else if(flag==false){
-    		System.out.println("你好");
+    		System.out.println("张建是弱智");
     		System.out.println(type);
     		String name="";
     		//选择的文件是EA格式的文件 
     		if("class".equals(type)){
         		path=base+"/ClassDiagram/";
-        		System.out.println("第一个点");
-        		System.out.println(url);
+        		
         		readClassXMLFromEA rc =new readClassXMLFromEA(url,selectedFile);
-        		System.out.println("哈哈");
+        	
         		CreateClassDiagramVioletXML c =new CreateClassDiagramVioletXML();
         		ff =new File(path+"Violet/");
         		if(!ff.exists()){
         			ff.mkdirs();
         		}
-        		System.out.println("文件名哈哈"+selectedFile.getFilename().replaceAll("EA", ""));
+        	
         		 name=selectedFile.getFilename().replaceAll("EA", "");	
         		c.create(rc, path+"Violet/"+name);
         		
@@ -694,16 +698,15 @@ public class FileMenu extends JMenu
                    }
                    selectedFile = fileOpener.getFileDefinition();//返回一个绝对路径的文件   
                    boolean flag=!(selectedFile.getFilename().contains("EA"));//是EA格式的文件
-                   System.out.println(flag);
+                
                    //如果是平台保存的XML文件
                    IGraphFile graphFile = null;
 //                 //增加转换的方法
-                   System.out.println("1");
+             
                    selectedFile= exchangeFile(selectedFile, graphFile , flag);
-                   System.out.println("2");
+             
                    graphFile = new GraphFile(selectedFile);
-                   System.out.println("3");
-                  
+            
                    //显示文件图形
                    IWorkspace workspace = new Workspace(graphFile);
                    mainFrame.addTabbedPane(workspace);
